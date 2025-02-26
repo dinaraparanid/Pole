@@ -16,7 +16,12 @@ final class AppRouter {
       GoRoute(
         path: AppRoute.splash.path,
         name: AppRoute.splash.name,
-        builder: (context, state) => Text('TODO: Splash'),
+        builder: (context, state) => SplashScreen(bloc: state.extra as SplashBloc),
+      ),
+      GoRoute(
+        path: AppRoute.auth.path,
+        name: AppRoute.auth.name,
+        builder: (context, state) => Text('TODO: Auth'),
       ),
     ],
   );

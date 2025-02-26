@@ -100,6 +100,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Pole'**
   String get app_name;
+
+  /// No description provided for @splash_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Introducing Innopolis'**
+  String get splash_title;
+
+  /// No description provided for @splash_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.'**
+  String get splash_description;
+
+  /// No description provided for @splash_begin_journey.
+  ///
+  /// In en, this message translates to:
+  /// **'Begin journey'**
+  String get splash_begin_journey;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

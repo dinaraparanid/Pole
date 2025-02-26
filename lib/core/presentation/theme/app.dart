@@ -9,9 +9,9 @@ final class AppTheme {
   final AppDimensions dimensions;
   final AppTypography typography;
 
-  const AppTheme({
-    this.colors = const AppColors(),
+  AppTheme({
+    AppColors? colors,
     this.dimensions = const AppDimensions(),
     this.typography = const AppTypography(),
-  });
+  }) : colors = colors ?? AppColors();
 }

@@ -12,6 +12,7 @@ extension RootModule on GetIt {
       RootBlocFactory(
         router: this(),
         initialScreenUseCase: this(),
+        splashBlocFactory: this(),
       ),
     ),
   ];

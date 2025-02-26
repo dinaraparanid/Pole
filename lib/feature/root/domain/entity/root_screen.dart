@@ -1,1 +1,1 @@
-enum RootScreen { splash, main }
+enum RootScreen { splash, auth, main }

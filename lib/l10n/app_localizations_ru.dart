@@ -10,4 +10,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get app_name => 'Pole';
+
+  @override
+  String get splash_title => 'Познакомим с Иннополисом';
+
+  @override
+  String get splash_description => 'Подберите гида, места для посещения и удобное вам время.\nДружим с ведущими гидами Иннополиса.';
+
+  @override
+  String get splash_begin_journey => 'Начать путешествие';
 }

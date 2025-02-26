@@ -17,10 +17,12 @@ final class App extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = AppTheme();
 
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        systemNavigationBarColor: theme.colors.background,
-        systemNavigationBarDividerColor: theme.colors.background,
+        systemNavigationBarColor: Colors.transparent,
+        systemNavigationBarDividerColor: Colors.transparent,
         systemNavigationBarIconBrightness: Brightness.light,
         systemNavigationBarContrastEnforced: true,
         statusBarIconBrightness: Brightness.light,

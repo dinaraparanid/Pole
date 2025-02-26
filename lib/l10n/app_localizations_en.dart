@@ -10,4 +10,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get app_name => 'Pole';
+
+  @override
+  String get splash_title => 'Introducing Innopolis';
+
+  @override
+  String get splash_description => 'Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.';
+
+  @override
+  String get splash_begin_journey => 'Begin journey';
 }
