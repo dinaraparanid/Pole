@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.paranid5.pole"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "28.0.12916984"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
