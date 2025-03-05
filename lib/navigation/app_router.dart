@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pole/navigation/app_route.dart';
@@ -21,7 +20,7 @@ final class AppRouter {
       GoRoute(
         path: AppRoute.auth.path,
         name: AppRoute.auth.name,
-        builder: (context, state) => Text('TODO: Auth'),
+        builder: (context, state) => AuthScreen(bloc: state.extra as AuthBloc),
       ),
     ],
   );

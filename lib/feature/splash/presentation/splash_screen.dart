@@ -26,7 +26,7 @@ final class SplashScreen extends StatelessWidget {
                 child: Image.asset(
                     fit: BoxFit.fitHeight,
                     height: double.infinity,
-                    AppImages.loadPng('splash').value
+                    AppImages.loadPng('splash').value,
                 ),
               ),
             ),

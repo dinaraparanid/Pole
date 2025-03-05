@@ -18,5 +18,8 @@ class AppLocalizationsRu extends AppLocalizations {
   String get splash_description => 'Подберите гида, места для посещения и удобное вам время.\nДружим с ведущими гидами Иннополиса.';
 
   @override
-  String get splash_begin_journey => 'Начать путешествие';
+  String get splash_sign_up => 'Начать путешествие';
+
+  @override
+  String get splash_sign_in => 'Войти';
 }

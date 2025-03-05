@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const _EerieBlack = Color(0xFF1E1E1A);
 const _DarkLemonLime = Color(0xFF88C025);
+const _BlackOlive = Color(0xFF3F3F36);
 const _TextPrimary = Colors.white;
 final _TextSecondary = Colors.white.withAlpha((255 * 0.75).round());
 
@@ -21,9 +22,11 @@ final class AppColors {
 @immutable
 final class AppButtonColors {
   final Color primary;
+  final Color secondary;
 
   const AppButtonColors({
     this.primary = _DarkLemonLime,
+    this.secondary = _BlackOlive,
   });
 }
 

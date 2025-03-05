@@ -3,5 +3,6 @@
 
   "splash_title": "Introducing Innopolis",
   "splash_description": "Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.",
-  "splash_begin_journey": "Begin journey"
+  "splash_sign_up": "Begin journey",
+  "splash_sign_in": "Sign In"
 }

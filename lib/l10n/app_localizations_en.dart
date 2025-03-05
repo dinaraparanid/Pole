@@ -18,5 +18,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get splash_description => 'Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.';
 
   @override
-  String get splash_begin_journey => 'Begin journey';
+  String get splash_sign_up => 'Begin journey';
+
+  @override
+  String get splash_sign_in => 'Sign In';
 }

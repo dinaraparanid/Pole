@@ -13,6 +13,7 @@ extension RootModule on GetIt {
         router: this(),
         initialScreenUseCase: this(),
         splashBlocFactory: this(),
+        authBlocFactory: this(),
       ),
     ),
   ];

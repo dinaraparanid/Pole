@@ -113,11 +113,17 @@ abstract class AppLocalizations {
   /// **'Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.'**
   String get splash_description;
 
-  /// No description provided for @splash_begin_journey.
+  /// No description provided for @splash_sign_up.
   ///
   /// In en, this message translates to:
   /// **'Begin journey'**
-  String get splash_begin_journey;
+  String get splash_sign_up;
+
+  /// No description provided for @splash_sign_in.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get splash_sign_in;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
