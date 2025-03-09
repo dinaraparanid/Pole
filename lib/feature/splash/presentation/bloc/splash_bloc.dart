@@ -7,8 +7,7 @@ final class SplashBloc extends Bloc<SplashEvent, void> {
 
   SplashBloc({
     required void Function(SplashResult) onDone,
-  }) : _onDone = onDone,
-    super(null) {
+  }) : _onDone = onDone, super(null) {
     on<OnSignUpClick>((event, emit) => _onDone(SignUp()));
     on<OnSignInClick>((event, emit) => _onDone(SignIn()));
   }

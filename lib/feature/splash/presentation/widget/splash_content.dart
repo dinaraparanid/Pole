@@ -20,7 +20,7 @@ final class SplashContent extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Align(
-            alignment: Alignment.topLeft,
+            alignment: Alignment.topCenter,
             child: Padding(
               padding: commonPadding,
               child: SvgPicture.asset(

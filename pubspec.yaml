@@ -23,6 +23,7 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   flutter_svg: ^2.0.17
   flutter_bloc: ^9.0.0
+  dartx: ^1.2.0
 
 dev_dependencies:
   flutter_test:

@@ -22,6 +22,11 @@ final class AppRouter {
         name: AppRoute.auth.name,
         builder: (context, state) => AuthScreen(bloc: state.extra as AuthBloc),
       ),
+      GoRoute(
+        path: AppRoute.signUp.path,
+        name: AppRoute.signUp.name,
+        builder: (context, state) => SignUpScreen(bloc: state.extra as SignUpBloc),
+      ),
     ],
   );
 }
