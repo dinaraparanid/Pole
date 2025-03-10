@@ -22,4 +22,40 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get splash_sign_in => 'Войти';
+
+  @override
+  String get auth_sign_up => 'Зарегистрироваться';
+
+  @override
+  String get auth_sign_in => 'Войти';
+
+  @override
+  String get auth_enter_name => 'Введите имя';
+
+  @override
+  String get auth_enter_email => 'Введите email';
+
+  @override
+  String get auth_enter_password => 'Введите пароль';
+
+  @override
+  String get auth_confirm_password => 'Повторите пароль';
+
+  @override
+  String get sign_up_title => 'Регистрация';
+
+  @override
+  String get sign_up_description => 'Создайте свой аккаунт и начните собирать экскурсии уже сейчас.';
+
+  @override
+  String get sign_up_go_sign_in_label => 'Уже есть аккаунт?';
+
+  @override
+  String get sign_in_title => 'Авторизация';
+
+  @override
+  String get sign_in_description => 'Чтобы продолжить, войдите в свой аккаунт.';
+
+  @override
+  String get sign_in_go_sign_up_label => 'Нет аккаунта?';
 }

@@ -20,7 +20,6 @@ final class SplashNode extends StatelessWidget {
           textAlign: TextAlign.center,
           style: theme.typography.h.h3.copyWith(
             color: theme.colors.text.primary,
-            fontWeight: FontWeight.w700,
           ),
         ),
 
@@ -31,7 +30,6 @@ final class SplashNode extends StatelessWidget {
           textAlign: TextAlign.center,
           style: theme.typography.body.copyWith(
             color: theme.colors.text.secondary,
-            fontWeight: FontWeight.w700,
           ),
         ),
 
@@ -50,7 +48,6 @@ final class SplashNode extends StatelessWidget {
               strings.splash_sign_up,
               style: theme.typography.h.h3.copyWith(
                 color: theme.colors.text.primary,
-                fontWeight: FontWeight.w700,
               ),
             ),
           ),
@@ -60,7 +57,7 @@ final class SplashNode extends StatelessWidget {
 
         AppButton(
           onClick: () => onEvent(OnSignInClick()),
-          backgroundColor: theme.colors.button.secondary,
+          enabledColor: theme.colors.button.secondary,
           child: Container(
             alignment: Alignment.center,
             width: double.infinity,
@@ -72,11 +69,10 @@ final class SplashNode extends StatelessWidget {
               strings.splash_sign_in,
               style: theme.typography.h.h3.copyWith(
                 color: theme.colors.text.primary,
-                fontWeight: FontWeight.w700,
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }

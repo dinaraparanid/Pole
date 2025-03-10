@@ -4,5 +4,20 @@
   "splash_title": "Introducing Innopolis",
   "splash_description": "Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.",
   "splash_sign_up": "Begin journey",
-  "splash_sign_in": "Sign In"
+  "splash_sign_in": "Sign In",
+
+  "auth_sign_up": "Sign Up",
+  "auth_sign_in": "Sign In",
+  "auth_enter_name": "Enter name",
+  "auth_enter_email": "Enter email",
+  "auth_enter_password": "Enter password",
+  "auth_confirm_password": "Confirm password",
+
+  "sign_up_title": "Registration",
+  "sign_up_description": "Create your account and start touring now",
+  "sign_up_go_sign_in_label": "Already have an account?",
+
+  "sign_in_title": "Authorization",
+  "sign_in_description": "To continue, log in to your account.",
+  "sign_in_go_sign_up_label": "No account?"
 }

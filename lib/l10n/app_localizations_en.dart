@@ -22,4 +22,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get splash_sign_in => 'Sign In';
+
+  @override
+  String get auth_sign_up => 'Sign Up';
+
+  @override
+  String get auth_sign_in => 'Sign In';
+
+  @override
+  String get auth_enter_name => 'Enter name';
+
+  @override
+  String get auth_enter_email => 'Enter email';
+
+  @override
+  String get auth_enter_password => 'Enter password';
+
+  @override
+  String get auth_confirm_password => 'Confirm password';
+
+  @override
+  String get sign_up_title => 'Registration';
+
+  @override
+  String get sign_up_description => 'Create your account and start touring now';
+
+  @override
+  String get sign_up_go_sign_in_label => 'Already have an account?';
+
+  @override
+  String get sign_in_title => 'Authorization';
+
+  @override
+  String get sign_in_description => 'To continue, log in to your account.';
+
+  @override
+  String get sign_in_go_sign_up_label => 'No account?';
 }

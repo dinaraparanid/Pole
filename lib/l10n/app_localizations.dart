@@ -124,6 +124,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sign In'**
   String get splash_sign_in;
+
+  /// No description provided for @auth_sign_up.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign Up'**
+  String get auth_sign_up;
+
+  /// No description provided for @auth_sign_in.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get auth_sign_in;
+
+  /// No description provided for @auth_enter_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter name'**
+  String get auth_enter_name;
+
+  /// No description provided for @auth_enter_email.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter email'**
+  String get auth_enter_email;
+
+  /// No description provided for @auth_enter_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter password'**
+  String get auth_enter_password;
+
+  /// No description provided for @auth_confirm_password.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password'**
+  String get auth_confirm_password;
+
+  /// No description provided for @sign_up_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration'**
+  String get sign_up_title;
+
+  /// No description provided for @sign_up_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your account and start touring now'**
+  String get sign_up_description;
+
+  /// No description provided for @sign_up_go_sign_in_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get sign_up_go_sign_in_label;
+
+  /// No description provided for @sign_in_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Authorization'**
+  String get sign_in_title;
+
+  /// No description provided for @sign_in_description.
+  ///
+  /// In en, this message translates to:
+  /// **'To continue, log in to your account.'**
+  String get sign_in_description;
+
+  /// No description provided for @sign_in_go_sign_up_label.
+  ///
+  /// In en, this message translates to:
+  /// **'No account?'**
+  String get sign_in_go_sign_up_label;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

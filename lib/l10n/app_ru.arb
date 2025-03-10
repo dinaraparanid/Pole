@@ -4,5 +4,20 @@
   "splash_title": "Познакомим с Иннополисом",
   "splash_description": "Подберите гида, места для посещения и удобное вам время.\nДружим с ведущими гидами Иннополиса.",
   "splash_sign_up": "Начать путешествие",
-  "splash_sign_in": "Войти"
+  "splash_sign_in": "Войти",
+
+  "auth_sign_up": "Зарегистрироваться",
+  "auth_sign_in": "Войти",
+  "auth_enter_name": "Введите имя",
+  "auth_enter_email": "Введите email",
+  "auth_enter_password": "Введите пароль",
+  "auth_confirm_password": "Повторите пароль",
+
+  "sign_up_title": "Регистрация",
+  "sign_up_description": "Создайте свой аккаунт и начните собирать экскурсии уже сейчас.",
+  "sign_up_go_sign_in_label": "Уже есть аккаунт?",
+
+  "sign_in_title": "Авторизация",
+  "sign_in_description": "Чтобы продолжить, войдите в свой аккаунт.",
+  "sign_in_go_sign_up_label": "Нет аккаунта?"
 }

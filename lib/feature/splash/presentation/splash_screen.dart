@@ -31,7 +31,7 @@ final class SplashScreen extends StatelessWidget {
               ),
             ),
 
-            SafeArea(child: SplashContent(onEvent: bloc.add))
+            SafeArea(child: SplashContent(onEvent: bloc.add)),
           ],
         ),
       ),

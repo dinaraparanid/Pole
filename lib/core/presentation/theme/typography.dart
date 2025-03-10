@@ -14,7 +14,7 @@ class AppTypography {
     this.h = const AppHTypo(),
     this.body = const TextStyle(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       fontFamily: _EitaiGothic,
       fontSize: 16,
       letterSpacing: 0,
@@ -22,7 +22,7 @@ class AppTypography {
     ),
     this.regular = const TextStyle(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       fontFamily: _EitaiGothic,
       fontSize: 14,
       letterSpacing: 0.4,
@@ -30,7 +30,7 @@ class AppTypography {
     ),
     this.caption = const TextStyle(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       fontFamily: _EitaiGothic,
       fontSize: 12,
       letterSpacing: 0.4,
@@ -38,7 +38,7 @@ class AppTypography {
     ),
     this.captionSm = const TextStyle(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       fontFamily: _EitaiGothic,
       fontSize: 10,
       letterSpacing: 0,
@@ -57,7 +57,7 @@ class AppHTypo {
   const AppHTypo({
     this.h1 = const TextStyle(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       fontFamily: _EitaiGothic,
       fontSize: 32,
       letterSpacing: 0,
@@ -65,7 +65,7 @@ class AppHTypo {
     ),
     this.h2 = const TextStyle(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       fontFamily: _EitaiGothic,
       fontSize: 24,
       letterSpacing: 0,
@@ -73,7 +73,7 @@ class AppHTypo {
     ),
     this.h3 = const TextStyle(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       fontFamily: _EitaiGothic,
       fontSize: 20,
       letterSpacing: 0,
@@ -81,7 +81,7 @@ class AppHTypo {
     ),
     this.h4 = const TextStyle(
       fontStyle: FontStyle.normal,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.w700,
       fontFamily: _EitaiGothic,
       fontSize: 18,
       letterSpacing: 0,
