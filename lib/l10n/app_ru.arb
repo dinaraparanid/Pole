@@ -12,6 +12,10 @@
   "auth_enter_email": "Введите email",
   "auth_enter_password": "Введите пароль",
   "auth_confirm_password": "Повторите пароль",
+  "auth_name_empty": "Имя обязательно для заполнения",
+  "auth_email_empty": "Email обязателен для заполнения",
+  "auth_password_weak": "Пароль должен быть от 8 символов",
+  "auth_password_not_match": "Пароли не совпадают",
 
   "sign_up_title": "Регистрация",
   "sign_up_description": "Создайте свой аккаунт и начните собирать экскурсии уже сейчас.",

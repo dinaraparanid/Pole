@@ -12,6 +12,10 @@
   "auth_enter_email": "Enter email",
   "auth_enter_password": "Enter password",
   "auth_confirm_password": "Confirm password",
+  "auth_name_empty": "The name is required to fill in",
+  "auth_email_empty": "The email is required to fill in",
+  "auth_password_weak": "The password must be at least 8 characters long.",
+  "auth_password_not_match": "Passwords don't match",
 
   "sign_up_title": "Registration",
   "sign_up_description": "Create your account and start touring now",

@@ -42,6 +42,18 @@ class AppLocalizationsRu extends AppLocalizations {
   String get auth_confirm_password => 'Повторите пароль';
 
   @override
+  String get auth_name_empty => 'Имя обязательно для заполнения';
+
+  @override
+  String get auth_email_empty => 'Email обязателен для заполнения';
+
+  @override
+  String get auth_password_weak => 'Пароль должен быть от 8 символов';
+
+  @override
+  String get auth_password_not_match => 'Пароли не совпадают';
+
+  @override
   String get sign_up_title => 'Регистрация';
 
   @override

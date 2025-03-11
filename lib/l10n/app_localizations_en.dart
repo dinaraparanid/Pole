@@ -42,6 +42,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get auth_confirm_password => 'Confirm password';
 
   @override
+  String get auth_name_empty => 'The name is required to fill in';
+
+  @override
+  String get auth_email_empty => 'The email is required to fill in';
+
+  @override
+  String get auth_password_weak => 'The password must be at least 8 characters long.';
+
+  @override
+  String get auth_password_not_match => 'Passwords don\'t match';
+
+  @override
   String get sign_up_title => 'Registration';
 
   @override

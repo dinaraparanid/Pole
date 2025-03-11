@@ -161,6 +161,30 @@ abstract class AppLocalizations {
   /// **'Confirm password'**
   String get auth_confirm_password;
 
+  /// No description provided for @auth_name_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'The name is required to fill in'**
+  String get auth_name_empty;
+
+  /// No description provided for @auth_email_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'The email is required to fill in'**
+  String get auth_email_empty;
+
+  /// No description provided for @auth_password_weak.
+  ///
+  /// In en, this message translates to:
+  /// **'The password must be at least 8 characters long.'**
+  String get auth_password_weak;
+
+  /// No description provided for @auth_password_not_match.
+  ///
+  /// In en, this message translates to:
+  /// **'Passwords don\'t match'**
+  String get auth_password_not_match;
+
   /// No description provided for @sign_up_title.
   ///
   /// In en, this message translates to:

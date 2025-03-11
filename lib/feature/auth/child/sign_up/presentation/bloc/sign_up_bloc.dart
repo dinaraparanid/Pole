@@ -31,7 +31,7 @@ final class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     on<EmailChange>((event, emit) {
       textChangeUseCase.execute(
         next: event.email,
-        errorPredicate: (txt) => txt.isBlank.not,
+        errorPredicate: (txt) => txt.isBlank,
         update: (textContainer) => emit(state.copyWith(email: textContainer)),
       );
     });
@@ -47,7 +47,7 @@ final class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     on<ConfirmPasswordChange>((event, emit) {
       textChangeUseCase.execute(
         next: event.password,
-        errorPredicate: (txt) => state.matchesPassword(txt),
+        errorPredicate: (txt) => state.matchesPassword(txt).not,
         update: (textContainer) =>
           emit(state.copyWith(confirmPassword: textContainer)),
       );
