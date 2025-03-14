@@ -27,6 +27,11 @@ final class AppRouter {
         name: AppRoute.signUp.name,
         builder: (context, state) => SignUpScreen(bloc: state.extra as SignUpBloc),
       ),
+      GoRoute(
+        path: AppRoute.signIn.path,
+        name: AppRoute.signIn.name,
+        builder: (context, state) => SignInScreen(bloc: state.extra as SignInBloc),
+      ),
     ],
   );
 }

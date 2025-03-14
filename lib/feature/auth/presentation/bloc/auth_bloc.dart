@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pole/feature/auth/child/sign_in/presentation/bloc/mod.dart' as si;
 import 'package:pole/feature/auth/child/sign_up/presentation/bloc/mod.dart' as su;
 import 'package:pole/feature/auth/domain/start_screen.dart';
 import 'package:pole/feature/auth/presentation/bloc/auth_event.dart';
@@ -6,20 +7,24 @@ import 'package:pole/navigation/app_route.dart';
 import 'package:pole/navigation/app_router.dart';
 
 final class AuthBloc extends Bloc<AuthEvent, void> {
+  final si.SignInBlocFactory _signInBlocFactory;
   final su.SignUpBlocFactory _signUpBlocFactory;
   final void Function() _onDone;
 
   AuthBloc({
     required AppRouter router,
+    required si.SignInBlocFactory signInBlocFactory,
     required su.SignUpBlocFactory signUpBlocFactory,
     required StartScreen startScreen,
     required void Function() onDone,
   }) : _onDone = onDone,
+    _signInBlocFactory = signInBlocFactory,
     _signUpBlocFactory = signUpBlocFactory,
     super(null) {
 
     on<NavigateToSignIn>((event, emit) {
-
+      final signInBloc = _createSignInBloc();
+      router.value.replaceNamed(AppRoute.signIn.name, extra: signInBloc);
     });
 
     on<NavigateToSignUp>((event, emit) {
@@ -32,6 +37,13 @@ final class AuthBloc extends Bloc<AuthEvent, void> {
       case StartScreen.sign_up: add(NavigateToSignUp());
     }
   }
+
+  si.SignInBloc _createSignInBloc() => _signInBlocFactory.create(
+    onDone: (result) => switch (result) {
+      si.NavigateToSignUp() => add(NavigateToSignUp()),
+      si.SignedIn() => _onDone(),
+    },
+  );
 
   su.SignUpBloc _createSignUpBloc() => _signUpBlocFactory.create(
     onDone: (result) => switch (result) {

@@ -54,6 +54,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get auth_password_not_match => 'Passwords don\'t match';
 
   @override
+  String get auth_invalid_credentials => 'Invalid login or password';
+
+  @override
   String get sign_up_title => 'Registration';
 
   @override

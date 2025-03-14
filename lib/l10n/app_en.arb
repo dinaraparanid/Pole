@@ -16,6 +16,7 @@
   "auth_email_empty": "The email is required to fill in",
   "auth_password_weak": "The password must be at least 8 characters long.",
   "auth_password_not_match": "Passwords don't match",
+  "auth_invalid_credentials": "Invalid login or password",
 
   "sign_up_title": "Registration",
   "sign_up_description": "Create your account and start touring now",

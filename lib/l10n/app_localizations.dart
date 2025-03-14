@@ -185,6 +185,12 @@ abstract class AppLocalizations {
   /// **'Passwords don\'t match'**
   String get auth_password_not_match;
 
+  /// No description provided for @auth_invalid_credentials.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid login or password'**
+  String get auth_invalid_credentials;
+
   /// No description provided for @sign_up_title.
   ///
   /// In en, this message translates to:

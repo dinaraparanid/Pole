@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pole/core/presentation/foundation/platform_call.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
-import 'package:pole/core/utils/ext/let.dart';
+import 'package:pole/core/utils/ext/general.dart';
 
 const _obscuringCharacter = '•';
 
@@ -104,12 +104,15 @@ final class _AppTextFieldState extends State<AppTextField> {
 
       CupertinoFormRow(
         padding: EdgeInsets.zero,
-        error: widget.error?.let((error) => Text(
-          error,
-          style: theme.typography.regular.copyWith(
-            color: theme.colors.error,
-          ),
-        )),
+        error: widget.error
+          ?.takeIf((e) => e.isNotEmpty)
+          ?.let((error) => Text(
+            error,
+            style: theme.typography.regular.copyWith(
+              color: theme.colors.error,
+            ),
+          )
+        ),
         child: CupertinoTextField(
           controller: controller,
           focusNode: focusNode,
@@ -119,6 +122,7 @@ final class _AppTextFieldState extends State<AppTextField> {
           ),
           padding: contentPadding(theme),
           decoration: BoxDecoration(
+            color: theme.colors.text.background,
             borderRadius: borderRadius(theme),
             border: Border.all(
               color: borderColor(theme),
@@ -143,6 +147,8 @@ final class _AppTextFieldState extends State<AppTextField> {
     obscuringCharacter: _obscuringCharacter,
     cursorColor: cursorColor(theme),
     decoration: InputDecoration(
+      filled: true,
+      fillColor: theme.colors.text.background,
       errorText: widget.error,
       contentPadding: contentPadding(theme),
       focusedBorder: OutlineInputBorder(

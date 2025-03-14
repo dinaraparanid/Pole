@@ -54,6 +54,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get auth_password_not_match => 'Пароли не совпадают';
 
   @override
+  String get auth_invalid_credentials => 'Неправильный логин или пароль';
+
+  @override
   String get sign_up_title => 'Регистрация';
 
   @override
