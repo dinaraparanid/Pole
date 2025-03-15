@@ -24,5 +24,9 @@
 
   "sign_in_title": "Авторизация",
   "sign_in_description": "Чтобы продолжить, войдите в свой аккаунт.",
-  "sign_in_go_sign_up_label": "Нет аккаунта?"
+  "sign_in_go_sign_up_label": "Нет аккаунта?",
+
+  "main_tab_catalog": "Каталог",
+  "main_tab_excursions": "Экскурсии",
+  "main_tab_profile": "Профиль"
 }

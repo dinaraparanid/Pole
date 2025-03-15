@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
+import 'package:pole/core/utils/ext/color.dart';
 import 'package:pole/di/app_module.dart';
 import 'package:pole/feature/root/presentation/bloc/mod.dart';
 import 'package:pole/l10n/app_localizations.dart';
@@ -37,6 +38,11 @@ final class App extends StatelessWidget {
         child: MaterialApp.router(
           routerConfig: router.value,
           color: theme.colors.background,
+          theme: ThemeData(
+            splashFactory: InkRipple.splashFactory,
+            highlightColor: Colors.transparent,
+            splashColor: theme.colors.navigationBar.selected.withRatioOpacity(0.25),
+          ),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
         ),

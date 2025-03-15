@@ -73,4 +73,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get sign_in_go_sign_up_label => 'Нет аккаунта?';
+
+  @override
+  String get main_tab_catalog => 'Каталог';
+
+  @override
+  String get main_tab_excursions => 'Экскурсии';
+
+  @override
+  String get main_tab_profile => 'Профиль';
 }

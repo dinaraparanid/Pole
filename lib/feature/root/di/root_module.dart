@@ -14,6 +14,7 @@ extension RootModule on GetIt {
         initialScreenUseCase: this(),
         splashBlocFactory: this(),
         authBlocFactory: this(),
+        mainBlocFactory: this(),
       ),
     ),
   ];

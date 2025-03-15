@@ -24,5 +24,9 @@
 
   "sign_in_title": "Authorization",
   "sign_in_description": "To continue, log in to your account.",
-  "sign_in_go_sign_up_label": "No account?"
+  "sign_in_go_sign_up_label": "No account?",
+
+  "main_tab_catalog": "Catalog",
+  "main_tab_excursions": "Excursions",
+  "main_tab_profile": "Profile"
 }

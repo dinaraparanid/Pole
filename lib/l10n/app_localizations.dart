@@ -226,6 +226,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No account?'**
   String get sign_in_go_sign_up_label;
+
+  /// No description provided for @main_tab_catalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalog'**
+  String get main_tab_catalog;
+
+  /// No description provided for @main_tab_excursions.
+  ///
+  /// In en, this message translates to:
+  /// **'Excursions'**
+  String get main_tab_excursions;
+
+  /// No description provided for @main_tab_profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get main_tab_profile;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

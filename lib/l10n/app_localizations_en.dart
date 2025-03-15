@@ -73,4 +73,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sign_in_go_sign_up_label => 'No account?';
+
+  @override
+  String get main_tab_catalog => 'Catalog';
+
+  @override
+  String get main_tab_excursions => 'Excursions';
+
+  @override
+  String get main_tab_profile => 'Profile';
 }
