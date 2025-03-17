@@ -41,7 +41,7 @@ final class App extends StatelessWidget {
           theme: ThemeData(
             splashFactory: InkRipple.splashFactory,
             highlightColor: Colors.transparent,
-            splashColor: theme.colors.navigationBar.selected.withRatioOpacity(0.25),
+            splashColor: theme.colors.primary.withRatioOpacity(0.25),
           ),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,

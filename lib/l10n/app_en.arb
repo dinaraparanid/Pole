@@ -28,5 +28,9 @@
 
   "main_tab_catalog": "Catalog",
   "main_tab_excursions": "Excursions",
-  "main_tab_profile": "Profile"
+  "main_tab_profile": "Profile",
+
+  "excursions_step1": "Date selection",
+  "excursions_step2": "Planning",
+  "excursions_step3": "Overview"
 }

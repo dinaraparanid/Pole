@@ -13,16 +13,20 @@ final _TextDisabled = Colors.white.withRatioOpacity(0.5);
 
 @immutable
 final class AppColors {
+  final Color primary;
   final Color background;
   final Color error;
   final AppTextColors text;
   final AppButtonColors button;
   final AppNavigationBarColors navigationBar;
+  final AppUniqueComponentsColors uniqueComponents;
 
   AppColors({
+    this.primary = _DarkLemonLime,
     this.background = _EerieBlack,
     this.error = _PersianRed,
     this.button = const AppButtonColors(),
+    this.uniqueComponents = const AppUniqueComponentsColors(),
     AppTextColors? text,
     AppNavigationBarColors? navigationBar
   }) : text = text ?? AppTextColors(),
@@ -71,4 +75,15 @@ final class AppNavigationBarColors {
     this.selected = _DarkLemonLime,
     Color? unselected,
   }) : unselected = unselected ??_TextDisabled;
+}
+
+@immutable
+final class AppUniqueComponentsColors {
+  final Color excursionProgressPassed;
+  final Color excursionProgressLeft;
+
+  const AppUniqueComponentsColors({
+    this.excursionProgressPassed = _DarkLemonLime,
+    this.excursionProgressLeft = _BlackOlive,
+  });
 }

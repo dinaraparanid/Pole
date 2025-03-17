@@ -244,6 +244,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile'**
   String get main_tab_profile;
+
+  /// No description provided for @excursions_step1.
+  ///
+  /// In en, this message translates to:
+  /// **'Date selection'**
+  String get excursions_step1;
+
+  /// No description provided for @excursions_step2.
+  ///
+  /// In en, this message translates to:
+  /// **'Planning'**
+  String get excursions_step2;
+
+  /// No description provided for @excursions_step3.
+  ///
+  /// In en, this message translates to:
+  /// **'Overview'**
+  String get excursions_step3;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

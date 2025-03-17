@@ -1,7 +1,14 @@
+import 'package:pole/feature/excursions/presentation/bloc/excursions_bloc_factory.dart';
 import 'package:pole/feature/main/presentation/bloc/main_bloc.dart';
 
 final class MainBlocFactory {
-  MainBlocFactory();
+  final ExcursionsBlocFactory _excursionsBlocFactory;
 
-  MainBloc create() => MainBloc();
+  MainBlocFactory({
+    required ExcursionsBlocFactory excursionsBlocFactory,
+  }) : _excursionsBlocFactory = excursionsBlocFactory;
+
+  MainBloc create() => MainBloc(
+    excursionsBlocFactory: _excursionsBlocFactory,
+  );
 }

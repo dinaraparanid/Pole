@@ -28,5 +28,9 @@
 
   "main_tab_catalog": "Каталог",
   "main_tab_excursions": "Экскурсии",
-  "main_tab_profile": "Профиль"
+  "main_tab_profile": "Профиль",
+
+  "excursions_step1": "Выбор даты",
+  "excursions_step2": "Планирование",
+  "excursions_step3": "Просмотр"
 }

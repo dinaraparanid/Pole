@@ -82,4 +82,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get main_tab_profile => 'Profile';
+
+  @override
+  String get excursions_step1 => 'Date selection';
+
+  @override
+  String get excursions_step2 => 'Planning';
+
+  @override
+  String get excursions_step3 => 'Overview';
 }

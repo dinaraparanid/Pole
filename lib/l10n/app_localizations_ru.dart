@@ -82,4 +82,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get main_tab_profile => 'Профиль';
+
+  @override
+  String get excursions_step1 => 'Выбор даты';
+
+  @override
+  String get excursions_step2 => 'Планирование';
+
+  @override
+  String get excursions_step3 => 'Просмотр';
 }
