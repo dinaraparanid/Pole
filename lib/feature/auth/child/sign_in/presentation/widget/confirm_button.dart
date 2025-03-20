@@ -24,10 +24,13 @@ final class ConfirmButton extends StatelessWidget {
             vertical: theme.dimensions.padding.small,
             horizontal: theme.dimensions.padding.large,
           ),
-          child: Text(
-            strings.auth_sign_in,
-            style: theme.typography.h.h3.copyWith(
-              color: theme.colors.text.primary,
+          child: FittedBox(
+            fit: BoxFit.fitWidth,
+            child: Text(
+              strings.auth_sign_in,
+              style: theme.typography.h.h3.copyWith(
+                color: theme.colors.text.primary,
+              ),
             ),
           ),
         ),

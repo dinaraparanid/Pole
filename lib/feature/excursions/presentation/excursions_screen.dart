@@ -16,6 +16,8 @@ final class ExcursionsScreen extends StatelessWidget {
       create: (_) => bloc,
       child: Column(
         children: [
+          SizedBox(height: theme.dimensions.padding.large),
+
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: theme.dimensions.padding.large,

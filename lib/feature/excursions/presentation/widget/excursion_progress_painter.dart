@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pole/core/presentation/foundation/platform_call.dart';
 import 'package:pole/core/presentation/theme/app.dart';
@@ -38,8 +39,6 @@ final class ExcursionProgressPainter extends CustomPainter {
 
     final stepRadius = calcStepRadius();
     final stepDiameter = stepRadius * 2;
-
-    final bridgeWidth = (size.width - stepDiameter * 3) / 2;
     final bridgeTop = stepRadius - _bridgeHalfHeight;
 
     final textStartY = stepDiameter + _stepTextPadding;
@@ -92,38 +91,75 @@ final class ExcursionProgressPainter extends CustomPainter {
     final step3TextOffset = Offset(step1TextPainter.width + textSpaceBetween + step2TextPainter.width + textSpaceBetween, textStartY);
     step3TextPainter.paint(canvas, step3TextOffset);
 
+    final step1Center = Offset(step1TextOffset.dx + step1TextPainter.width / 2, stepRadius);
+    final step2Center = Offset(step2TextOffset.dx + step2TextPainter.width / 2, stepRadius);
+    final step3Center = Offset(step3TextOffset.dx + step3TextPainter.width / 2, stepRadius);
+
     // ------------- Step 1 -------------
 
-    final step1Center = Offset(step1TextOffset.dx + step1TextPainter.width / 2, stepRadius);
-    canvas.drawCircle(step1Center, stepRadius, backgroundPaint);
+    final backgroundPath = Path();
+    backgroundPath.addOval(Rect.fromLTWH(step1TextOffset.dx + step1TextPainter.width / 2 - stepRadius, 0, stepDiameter, stepDiameter));
 
+    final step12BridgeWidth = step2Center.dx - step1Center.dx - stepDiameter;
     final step12BridgeRect = Rect.fromLTWH(
       step1Center.dx + stepRadius,
       bridgeTop,
-      bridgeWidth,
+      step12BridgeWidth,
       _bridgeHeight,
     );
 
-    canvas.drawRect(step12BridgeRect, backgroundPaint);
+    backgroundPath.addRect(step12BridgeRect);
 
     // ------------- Step 2 -------------
 
-    final step2Center = Offset(step2TextOffset.dx + step2TextPainter.width / 2, stepRadius);
-    canvas.drawCircle(step2Center, stepRadius, backgroundPaint);
+    backgroundPath.addOval(Rect.fromLTWH(step2TextOffset.dx + step2TextPainter.width / 2 - stepRadius, 0, stepDiameter, stepDiameter));
 
+    final step23BridgeWidth = step3Center.dx - step2Center.dx - stepDiameter;
     final step23BridgeRect = Rect.fromLTWH(
       step2Center.dx + stepRadius,
       bridgeTop,
-      bridgeWidth,
+      step23BridgeWidth,
       _bridgeHeight,
     );
 
+    backgroundPath.addRect(step23BridgeRect);
     canvas.drawRect(step23BridgeRect, backgroundPaint);
 
     // ------------- Step 3 -------------
 
-    final step3Center = Offset(step3TextOffset.dx + step3TextPainter.width / 2, stepRadius);
-    canvas.drawCircle(step3Center, stepRadius, backgroundPaint);
+    backgroundPath.addOval(Rect.fromLTWH(step3TextOffset.dx + step3TextPainter.width / 2 - stepRadius, 0, stepDiameter, stepDiameter));
+    canvas.drawPath(backgroundPath, backgroundPaint);
+
+    // ------------- Progress -------------
+    // 0.2 = 100% for a shape
+    // (0.0;0.2)-0.2;0.4-(0.4;0.6)-0.6;0.8-(0.8;1.0)
+
+    final step1Fill = progress.coerceIn(0, 0.2) / 0.2;
+    final step1Width = stepDiameter * step1Fill;
+    final bridge12Fill = (progress - 0.2).coerceIn(0, 0.2) / 0.2;
+    final bridge12Width = step12BridgeWidth * bridge12Fill;
+    final step2Fill = (progress - 0.4).coerceIn(0, 0.2) / 0.2;
+    final step2Width = stepDiameter * step2Fill;
+    final bridge23Fill = (progress - 0.6).coerceIn(0, 0.2) / 0.2;
+    final bridge23Width = step23BridgeWidth * bridge23Fill;
+    final step3Fill = (progress - 0.8).coerceIn(0, 0.2) / 0.2;
+    final step3Width = stepDiameter * step3Fill;
+    final progressWidth = step1Width + bridge12Width + step2Width + bridge23Width + step3Width;
+
+    final progressPath = Path.combine(
+      PathOperation.intersect,
+      backgroundPath,
+      Path()..addRect(
+        Rect.fromLTWH(
+          step1TextOffset.dx + step1TextPainter.width / 2 - stepRadius,
+          0,
+          progressWidth,
+          size.height,
+        ),
+      ),
+    );
+
+    canvas.drawPath(progressPath, progressPaint);
   }
 
   @override

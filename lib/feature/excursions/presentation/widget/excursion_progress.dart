@@ -1,13 +1,46 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
+import 'package:pole/core/utils/funtions/distinct_state.dart';
 import 'package:pole/feature/excursions/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/presentation/widget/excursion_progress_painter.dart';
 
 const _progressMinHeight = 64.0;
 
-final class ExcursionProgress extends StatelessWidget {
+final class ExcursionProgress extends StatefulWidget {
   const ExcursionProgress({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _ExcursionProgressState();
+}
+
+final class _ExcursionProgressState extends State<ExcursionProgress> with SingleTickerProviderStateMixin {
+
+  static const _animationDuration = Duration(milliseconds: 500);
+
+  late AnimationController _progressController;
+  late Tween<double> _progressTween;
+  late Animation<double> _progressAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _progressController = AnimationController(
+      vsync: this,
+      duration: _animationDuration,
+    );
+
+    _progressTween = Tween(begin: 0, end: 1);
+
+    _progressAnimation = _progressTween.animate(_progressController);
+  }
+
+  @override
+  void dispose() {
+    _progressController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +48,21 @@ final class ExcursionProgress extends StatelessWidget {
     final strings = context.strings;
     final size = MediaQuery.of(context).size;
 
-    return BlocBuilder<ExcursionsBloc, ExcursionsState>(
-      builder: (context, state) => CustomPaint(
-        size: Size(size.width, _progressMinHeight),
-        painter: ExcursionProgressPainter(
-          progress: state.progress,
-          theme: theme,
-          strings: strings,
+    return BlocConsumer<ExcursionsBloc, ExcursionsState>(
+      listenWhen: distinctState((x) => x.step),
+      listener: (_, state) => _progressController.animateTo(
+        state.progress,
+        duration: _animationDuration,
+      ),
+      builder: (context, state) => AnimatedBuilder(
+        animation: _progressAnimation,
+        builder: (context, _) => CustomPaint(
+          size: Size(size.width, _progressMinHeight),
+          painter: ExcursionProgressPainter(
+            progress: _progressAnimation.value,
+            theme: theme,
+            strings: strings,
+          ),
         ),
       ),
     );

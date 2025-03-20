@@ -32,8 +32,10 @@ final class SignUpInfo extends StatelessWidget {
           ),
         ),
 
-        Row(
-          mainAxisSize: MainAxisSize.min,
+        Wrap(
+          alignment: WrapAlignment.center,
+          spacing: theme.dimensions.padding.small,
+          runSpacing: theme.dimensions.padding.extraSmall,
           children: [
             Text(
               strings.sign_up_go_sign_in_label,
@@ -41,8 +43,6 @@ final class SignUpInfo extends StatelessWidget {
                 color: theme.colors.text.secondary,
               ),
             ),
-
-            SizedBox(width: theme.dimensions.padding.small),
 
             GestureDetector(
               onTap: () => onEvent(SignInClick()),

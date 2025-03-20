@@ -12,8 +12,8 @@ abstract class ExcursionsState with _$ExcursionsState {
 
 extension Properties on ExcursionsState {
   double get progress => switch (step) {
-    ExcursionsStep.dateSelection => 0.0,
-    ExcursionsStep.planning => 0.5,
+    ExcursionsStep.dateSelection => 0.2,
+    ExcursionsStep.planning => 0.6,
     ExcursionsStep.overview => 1.0,
   };
 }
