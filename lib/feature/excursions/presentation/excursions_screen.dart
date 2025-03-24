@@ -14,21 +14,24 @@ final class ExcursionsScreen extends StatelessWidget {
 
     return BlocProvider(
       create: (_) => bloc,
-      child: Column(
-        children: [
-          SizedBox(height: theme.dimensions.padding.large),
+      child: Container(
+        color: theme.colors.background,
+        child: Column(
+          children: [
+            SizedBox(height: theme.dimensions.padding.large),
 
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: theme.dimensions.padding.large,
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: theme.dimensions.padding.large,
+              ),
+              child: ExcursionProgress(),
             ),
-            child: ExcursionProgress(),
-          ),
 
-          SizedBox(height: theme.dimensions.padding.extraLarge),
+            SizedBox(height: theme.dimensions.padding.extraLarge),
 
-          Text('TODO: content'),
-        ],
+            Text('TODO: content'),
+          ],
+        ),
       ),
     );
   }

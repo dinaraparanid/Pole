@@ -2,7 +2,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'main_state.freezed.dart';
 
-enum Tabs { catalog, excursions, profile }
+enum Tabs {
+  catalog,
+  excursions,
+  profile;
+}
 
 @freezed
 abstract class MainState with _$MainState {

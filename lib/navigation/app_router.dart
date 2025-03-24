@@ -36,6 +36,9 @@ final class AppRouter {
         path: AppRoute.main.path,
         name: AppRoute.main.name,
         builder: (context, state) => MainScreen(bloc: state.extra as MainBloc),
+        routes: [
+
+        ]
       ),
     ],
   );
