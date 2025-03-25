@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'main_state.freezed.dart';
 
-enum Tabs {
+enum MainTabs {
   catalog,
   excursions,
   profile;
@@ -11,6 +11,6 @@ enum Tabs {
 @freezed
 abstract class MainState with _$MainState {
   const factory MainState({
-    @Default(Tabs.excursions) Tabs selectedTab,
+    @Default(MainTabs.excursions) MainTabs selectedTab,
   }) = _MainState;
 }

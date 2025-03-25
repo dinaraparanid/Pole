@@ -5,8 +5,11 @@ export 'package:pole/feature/auth/child/sign_up/presentation/sign_up_screen.dart
 export 'package:pole/feature/auth/presentation/auth_screen.dart';
 export 'package:pole/feature/auth/presentation/bloc/auth_bloc.dart';
 export 'package:pole/feature/auth/routing/auth_extra.dart';
+export 'package:pole/feature/excursions/presentation/bloc/excursions_bloc.dart';
+export 'package:pole/feature/excursions/presentation/excursions_screen.dart';
 export 'package:pole/feature/main/presentation/bloc/main_bloc.dart';
 export 'package:pole/feature/main/presentation/main_screen.dart';
+export 'package:pole/feature/main/routing/main_extra.dart';
 export 'package:pole/feature/root/presentation/bloc/root_bloc.dart';
 export 'package:pole/feature/root/presentation/root_screen.dart';
 export 'package:pole/feature/splash/presentation/bloc/splash_bloc.dart';

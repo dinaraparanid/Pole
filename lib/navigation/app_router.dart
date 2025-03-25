@@ -21,7 +21,7 @@ final class AppRouter {
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           final extra = state.extra as AuthExtra;
-          return AuthScreen(navigationShell: navigationShell, bloc: extra.authBloc);
+          return AuthScreen(bloc: extra.authBloc, navigationShell: navigationShell);
         },
         branches: [
           StatefulShellBranch(
@@ -59,10 +59,58 @@ final class AppRouter {
           ),
         ],
       ),
-      GoRoute(
-        path: AppRoute.main.path,
-        name: AppRoute.main.name,
-        builder: (context, state) => MainScreen(bloc: state.extra as MainBloc),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) {
+          final extra = state.extra as MainExtra;
+          return MainScreen(bloc: extra.mainBloc, navigationShell: navigationShell);
+        },
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoute.main.path,
+                name: AppRoute.main.name,
+                builder: (context, state) => SizedBox(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoute.catalog.path,
+                name: AppRoute.catalog.name,
+                builder: (context, state) {
+                  final extra = state.extra as MainExtra;
+                  return Text('TODO: CatalogScreen');
+                },
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoute.excursions.path,
+                name: AppRoute.excursions.name,
+                builder: (context, state) {
+                  final extra = state.extra as MainExtra;
+                  return ExcursionsScreen(bloc: extra.excursionsBloc!);
+                },
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoute.profile.path,
+                name: AppRoute.profile.name,
+                builder: (context, state) {
+                  final extra = state.extra as MainExtra;
+                  return Text('TODO: ProfileScreen');
+                },
+              ),
+            ],
+          ),
+        ],
       ),
     ],
   );

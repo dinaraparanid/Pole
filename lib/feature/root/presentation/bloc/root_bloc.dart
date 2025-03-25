@@ -5,6 +5,7 @@ import 'package:pole/feature/auth/presentation/bloc/auth_bloc_factory.dart';
 import 'package:pole/feature/auth/routing/auth_extra.dart';
 import 'package:pole/feature/main/presentation/bloc/main_bloc.dart';
 import 'package:pole/feature/main/presentation/bloc/main_bloc_factory.dart';
+import 'package:pole/feature/main/routing/main_extra.dart';
 import 'package:pole/feature/root/presentation/bloc/root_event.dart';
 import 'package:pole/feature/root/domain/entity/root_screen.dart';
 import 'package:pole/feature/root/domain/use_case/initial_screen_use_case.dart';
@@ -41,7 +42,7 @@ final class RootBloc extends Bloc<RootEvent, void> {
 
     on<NavigateToMain>((event, emit) {
       final mainBloc = _createMainBloc();
-      router.value.replaceNamed(AppRoute.main.name, extra: mainBloc);
+      router.value.replaceNamed(AppRoute.main.name, extra: MainExtra(mainBloc: mainBloc));
     });
 
     initialScreenUseCase

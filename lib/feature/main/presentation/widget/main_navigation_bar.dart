@@ -8,7 +8,7 @@ import 'package:pole/feature/main/presentation/bloc/mod.dart';
 import 'package:pole/l10n/app_localizations.dart';
 
 final class MainNavigationBar extends StatelessWidget {
-  final void Function(Tabs) onTabClick;
+  final void Function(MainTabs) onTabClick;
   const MainNavigationBar({super.key, required this.onTabClick});
 
   @override
@@ -34,7 +34,7 @@ final class MainNavigationBar extends StatelessWidget {
     selectedItemColor: theme.colors.navigationBar.selected,
     unselectedItemColor: theme.colors.navigationBar.unselected,
     currentIndex: state.selectedTab.index,
-    onTap: (index) => onTabClick(Tabs.values[index]),
+    onTap: (index) => onTabClick(MainTabs.values[index]),
     items: Items(theme: theme, strings: strings, state: state),
   );
 
@@ -47,7 +47,7 @@ final class MainNavigationBar extends StatelessWidget {
     activeColor: theme.colors.navigationBar.selected,
     inactiveColor: theme.colors.navigationBar.unselected,
     currentIndex: state.selectedTab.index,
-    onTap: (index) => onTabClick(Tabs.values[index]),
+    onTap: (index) => onTabClick(MainTabs.values[index]),
     items: Items(theme: theme, strings: strings, state: state),
   );
 
@@ -63,7 +63,7 @@ final class MainNavigationBar extends StatelessWidget {
         width: theme.dimensions.size.medium,
         height: theme.dimensions.size.medium,
         colorFilter: ColorFilter.mode(
-          state.selectedTab == Tabs.catalog
+          state.selectedTab == MainTabs.catalog
             ? theme.colors.navigationBar.selected
             : theme.colors.navigationBar.unselected,
           BlendMode.srcIn,
@@ -74,7 +74,7 @@ final class MainNavigationBar extends StatelessWidget {
       label: strings.main_tab_excursions,
       icon: SvgPicture.asset(
         AppImages.loadSvg(
-          state.selectedTab == Tabs.excursions
+          state.selectedTab == MainTabs.excursions
             ? 'ic_excursions_selected'
             : 'ic_excursions',
         ).value,
@@ -89,7 +89,7 @@ final class MainNavigationBar extends StatelessWidget {
         width: theme.dimensions.size.medium,
         height: theme.dimensions.size.medium,
         colorFilter: ColorFilter.mode(
-          state.selectedTab == Tabs.profile
+          state.selectedTab == MainTabs.profile
             ? theme.colors.navigationBar.selected
             : theme.colors.navigationBar.unselected,
           BlendMode.srcIn,
