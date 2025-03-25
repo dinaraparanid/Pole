@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pole/navigation/app_route.dart';
@@ -17,28 +18,51 @@ final class AppRouter {
         name: AppRoute.splash.name,
         builder: (context, state) => SplashScreen(bloc: state.extra as SplashBloc),
       ),
-      GoRoute(
-        path: AppRoute.auth.path,
-        name: AppRoute.auth.name,
-        builder: (context, state) => AuthScreen(bloc: state.extra as AuthBloc),
-      ),
-      GoRoute(
-        path: AppRoute.signUp.path,
-        name: AppRoute.signUp.name,
-        builder: (context, state) => SignUpScreen(bloc: state.extra as SignUpBloc),
-      ),
-      GoRoute(
-        path: AppRoute.signIn.path,
-        name: AppRoute.signIn.name,
-        builder: (context, state) => SignInScreen(bloc: state.extra as SignInBloc),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) {
+          final extra = state.extra as AuthExtra;
+          return AuthScreen(navigationShell: navigationShell, bloc: extra.authBloc);
+        },
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoute.auth.path,
+                name: AppRoute.auth.name,
+                builder: (context, state) => SizedBox(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoute.signIn.path,
+                name: AppRoute.signIn.name,
+                builder: (context, state) {
+                  final extra = state.extra as AuthExtra;
+                  return SignInScreen(bloc: extra.signInBloc!);
+                },
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoute.signUp.path,
+                name: AppRoute.signUp.name,
+                builder: (context, state) {
+                  final extra = state.extra as AuthExtra;
+                  return SignUpScreen(bloc: extra.signUpBloc!);
+                },
+              ),
+            ],
+          ),
+        ],
       ),
       GoRoute(
         path: AppRoute.main.path,
         name: AppRoute.main.name,
         builder: (context, state) => MainScreen(bloc: state.extra as MainBloc),
-        routes: [
-
-        ]
       ),
     ],
   );

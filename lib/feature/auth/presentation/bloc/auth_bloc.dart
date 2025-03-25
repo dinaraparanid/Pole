@@ -3,6 +3,7 @@ import 'package:pole/feature/auth/child/sign_in/presentation/bloc/mod.dart' as s
 import 'package:pole/feature/auth/child/sign_up/presentation/bloc/mod.dart' as su;
 import 'package:pole/feature/auth/domain/start_screen.dart';
 import 'package:pole/feature/auth/presentation/bloc/auth_event.dart';
+import 'package:pole/feature/auth/routing/auth_extra.dart';
 import 'package:pole/navigation/app_route.dart';
 import 'package:pole/navigation/app_router.dart';
 
@@ -24,12 +25,18 @@ final class AuthBloc extends Bloc<AuthEvent, void> {
 
     on<NavigateToSignIn>((event, emit) {
       final signInBloc = _createSignInBloc();
-      router.value.replaceNamed(AppRoute.signIn.name, extra: signInBloc);
+      router.value.replaceNamed(
+        AppRoute.signIn.name,
+        extra: AuthExtra(authBloc: this, signInBloc: signInBloc),
+      );
     });
 
     on<NavigateToSignUp>((event, emit) {
       final signUpBloc = _createSignUpBloc();
-      router.value.replaceNamed(AppRoute.signUp.name, extra: signUpBloc);
+      router.value.replaceNamed(
+        AppRoute.signUp.name,
+        extra: AuthExtra(authBloc: this, signUpBloc: signUpBloc),
+      );
     });
 
     switch (startScreen) {

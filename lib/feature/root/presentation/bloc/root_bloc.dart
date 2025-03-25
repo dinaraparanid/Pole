@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/feature/auth/domain/start_screen.dart';
 import 'package:pole/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:pole/feature/auth/presentation/bloc/auth_bloc_factory.dart';
+import 'package:pole/feature/auth/routing/auth_extra.dart';
 import 'package:pole/feature/main/presentation/bloc/main_bloc.dart';
 import 'package:pole/feature/main/presentation/bloc/main_bloc_factory.dart';
 import 'package:pole/feature/root/presentation/bloc/root_event.dart';
@@ -35,7 +36,7 @@ final class RootBloc extends Bloc<RootEvent, void> {
 
     on<NavigateToAuth>((event, emit) {
       final authBloc = _createAuthBloc(event.screen);
-      router.value.replaceNamed(AppRoute.auth.name, extra: authBloc);
+      router.value.replaceNamed(AppRoute.auth.name, extra: AuthExtra(authBloc: authBloc));
     });
 
     on<NavigateToMain>((event, emit) {
