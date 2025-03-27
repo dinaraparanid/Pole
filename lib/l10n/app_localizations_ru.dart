@@ -12,6 +12,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get app_name => 'Pole';
 
   @override
+  String get continue_txt => 'Продолжить';
+
+  @override
   String get splash_title => 'Познакомим с Иннополисом';
 
   @override
@@ -91,4 +94,25 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get excursions_step3 => 'Просмотр';
+
+  @override
+  String get date_selection_title => 'Создайте свою экскурсию!';
+
+  @override
+  String get date_selection_description => 'Выберите дату и время,\nа мы подберём для вас места';
+
+  @override
+  String get date_selection_city_label => 'Город';
+
+  @override
+  String get date_selection_city_warning => 'Тестируем только в г. Иннополис.\nПостепенно добавим новые города';
+
+  @override
+  String get date_selection_date_time_label => 'Дата и время';
+
+  @override
+  String get date_selection_date_time_placeholder => 'Выберите дату...';
+
+  @override
+  String get date_selection_popular_excursions => 'Популярные экскурсии';
 }

@@ -1,5 +1,6 @@
 {
   "app_name": "Pole",
+  "continue_txt": "Continue",
 
   "splash_title": "Introducing Innopolis",
   "splash_description": "Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.",
@@ -32,5 +33,13 @@
 
   "excursions_step1": "Date selection",
   "excursions_step2": "Planning",
-  "excursions_step3": "Overview"
+  "excursions_step3": "Overview",
+
+  "date_selection_title": "Create your excursion!",
+  "date_selection_description": "Choose a date and time,\nand we will select the places for you",
+  "date_selection_city_label": "City",
+  "date_selection_city_warning": "We are testing only in Innopolis.\nOther cities will be added later",
+  "date_selection_date_time_label": "Date and time",
+  "date_selection_date_time_placeholder": "Choose date...",
+  "date_selection_popular_excursions": "Popular excursions"
 }

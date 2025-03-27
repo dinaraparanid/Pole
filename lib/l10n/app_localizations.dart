@@ -101,6 +101,12 @@ abstract class AppLocalizations {
   /// **'Pole'**
   String get app_name;
 
+  /// No description provided for @continue_txt.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continue_txt;
+
   /// No description provided for @splash_title.
   ///
   /// In en, this message translates to:
@@ -262,6 +268,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Overview'**
   String get excursions_step3;
+
+  /// No description provided for @date_selection_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your excursion!'**
+  String get date_selection_title;
+
+  /// No description provided for @date_selection_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a date and time,\nand we will select the places for you'**
+  String get date_selection_description;
+
+  /// No description provided for @date_selection_city_label.
+  ///
+  /// In en, this message translates to:
+  /// **'City'**
+  String get date_selection_city_label;
+
+  /// No description provided for @date_selection_city_warning.
+  ///
+  /// In en, this message translates to:
+  /// **'We are testing only in Innopolis.\nOther cities will be added later'**
+  String get date_selection_city_warning;
+
+  /// No description provided for @date_selection_date_time_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Date and time'**
+  String get date_selection_date_time_label;
+
+  /// No description provided for @date_selection_date_time_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose date...'**
+  String get date_selection_date_time_placeholder;
+
+  /// No description provided for @date_selection_popular_excursions.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular excursions'**
+  String get date_selection_popular_excursions;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

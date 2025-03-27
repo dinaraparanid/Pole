@@ -1,5 +1,6 @@
 {
   "app_name": "Pole",
+  "continue_txt": "Продолжить",
 
   "splash_title": "Познакомим с Иннополисом",
   "splash_description": "Подберите гида, места для посещения и удобное вам время.\nДружим с ведущими гидами Иннополиса.",
@@ -32,5 +33,13 @@
 
   "excursions_step1": "Выбор даты",
   "excursions_step2": "Планирование",
-  "excursions_step3": "Просмотр"
+  "excursions_step3": "Просмотр",
+
+  "date_selection_title": "Создайте свою экскурсию!",
+  "date_selection_description": "Выберите дату и время,\nа мы подберём для вас места",
+  "date_selection_city_label": "Город",
+  "date_selection_city_warning": "Тестируем только в г. Иннополис.\nПостепенно добавим новые города",
+  "date_selection_date_time_label": "Дата и время",
+  "date_selection_date_time_placeholder": "Выберите дату...",
+  "date_selection_popular_excursions": "Популярные экскурсии"
 }

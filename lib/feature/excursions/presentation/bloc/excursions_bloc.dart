@@ -32,7 +32,6 @@ final class ExcursionsBloc extends Bloc<ExcursionsEvent, ExcursionsState> {
     on<UpdateStep>((event, emit) => emit(state.copyWith(step: event.step)));
 
     _listenStepChanges(mainBloc: mainBloc);
-    _testAnimation();
   }
 
   @override
@@ -73,23 +72,4 @@ final class ExcursionsBloc extends Bloc<ExcursionsEvent, ExcursionsState> {
     excursionsBloc: this,
     dateSelectionBlocFactory: () => _dateSelectionBloc,
   );
-
-  Future<void> _testAnimation() async {
-    while (isClosed.not) {
-      add(UpdateStep(step: ExcursionsStep.planning));
-      await Future.delayed(Duration(seconds: 1));
-
-      if (isClosed) break;
-      add(UpdateStep(step: ExcursionsStep.overview));
-      await Future.delayed(Duration(seconds: 1));
-
-      if (isClosed) break;
-      add(UpdateStep(step: ExcursionsStep.planning));
-      await Future.delayed(Duration(seconds: 1));
-
-      if (isClosed) break;
-      add(UpdateStep(step: ExcursionsStep.dateSelection));
-      await Future.delayed(Duration(seconds: 1));
-    }
-  }
 }

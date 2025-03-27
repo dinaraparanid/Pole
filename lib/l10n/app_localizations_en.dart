@@ -12,6 +12,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get app_name => 'Pole';
 
   @override
+  String get continue_txt => 'Continue';
+
+  @override
   String get splash_title => 'Introducing Innopolis';
 
   @override
@@ -91,4 +94,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get excursions_step3 => 'Overview';
+
+  @override
+  String get date_selection_title => 'Create your excursion!';
+
+  @override
+  String get date_selection_description => 'Choose a date and time,\nand we will select the places for you';
+
+  @override
+  String get date_selection_city_label => 'City';
+
+  @override
+  String get date_selection_city_warning => 'We are testing only in Innopolis.\nOther cities will be added later';
+
+  @override
+  String get date_selection_date_time_label => 'Date and time';
+
+  @override
+  String get date_selection_date_time_placeholder => 'Choose date...';
+
+  @override
+  String get date_selection_popular_excursions => 'Popular excursions';
 }
