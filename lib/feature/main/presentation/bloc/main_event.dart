@@ -6,3 +6,5 @@ final class TabClicked extends MainEvent {
   final MainTabs tab;
   TabClicked({required this.tab});
 }
+
+final class OnResume extends MainEvent {}

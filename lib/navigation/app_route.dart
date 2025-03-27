@@ -7,6 +7,9 @@ enum AppRoute {
   main(path: '/main'),
   catalog(path: '/main/catalog'),
   excursions(path: '/main/excursions'),
+  dateSelection(path: '/main/excursions/dateSelection'),
+  planning(path: '/main/excursions/planning'),
+  overview(path: '/main/excursions/overview'),
   profile(path: '/main/profile');
 
   final String path;

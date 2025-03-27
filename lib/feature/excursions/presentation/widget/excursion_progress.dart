@@ -8,7 +8,12 @@ import 'package:pole/feature/excursions/presentation/widget/excursion_progress_p
 const _progressMinHeight = 64.0;
 
 final class ExcursionProgress extends StatefulWidget {
-  const ExcursionProgress({super.key});
+  final double? initialProgress;
+
+  const ExcursionProgress({
+    super.key,
+    this.initialProgress,
+  });
 
   @override
   State<StatefulWidget> createState() => _ExcursionProgressState();
@@ -30,6 +35,9 @@ final class _ExcursionProgressState extends State<ExcursionProgress> with Single
       vsync: this,
       duration: _animationDuration,
     );
+
+    _progressController.value = widget.initialProgress
+      ?? ExcursionsState.dateSelectionProgress;
 
     _progressTween = Tween(begin: 0, end: 1);
 

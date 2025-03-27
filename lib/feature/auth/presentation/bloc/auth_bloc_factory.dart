@@ -1,29 +1,29 @@
 import 'package:pole/feature/auth/child/sign_up/presentation/bloc/sign_up_bloc_factory.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/bloc/sign_in_bloc_factory.dart';
-import 'package:pole/feature/auth/domain/start_screen.dart';
+import 'package:pole/feature/auth/domain/navigate_to_auth_screen_use_case.dart';
+import 'package:pole/feature/auth/presentation/bloc/auth_screen.dart';
 import 'package:pole/feature/auth/presentation/bloc/auth_bloc.dart';
-import 'package:pole/navigation/app_router.dart';
 
 final class AuthBlocFactory {
   final SignInBlocFactory _signInBlocFactory;
   final SignUpBlocFactory _signUpBlocFactory;
-  final AppRouter _router;
+  final NavigateToAuthScreenUseCase _navigateToAuthScreenUseCase;
 
   AuthBlocFactory({
-    required AppRouter router,
     required SignInBlocFactory signInBlocFactory,
     required SignUpBlocFactory signUpBlocFactory,
-  }) : _router = router,
-    _signInBlocFactory = signInBlocFactory,
-    _signUpBlocFactory = signUpBlocFactory;
+    required NavigateToAuthScreenUseCase navigateToAuthScreenUseCase,
+  }) : _signInBlocFactory = signInBlocFactory,
+    _signUpBlocFactory = signUpBlocFactory,
+    _navigateToAuthScreenUseCase = navigateToAuthScreenUseCase;
 
   AuthBloc create({
-    required StartScreen startScreen,
+    required AuthScreen startScreen,
     required void Function() onDone,
   }) => AuthBloc(
-    router: _router,
     signInBlocFactory: _signInBlocFactory,
     signUpBlocFactory: _signUpBlocFactory,
+    navigateToAuthScreenUseCase: _navigateToAuthScreenUseCase,
     startScreen: startScreen,
     onDone: onDone,
   );

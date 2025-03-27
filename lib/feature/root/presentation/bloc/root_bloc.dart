@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pole/feature/auth/domain/start_screen.dart';
+import 'package:pole/feature/auth/presentation/bloc/auth_screen.dart';
 import 'package:pole/feature/auth/presentation/bloc/auth_bloc.dart';
 import 'package:pole/feature/auth/presentation/bloc/auth_bloc_factory.dart';
 import 'package:pole/feature/auth/routing/auth_extra.dart';
@@ -19,6 +19,17 @@ final class RootBloc extends Bloc<RootEvent, void> {
   final AuthBlocFactory _authBlocFactory;
   final MainBlocFactory _mainBlocFactory;
 
+  late final SplashBloc _splashBloc = _splashBlocFactory.create(
+    onDone: (result) => add(NavigateToAuth(
+      screen: switch (result) {
+        SignIn() => AuthScreen.signIn,
+        SignUp() => AuthScreen.signUp,
+      },
+    )),
+  );
+
+  late final MainBloc _mainBloc = _mainBlocFactory.create();
+
   RootBloc({
     required AppRouter router,
     required InitialScreenUseCase initialScreenUseCase,
@@ -30,20 +41,27 @@ final class RootBloc extends Bloc<RootEvent, void> {
     _mainBlocFactory = mainBlocFactory,
     super(null) {
 
-    on<NavigateToSplash>((event, emit) {
-      final splashBloc = _createSplashBloc();
-      router.value.replaceNamed(AppRoute.splash.name, extra: splashBloc);
-    });
+    on<NavigateToSplash>((event, emit) =>
+      router.value.replaceNamed(
+        AppRoute.splash.name,
+        extra: _splashBloc,
+      ),
+    );
 
     on<NavigateToAuth>((event, emit) {
       final authBloc = _createAuthBloc(event.screen);
-      router.value.replaceNamed(AppRoute.auth.name, extra: AuthExtra(authBloc: authBloc));
+      router.value.replaceNamed(
+        AppRoute.auth.name,
+        extra: AuthExtra(authBloc: authBloc),
+      );
     });
 
-    on<NavigateToMain>((event, emit) {
-      final mainBloc = _createMainBloc();
-      router.value.replaceNamed(AppRoute.main.name, extra: MainExtra(mainBloc: mainBloc));
-    });
+    on<NavigateToMain>((event, emit) =>
+      router.value.replaceNamed(
+        AppRoute.main.name,
+        extra: MainExtra(mainBloc: _mainBloc),
+      ),
+    );
 
     initialScreenUseCase
       .initialScreen
@@ -53,19 +71,8 @@ final class RootBloc extends Bloc<RootEvent, void> {
       });
   }
 
-  SplashBloc _createSplashBloc() => _splashBlocFactory.create(
-    onDone: (result) => add(NavigateToAuth(
-      screen: switch (result) {
-        SignIn() => StartScreen.sign_in,
-        SignUp() => StartScreen.sign_up,
-      },
-    )),
-  );
-
-  AuthBloc _createAuthBloc(StartScreen startScreen) => _authBlocFactory.create(
+  AuthBloc _createAuthBloc(AuthScreen startScreen) => _authBlocFactory.create(
     startScreen: startScreen,
     onDone: () => add(NavigateToMain()),
   );
-
-  MainBloc _createMainBloc() => _mainBlocFactory.create();
 }

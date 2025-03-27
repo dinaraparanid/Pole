@@ -1,4 +1,4 @@
-import 'package:pole/feature/excursions/presentation/bloc/excursions_bloc.dart';
+import 'package:pole/feature/excursions/rooting/excursions_extra.dart';
 import 'package:pole/feature/main/presentation/bloc/main_bloc.dart';
 import 'package:pole/feature/main/presentation/bloc/main_state.dart';
 import 'package:pole/feature/main/routing/main_extra.dart';
@@ -15,7 +15,7 @@ final class NavigateToMainTabUseCase {
   void execute({
     required MainTabs tab,
     required MainBloc mainBloc,
-    required ExcursionsBloc Function() excursionsBlocFactory,
+    required ExcursionsExtra Function() excursionsExtraFactory,
   }) {
     switch (tab) {
       case MainTabs.catalog:
@@ -29,7 +29,7 @@ final class NavigateToMainTabUseCase {
           AppRoute.excursions.name,
           extra: MainExtra(
             mainBloc: mainBloc,
-            excursionsBloc: excursionsBlocFactory(),
+            excursionsExtra: excursionsExtraFactory(),
           ),
         );
 
