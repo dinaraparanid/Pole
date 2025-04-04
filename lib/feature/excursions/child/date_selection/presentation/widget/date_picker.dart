@@ -48,6 +48,7 @@ final class DatePicker extends StatelessWidget {
                 child: InkWell(
                   onTap: () => showAdaptiveDatePicker(
                     context: context,
+                    selectedDateTime: selectedDate,
                     onDatePicked: onDatePicked,
                   ),
                   child: Text(

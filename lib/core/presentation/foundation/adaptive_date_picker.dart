@@ -6,6 +6,7 @@ import 'package:pole/core/utils/ext/general.dart';
 
 void showAdaptiveDatePicker({
   required BuildContext context,
+  DateTime? selectedDateTime,
   required void Function(DateTime) onDatePicked,
 }) => platformCall(
   android: _showMaterialDatePicker,
@@ -13,21 +14,46 @@ void showAdaptiveDatePicker({
   macOS: _showCupertinoDatePicker,
 )(
   context: context,
+  selectedDateTime: selectedDateTime,
   onDatePicked: onDatePicked,
 );
 
 void _showMaterialDatePicker({
   required BuildContext context,
+  DateTime? selectedDateTime,
   required void Function(DateTime) onDatePicked,
 }) {
   final theme = context.appTheme;
 
   showDatePicker(
     context: context,
+    initialDate: selectedDateTime,
     firstDate: DateTime.now(),
     lastDate: DateTime(2100),
     builder: (context, child) => Theme(
       data: Theme.of(context).copyWith(
+        textTheme: TextTheme(
+          headlineLarge: theme.typography.h.h2.copyWith(
+            color: theme.colors.text.secondary,
+            fontWeight: FontWeight.w700,
+          ),
+          titleLarge: theme.typography.h.h4.copyWith(
+            color: theme.colors.text.secondary,
+            fontWeight: FontWeight.w700,
+          ),
+          bodyLarge: theme.typography.regular.copyWith(
+            color: theme.colors.text.secondary,
+            fontWeight: FontWeight.w700,
+          ),
+          labelLarge: theme.typography.regular.copyWith(
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: theme.colors.primary,
+          selectionColor: theme.colors.primary,
+          selectionHandleColor: theme.colors.primary,
+        ),
         colorScheme: ColorScheme.dark(
           primary: theme.colors.primary,
           onPrimary: theme.colors.text.primary,
@@ -47,6 +73,7 @@ void _showMaterialDatePicker({
 
 void _showCupertinoDatePicker({
   required BuildContext context,
+  DateTime? selectedDateTime,
   required void Function(DateTime) onDatePicked,
 }) {
   final theme = context.appTheme;
@@ -65,6 +92,7 @@ void _showCupertinoDatePicker({
           )
         ),
         child: CupertinoDatePicker(
+          initialDateTime: selectedDateTime,
           backgroundColor: theme.colors.navigationBar.background,
           mode: CupertinoDatePickerMode.date,
           onDateTimeChanged: onDatePicked,
