@@ -10,7 +10,9 @@ final class DateSelectionBloc extends Bloc<DateSelectionEvent, DateSelectionStat
   }) : _onResult = onResult,
     super(DateSelectionState()) {
 
-    on<DatePickerClick>((event, emit) {});
+    on<SelectDate>((event, emit) =>
+        emit(state.copyWith(selectedDate: event.date)),
+    );
 
     on<ContinueClick>((event, emit) {});
   }

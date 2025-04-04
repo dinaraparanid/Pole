@@ -24,21 +24,23 @@ final class ExcursionsScreen extends StatelessWidget {
       child: BlocBuilder<ExcursionsBloc, ExcursionsState>(
         builder: (context, state) => Container(
           color: theme.colors.background,
-          child: Column(
-            children: [
-              SizedBox(height: theme.dimensions.padding.large),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: theme.dimensions.padding.large),
 
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: theme.dimensions.padding.large,
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: theme.dimensions.padding.large,
+                  ),
+                  child: ExcursionProgress(initialProgress: state.progress),
                 ),
-                child: ExcursionProgress(initialProgress: state.progress),
-              ),
 
-              SizedBox(height: theme.dimensions.padding.extraLarge),
+                SizedBox(height: theme.dimensions.padding.extraLarge),
 
-              navigationShell,
-            ],
+                navigationShell,
+              ],
+            ),
           ),
         )
       ),

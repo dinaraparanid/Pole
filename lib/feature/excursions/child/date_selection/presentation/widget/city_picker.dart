@@ -40,7 +40,7 @@ final class CityPicker extends StatelessWidget {
 
               Icon(
                 Icons.keyboard_arrow_down_rounded,
-                size: theme.dimensions.size.small,
+                size: theme.dimensions.size.medium,
                 color: theme.colors.text.secondary,
               )
             ],
