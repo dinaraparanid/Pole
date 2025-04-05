@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pole/core/domain/city/entity/city.dart';
 import 'package:pole/core/presentation/foundation/app_text_frame.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 
 final class CityPicker extends StatelessWidget {
-  const CityPicker({super.key});
+  final City? selectedCity;
+  const CityPicker({super.key, required this.selectedCity});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ final class CityPicker extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  'г. Иннополис',
+                  selectedCity?.name ?? strings.date_selection_city_placeholder,
                   style: theme.typography.body.copyWith(
                     color: theme.colors.text.secondary,
                   ),

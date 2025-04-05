@@ -8,7 +8,6 @@ import 'package:pole/feature/excursions/child/date_selection/presentation/widget
 
 final class DateSelectionScreen extends StatelessWidget {
   final DateSelectionBloc bloc;
-
   const DateSelectionScreen({super.key, required this.bloc});
 
   @override
@@ -53,7 +52,11 @@ final class DateSelectionScreen extends StatelessWidget {
 
               SizedBox(height: theme.dimensions.padding.big),
 
-              CommonPadding(child: CityPicker()),
+              CommonPadding(
+                child: CityPicker(
+                  selectedCity: state.selectedCity,
+                ),
+              ),
 
               SizedBox(height: theme.dimensions.padding.medium),
 
@@ -68,6 +71,7 @@ final class DateSelectionScreen extends StatelessWidget {
 
               CommonPadding(
                 child: AppButton(
+                  enabled: state.isContinueButtonEnabled,
                   onClick: () => bloc.add(ContinueClick()),
                   child: Container(
                     alignment: Alignment.center,
@@ -86,6 +90,8 @@ final class DateSelectionScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
+              SizedBox(height: theme.dimensions.padding.big),
             ],
           ),
         ),

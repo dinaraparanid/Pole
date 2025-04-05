@@ -38,6 +38,7 @@
   "date_selection_title": "Создайте свою экскурсию!",
   "date_selection_description": "Выберите дату и время,\nа мы подберём для вас места",
   "date_selection_city_label": "Город",
+  "date_selection_city_placeholder": "Выберите город...",
   "date_selection_city_warning": "Тестируем только в г. Иннополис.\nПостепенно добавим новые города",
   "date_selection_date_time_label": "Дата и время",
   "date_selection_date_time_placeholder": "Выберите дату...",

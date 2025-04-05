@@ -126,14 +126,11 @@ final class AppRouter {
 
                           _redirectExtra = bloc.redirectExtra(mainBloc: extra.mainBloc);
 
-                          switch (bloc.state.step) {
-                            case ExcursionsStep.dateSelection:
-                              return AppRoute.dateSelection.path;
-                            case ExcursionsStep.planning:
-                              return AppRoute.planning.path;
-                            case ExcursionsStep.overview:
-                              return AppRoute.overview.path;
-                          }
+                          return switch (bloc.state.step) {
+                            DateSelection() => AppRoute.dateSelection.path,
+                            Planning() => AppRoute.planning.path,
+                            Overview() => AppRoute.overview.path,
+                          };
                         },
                       ),
                     ],
@@ -159,7 +156,7 @@ final class AppRouter {
                         builder: (context, state) {
                           final mainExtra = (state.extra ?? _redirectExtra) as MainExtra;
                           final extra = mainExtra.excursionsExtra!;
-                          return Text('TODO: PlanningScreen');
+                          return PlanningScreen(bloc: extra.planningBloc!);
                         },
                       ),
                     ],

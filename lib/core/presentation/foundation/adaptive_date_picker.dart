@@ -50,7 +50,7 @@ void _showMaterialDatePicker({
           ),
         ),
         textSelectionTheme: TextSelectionThemeData(
-          cursorColor: theme.colors.primary,
+          cursorColor: theme.colors.text.focused,
           selectionColor: theme.colors.primary,
           selectionHandleColor: theme.colors.primary,
         ),

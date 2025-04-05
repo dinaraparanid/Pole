@@ -7,6 +7,8 @@ export 'package:pole/feature/auth/presentation/bloc/auth_bloc.dart';
 export 'package:pole/feature/auth/routing/auth_extra.dart';
 export 'package:pole/feature/excursions/child/date_selection/presentation/bloc/date_selection_bloc.dart';
 export 'package:pole/feature/excursions/child/date_selection/presentation/date_selection_screen.dart';
+export 'package:pole/feature/excursions/child/planning/presentation/bloc/planning_bloc.dart';
+export 'package:pole/feature/excursions/child/planning/presentation/planning_screen.dart';
 export 'package:pole/feature/excursions/presentation/bloc/excursions_bloc.dart';
 export 'package:pole/feature/excursions/presentation/excursions_screen.dart';
 export 'package:pole/feature/excursions/rooting/excursions_extra.dart';

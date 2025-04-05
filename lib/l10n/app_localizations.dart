@@ -287,6 +287,12 @@ abstract class AppLocalizations {
   /// **'City'**
   String get date_selection_city_label;
 
+  /// No description provided for @date_selection_city_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose city...'**
+  String get date_selection_city_placeholder;
+
   /// No description provided for @date_selection_city_warning.
   ///
   /// In en, this message translates to:

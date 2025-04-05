@@ -10,14 +10,14 @@ abstract class ExcursionsState with _$ExcursionsState {
   static final overviewProgress = 1.0;
 
   const factory ExcursionsState({
-    @Default(ExcursionsStep.dateSelection) ExcursionsStep step,
+    @Default(DateSelection()) ExcursionsStep step,
   }) = _ExcursionsState;
 }
 
 extension Properties on ExcursionsState {
   double get progress => switch (step) {
-    ExcursionsStep.dateSelection => ExcursionsState.dateSelectionProgress,
-    ExcursionsStep.planning => ExcursionsState.planningProgress,
-    ExcursionsStep.overview => ExcursionsState.overviewProgress,
+    DateSelection() => ExcursionsState.dateSelectionProgress,
+    Planning() => ExcursionsState.planningProgress,
+    Overview() => ExcursionsState.overviewProgress,
   };
 }

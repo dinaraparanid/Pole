@@ -105,6 +105,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get date_selection_city_label => 'Город';
 
   @override
+  String get date_selection_city_placeholder => 'Выберите город...';
+
+  @override
   String get date_selection_city_warning => 'Тестируем только в г. Иннополис.\nПостепенно добавим новые города';
 
   @override

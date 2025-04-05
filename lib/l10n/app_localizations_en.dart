@@ -105,6 +105,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get date_selection_city_label => 'City';
 
   @override
+  String get date_selection_city_placeholder => 'Choose city...';
+
+  @override
   String get date_selection_city_warning => 'We are testing only in Innopolis.\nOther cities will be added later';
 
   @override

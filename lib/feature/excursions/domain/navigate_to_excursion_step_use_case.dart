@@ -1,4 +1,5 @@
 import 'package:pole/feature/excursions/child/date_selection/presentation/bloc/date_selection_bloc.dart';
+import 'package:pole/feature/excursions/child/planning/presentation/bloc/planning_bloc.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_bloc.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_step.dart';
 import 'package:pole/feature/excursions/rooting/excursions_extra.dart';
@@ -15,9 +16,10 @@ final class NavigateToExcursionStepUseCase {
     required MainBloc mainBloc,
     required ExcursionsBloc excursionsBloc,
     required DateSelectionBloc Function() dateSelectionBlocFactory,
+    required PlanningBloc Function() planningBlocFactory,
   }) {
     switch (step) {
-      case ExcursionsStep.dateSelection:
+      case DateSelection():
         _router.value.replaceNamed(
           AppRoute.dateSelection.name,
           extra: MainExtra(
@@ -29,18 +31,19 @@ final class NavigateToExcursionStepUseCase {
           ),
         );
 
-      case ExcursionsStep.planning:
+      case Planning():
         _router.value.replaceNamed(
           AppRoute.planning.name,
           extra: MainExtra(
             mainBloc: mainBloc,
             excursionsExtra: ExcursionsExtra(
               excursionsBloc: excursionsBloc,
+              planningBloc: planningBlocFactory(),
             ),
           ),
         );
 
-      case ExcursionsStep.overview:
+      case Overview():
         _router.value.replaceNamed(
           AppRoute.overview.name,
           extra: MainExtra(

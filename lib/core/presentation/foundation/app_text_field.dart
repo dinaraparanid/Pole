@@ -95,7 +95,7 @@ final class _AppTextFieldState extends State<AppTextField> {
         Text(
           label,
           style: theme.typography.body.copyWith(
-              color: theme.colors.text.primary
+            color: theme.colors.text.primary
           ),
         ),
 
@@ -113,27 +113,32 @@ final class _AppTextFieldState extends State<AppTextField> {
             ),
           )
         ),
-        child: CupertinoTextField(
-          controller: controller,
-          focusNode: focusNode,
-          placeholder: widget.placeholder,
-          placeholderStyle: theme.typography.body.copyWith(
-            color: theme.colors.text.disabled,
+        child: CupertinoTheme(
+          data: CupertinoThemeData(
+            primaryColor: theme.colors.text.focused,
           ),
-          padding: contentPadding(theme),
-          decoration: BoxDecoration(
-            color: theme.colors.text.background,
-            borderRadius: borderRadius(theme),
-            border: Border.all(
-              color: borderColor(theme),
-              width: theme.dimensions.size.line.small,
+          child: CupertinoTextField(
+            controller: controller,
+            focusNode: focusNode,
+            placeholder: widget.placeholder,
+            placeholderStyle: theme.typography.body.copyWith(
+              color: theme.colors.text.disabled,
             ),
+            padding: contentPadding(theme),
+            decoration: BoxDecoration(
+              color: theme.colors.text.background,
+              borderRadius: borderRadius(theme),
+              border: Border.all(
+                color: borderColor(theme),
+                width: theme.dimensions.size.line.small,
+              ),
+            ),
+            style: textStyle(theme),
+            obscureText: widget.obscureText,
+            obscuringCharacter: _obscuringCharacter,
+            cursorColor: cursorColor(theme),
+            onChanged: widget.onChanged,
           ),
-          style: textStyle(theme),
-          obscureText: widget.obscureText,
-          obscuringCharacter: _obscuringCharacter,
-          cursorColor: cursorColor(theme),
-          onChanged: widget.onChanged,
         ),
       )
     ].whereType<Widget>().toList(growable: false),
