@@ -4,29 +4,32 @@ import 'package:pole/core/presentation/foundation/platform_call.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/general.dart';
 
-final class AppTextField extends StatefulWidget {
+const _obscuringCharacter = '•';
+
+final class AppOutlineTextField extends StatefulWidget {
   final TextEditingController? controller;
+  final String? label;
   final String? placeholder;
-  final int maxLines;
   final String? error;
-  final Widget? suffix;
+  final bool obscureText;
   final void Function(String)? onChanged;
 
-  const AppTextField({
+  const AppOutlineTextField({
     super.key,
     this.controller,
+    this.label,
     this.placeholder,
-    this.maxLines = 1,
     this.error,
-    this.suffix,
+    this.obscureText = false,
     this.onChanged,
   });
 
   @override
-  State<StatefulWidget> createState() => _AppTextFieldState();
+  State<StatefulWidget> createState() =>
+    _AppOutlineTextFieldState();
 }
 
-final class _AppTextFieldState extends State<AppTextField> {
+final class _AppOutlineTextFieldState extends State<AppOutlineTextField> {
 
   late TextEditingController controller;
 
@@ -63,16 +66,42 @@ final class _AppTextFieldState extends State<AppTextField> {
     )(theme: theme);
   }
 
+  Color borderColor(AppTheme theme) {
+    if (isError) return theme.colors.error;
+    if (isFocused) return theme.colors.text.focused;
+    return theme.colors.text.unfocused;
+  }
+
   TextStyle textStyle(AppTheme theme) =>
-    theme.typography.h.h4.copyWith(color: theme.colors.text.primary);
+    theme.typography.body.copyWith(color: theme.colors.text.primary);
 
   Color cursorColor(AppTheme theme) =>
     isError ? theme.colors.error : theme.colors.text.focused;
+
+  EdgeInsets contentPadding(AppTheme theme) =>
+    EdgeInsets.symmetric(
+      vertical: theme.dimensions.padding.extraMedium,
+      horizontal: theme.dimensions.padding.extraBig,
+    );
+
+  BorderRadius borderRadius(AppTheme theme) =>
+    BorderRadius.all(Radius.circular(theme.dimensions.radius.small));
 
   Widget CupertinoUi({required AppTheme theme}) => Column(
     mainAxisSize: MainAxisSize.min,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
+      ...?widget.label?.let((label) => [
+        Text(
+          label,
+          style: theme.typography.body.copyWith(
+            color: theme.colors.text.primary
+          ),
+        ),
+
+        SizedBox(height: theme.dimensions.padding.small),
+      ]),
+
       CupertinoFormRow(
         padding: EdgeInsets.zero,
         error: widget.error
@@ -91,54 +120,66 @@ final class _AppTextFieldState extends State<AppTextField> {
           child: CupertinoTextField(
             controller: controller,
             focusNode: focusNode,
-            suffix: widget.suffix,
             placeholder: widget.placeholder,
-            placeholderStyle: theme.typography.h.h4.copyWith(
+            placeholderStyle: theme.typography.body.copyWith(
               color: theme.colors.text.disabled,
             ),
+            padding: contentPadding(theme),
             decoration: BoxDecoration(
-              color: Colors.transparent,
+              color: theme.colors.text.background,
+              borderRadius: borderRadius(theme),
+              border: Border.all(
+                color: borderColor(theme),
+                width: theme.dimensions.size.line.small,
+              ),
             ),
             style: textStyle(theme),
+            obscureText: widget.obscureText,
+            obscuringCharacter: _obscuringCharacter,
             cursorColor: cursorColor(theme),
-            maxLines: widget.maxLines,
             onChanged: widget.onChanged,
           ),
         ),
       )
-    ],
+    ].whereType<Widget>().toList(growable: false),
   );
 
   Widget MaterialUi({required AppTheme theme}) => TextField(
     controller: controller,
     focusNode: focusNode,
     style: textStyle(theme),
+    obscureText: widget.obscureText,
+    obscuringCharacter: _obscuringCharacter,
     cursorColor: cursorColor(theme),
-    maxLines: widget.maxLines,
     decoration: InputDecoration(
-      filled: false,
+      filled: true,
+      fillColor: theme.colors.text.background,
       errorText: widget.error,
-      suffix: widget.suffix,
-      focusedBorder: UnderlineInputBorder(
+      contentPadding: contentPadding(theme),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: borderRadius(theme),
         borderSide: BorderSide(
           color: theme.colors.text.focused,
-          width: theme.dimensions.size.line.minimum
+          width: theme.dimensions.size.line.small,
         ),
       ),
-      enabledBorder: UnderlineInputBorder(
+      enabledBorder: OutlineInputBorder(
+        borderRadius: borderRadius(theme),
         borderSide: BorderSide(
           color: theme.colors.text.unfocused,
-          width: theme.dimensions.size.line.minimum
+          width: theme.dimensions.size.line.small,
         ),
       ),
-      errorBorder: UnderlineInputBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(theme.dimensions.radius.small),
-        ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: borderRadius(theme),
         borderSide: BorderSide(
           color: theme.colors.error,
-          width: theme.dimensions.size.line.minimum,
+          width: theme.dimensions.size.line.small,
         ),
+      ),
+      labelText: widget.label,
+      labelStyle: theme.typography.body.copyWith(
+        color: borderColor(theme),
       ),
     ),
     onChanged: widget.onChanged,

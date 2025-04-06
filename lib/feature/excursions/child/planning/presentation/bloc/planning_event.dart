@@ -1,5 +1,4 @@
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
-import 'package:pole/core/domain/visit_place/entity/place_category.dart';
 
 sealed class PlanningEvent {}
 

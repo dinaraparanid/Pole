@@ -3,6 +3,7 @@ import 'package:pole/core/utils/ext/color.dart';
 
 const _EerieBlack = Color(0xFF1E1E1A);
 const _DarkLemonLime = Color(0xFF88C025);
+const _MaximumGreen = Color(0xFF657E38);
 const _BlackOlive = Color(0xFF3F3F36);
 const _PineTree = Color(0xFF292924);
 const _PersianRed = Color(0xFFD73232);
@@ -28,7 +29,7 @@ final class AppColors {
     this.button = const AppButtonColors(),
     this.uniqueComponents = const AppUniqueComponentsColors(),
     AppTextColors? text,
-    AppNavigationBarColors? navigationBar
+    AppNavigationBarColors? navigationBar,
   }) : text = text ?? AppTextColors(),
     navigationBar = navigationBar ?? AppNavigationBarColors();
 }
@@ -79,11 +80,13 @@ final class AppNavigationBarColors {
 
 @immutable
 final class AppUniqueComponentsColors {
+  final Color excursionProgressActive;
   final Color excursionProgressPassed;
   final Color excursionProgressLeft;
 
   const AppUniqueComponentsColors({
-    this.excursionProgressPassed = _DarkLemonLime,
+    this.excursionProgressActive = _DarkLemonLime,
+    this.excursionProgressPassed = _MaximumGreen,
     this.excursionProgressLeft = _BlackOlive,
   });
 }

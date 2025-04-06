@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pole/core/presentation/foundation/app_text_field.dart';
+import 'package:pole/core/presentation/foundation/app_outline_text_field.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/auth/child/sign_up/presentation/bloc/mod.dart';
 import 'package:pole/feature/auth/child/sign_up/presentation/widget/confirm_button.dart';
@@ -53,7 +53,7 @@ final class SignUpContent extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Padding(
                   padding: commonPadding,
-                  child: AppTextField(
+                  child: AppOutlineTextField(
                     label: strings.auth_enter_name,
                     error: state.name.error ? strings.auth_name_empty : null,
                     onChanged: (input) => onEvent(NameChange(name: input)),
@@ -67,7 +67,7 @@ final class SignUpContent extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Padding(
                   padding: commonPadding,
-                  child: AppTextField(
+                  child: AppOutlineTextField(
                     label: strings.auth_enter_email,
                     error: state.email.error ? strings.auth_email_empty : null,
                     onChanged: (input) => onEvent(EmailChange(email: input)),
@@ -81,7 +81,7 @@ final class SignUpContent extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Padding(
                   padding: commonPadding,
-                  child: AppTextField(
+                  child: AppOutlineTextField(
                     label: strings.auth_enter_password,
                     obscureText: true,
                     error: state.password.error ? strings.auth_password_weak : null,
@@ -96,7 +96,7 @@ final class SignUpContent extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Padding(
                   padding: commonPadding,
-                  child: AppTextField(
+                  child: AppOutlineTextField(
                     label: strings.auth_confirm_password,
                     obscureText: true,
                     error: state.confirmPassword.error ? strings.auth_password_not_match : null,

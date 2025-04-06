@@ -42,5 +42,9 @@
   "date_selection_city_warning": "We are testing only in Innopolis.\nOther cities will be added later",
   "date_selection_date_time_label": "Date and time",
   "date_selection_date_time_placeholder": "Choose date...",
-  "date_selection_popular_excursions": "Popular excursions"
+  "date_selection_popular_excursions": "Popular excursions",
+
+  "planning_title_placeholder": "New excursion",
+  "planning_title_error": "Name must not be empty",
+  "planning_description": "Fill your day with places to visit"
 }

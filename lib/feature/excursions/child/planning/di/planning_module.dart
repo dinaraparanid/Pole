@@ -11,6 +11,7 @@ extension PlanningModule on GetIt {
     provideSingleton<PlanningBlocFactory>(() =>
       PlanningBlocFactory(
         changePlaceCategorySelectionUseCase: this(),
+        textChangeUseCase: this(),
       ),
     ),
   ];

@@ -118,4 +118,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get date_selection_popular_excursions => 'Popular excursions';
+
+  @override
+  String get planning_title_placeholder => 'New excursion';
+
+  @override
+  String get planning_title_error => 'Name must not be empty';
+
+  @override
+  String get planning_description => 'Fill your day with places to visit';
 }

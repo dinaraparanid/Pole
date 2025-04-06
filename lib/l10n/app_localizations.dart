@@ -316,6 +316,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Popular excursions'**
   String get date_selection_popular_excursions;
+
+  /// No description provided for @planning_title_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'New excursion'**
+  String get planning_title_placeholder;
+
+  /// No description provided for @planning_title_error.
+  ///
+  /// In en, this message translates to:
+  /// **'Name must not be empty'**
+  String get planning_title_error;
+
+  /// No description provided for @planning_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Fill your day with places to visit'**
+  String get planning_description;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

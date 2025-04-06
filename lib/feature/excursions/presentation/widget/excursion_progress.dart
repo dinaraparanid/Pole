@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/funtions/distinct_state.dart';
 import 'package:pole/feature/excursions/presentation/bloc/mod.dart';
@@ -64,12 +65,18 @@ final class _ExcursionProgressState extends State<ExcursionProgress> with Single
       ),
       builder: (context, state) => AnimatedBuilder(
         animation: _progressAnimation,
-        builder: (context, _) => CustomPaint(
-          size: Size(size.width, _progressMinHeight),
-          painter: ExcursionProgressPainter(
-            progress: _progressAnimation.value,
-            theme: theme,
-            strings: strings,
+        builder: (context, _) => FutureBuilder(
+          future: vg.loadPicture(
+            SvgAssetLoader(AppImages.loadSvg('ic_check').value), null
+          ),
+          builder: (context, icCheck) => CustomPaint(
+            size: Size(size.width, _progressMinHeight),
+            painter: ExcursionProgressPainter(
+              progress: _progressAnimation.value,
+              icCheck: icCheck.data,
+              theme: theme,
+              strings: strings,
+            ),
           ),
         ),
       ),

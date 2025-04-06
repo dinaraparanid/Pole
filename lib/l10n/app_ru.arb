@@ -42,5 +42,9 @@
   "date_selection_city_warning": "Тестируем только в г. Иннополис.\nПостепенно добавим новые города",
   "date_selection_date_time_label": "Дата и время",
   "date_selection_date_time_placeholder": "Выберите дату...",
-  "date_selection_popular_excursions": "Популярные экскурсии"
+  "date_selection_popular_excursions": "Популярные экскурсии",
+
+  "planning_title_placeholder": "Новая экскурсия",
+  "planning_title_error": "Имя не может быть пустым",
+  "planning_description": "Заполните ваш день местами для посещения"
 }

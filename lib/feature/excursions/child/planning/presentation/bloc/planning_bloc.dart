@@ -1,5 +1,7 @@
+import 'package:dartx/dartx.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/domain/city/entity/city.dart';
+import 'package:pole/core/domain/text/text_change_use_case.dart';
 import 'package:pole/feature/excursions/child/planning/domain/change_place_category_selection_use_case.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/planning_event.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/planning_state.dart';
@@ -9,6 +11,7 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState> {
 
   PlanningBloc({
     required ChangePlaceCategorySelectionUseCase changePlaceCategorySelectionUseCase,
+    required TextChangeUseCase textChangeUseCase,
     required City city,
     required DateTime date,
     required void Function() onResult,
@@ -16,7 +19,12 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState> {
     super(PlanningState()) {
 
     on<ChangeExcursionName>((event, emit) {
-      emit(state.copyWith(excursionName: event.name));
+      textChangeUseCase.execute(
+        next: event.name,
+        errorPredicate: (txt) => txt.isBlank,
+        update: (textContainer) =>
+          emit(state.copyWith(excursionName: textContainer)),
+      );
     });
 
     on<ShowPlaceSelector>((event, emit) {

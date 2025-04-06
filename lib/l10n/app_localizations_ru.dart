@@ -118,4 +118,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get date_selection_popular_excursions => 'Популярные экскурсии';
+
+  @override
+  String get planning_title_placeholder => 'Новая экскурсия';
+
+  @override
+  String get planning_title_error => 'Имя не может быть пустым';
+
+  @override
+  String get planning_description => 'Заполните ваш день местами для посещения';
 }
