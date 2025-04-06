@@ -15,6 +15,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get continue_txt => 'Continue';
 
   @override
+  String get next => 'Next';
+
+  @override
   String get splash_title => 'Introducing Innopolis';
 
   @override

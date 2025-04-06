@@ -8,6 +8,7 @@ const _BlackOlive = Color(0xFF3F3F36);
 const _PineTree = Color(0xFF292924);
 const _PersianRed = Color(0xFFD73232);
 const _Ebony = Color(0xFF555549);
+const _DarkCharcoal = Color(0xFF34342D);
 const _TextPrimary = Colors.white;
 final _TextSecondary = Colors.white.withRatioOpacity(0.75);
 final _TextDisabled = Colors.white.withRatioOpacity(0.5);
@@ -84,9 +85,16 @@ final class AppUniqueComponentsColors {
   final Color excursionProgressPassed;
   final Color excursionProgressLeft;
 
+  final Color excursionTimetableBackground;
+  final Color excursionTimetableItemBackground;
+  final Color excursionTimetableBorder;
+
   const AppUniqueComponentsColors({
     this.excursionProgressActive = _DarkLemonLime,
     this.excursionProgressPassed = _MaximumGreen,
     this.excursionProgressLeft = _BlackOlive,
+    this.excursionTimetableBackground = _EerieBlack,
+    this.excursionTimetableItemBackground = _PineTree,
+    this.excursionTimetableBorder = _DarkCharcoal,
   });
 }

@@ -92,6 +92,7 @@ final class _AppTextFieldState extends State<AppTextField> {
             controller: controller,
             focusNode: focusNode,
             suffix: widget.suffix,
+            padding: EdgeInsets.zero,
             placeholder: widget.placeholder,
             placeholderStyle: theme.typography.h.h4.copyWith(
               color: theme.colors.text.disabled,

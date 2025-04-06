@@ -15,6 +15,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get continue_txt => 'Продолжить';
 
   @override
+  String get next => 'Далее';
+
+  @override
   String get splash_title => 'Познакомим с Иннополисом';
 
   @override

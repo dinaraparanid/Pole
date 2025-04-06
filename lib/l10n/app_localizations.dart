@@ -107,6 +107,12 @@ abstract class AppLocalizations {
   /// **'Continue'**
   String get continue_txt;
 
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
   /// No description provided for @splash_title.
   ///
   /// In en, this message translates to:
