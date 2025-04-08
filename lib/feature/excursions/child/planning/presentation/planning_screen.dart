@@ -6,7 +6,7 @@ import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/general.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/widget/excursion_name_field.dart';
-import 'package:pole/feature/excursions/child/planning/presentation/widget/excursions_timetable.dart';
+import 'package:pole/feature/excursions/child/planning/presentation/widget/timetable/excursions_timetable.dart';
 
 final class PlanningScreen extends StatelessWidget {
   final PlanningBloc bloc;
@@ -53,7 +53,9 @@ final class PlanningScreen extends StatelessWidget {
             SizedBox(height: theme.dimensions.padding.large),
 
             CommonPadding(
-              child: ExcursionsTimetable()
+              child: ExcursionsTimetable(
+                onEvent: bloc.add,
+              )
             ),
 
             SizedBox(height: theme.dimensions.padding.large),
@@ -79,6 +81,8 @@ final class PlanningScreen extends StatelessWidget {
                 ),
               ),
             ),
+
+            SizedBox(height: theme.dimensions.padding.big),
           ],
         ),
       ),
