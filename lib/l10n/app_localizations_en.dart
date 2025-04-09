@@ -130,4 +130,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get planning_description => 'Fill your day with places to visit';
+
+  @override
+  String get planning_sheet_title => 'New place';
+
+  @override
+  String get planning_sheet_catalog => 'Catalog';
 }

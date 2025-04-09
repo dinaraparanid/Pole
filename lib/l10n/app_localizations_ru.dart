@@ -130,4 +130,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get planning_description => 'Заполните ваш день местами для посещения';
+
+  @override
+  String get planning_sheet_title => 'Новое место';
+
+  @override
+  String get planning_sheet_catalog => 'Каталог';
 }

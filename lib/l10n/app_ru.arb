@@ -47,5 +47,7 @@
 
   "planning_title_placeholder": "Новая экскурсия",
   "planning_title_error": "Имя не может быть пустым",
-  "planning_description": "Заполните ваш день местами для посещения"
+  "planning_description": "Заполните ваш день местами для посещения",
+  "planning_sheet_title": "Новое место",
+  "planning_sheet_catalog": "Каталог"
 }

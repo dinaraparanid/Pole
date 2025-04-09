@@ -47,5 +47,7 @@
 
   "planning_title_placeholder": "New excursion",
   "planning_title_error": "Name must not be empty",
-  "planning_description": "Fill your day with places to visit"
+  "planning_description": "Fill your day with places to visit",
+  "planning_sheet_title": "New place",
+  "planning_sheet_catalog": "Catalog"
 }

@@ -340,6 +340,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Fill your day with places to visit'**
   String get planning_description;
+
+  /// No description provided for @planning_sheet_title.
+  ///
+  /// In en, this message translates to:
+  /// **'New place'**
+  String get planning_sheet_title;
+
+  /// No description provided for @planning_sheet_catalog.
+  ///
+  /// In en, this message translates to:
+  /// **'Catalog'**
+  String get planning_sheet_catalog;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
