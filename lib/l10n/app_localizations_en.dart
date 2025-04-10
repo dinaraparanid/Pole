@@ -18,6 +18,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get next => 'Next';
 
   @override
+  String get failed_to_load => 'Failed to load';
+
+  @override
+  String get try_again => 'Try again';
+
+  @override
   String get splash_title => 'Introducing Innopolis';
 
   @override

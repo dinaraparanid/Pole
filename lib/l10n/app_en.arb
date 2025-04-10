@@ -2,6 +2,8 @@
   "app_name": "Pole",
   "continue_txt": "Continue",
   "next": "Next",
+  "failed_to_load": "Failed to load",
+  "try_again": "Try again",
 
   "splash_title": "Introducing Innopolis",
   "splash_description": "Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.",

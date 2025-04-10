@@ -8,23 +8,14 @@ final class ChangeExcursionName extends PlanningEvent {
 }
 
 final class ShowPlaceSelector extends PlanningEvent {
-  final DateTime startDate;
-  ShowPlaceSelector({required this.startDate});
-}
-
-final class ChangePlaceCategorySelection extends PlanningEvent {
-  final PlaceCategory category;
-  ChangePlaceCategorySelection({required this.category});
+  final DateTime startTime;
+  ShowPlaceSelector({required this.startTime});
 }
 
 final class SelectPlace extends PlanningEvent {
   final VisitPlace place;
   SelectPlace({required this.place});
 }
-
-final class SetVisitDuration extends PlanningEvent {}
-
-final class ConfirmPlace extends PlanningEvent {}
 
 final class RemovePlace extends PlanningEvent {}
 

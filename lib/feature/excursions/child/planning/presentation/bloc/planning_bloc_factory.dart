@@ -1,25 +1,25 @@
 import 'package:pole/core/domain/city/entity/city.dart';
 import 'package:pole/core/domain/text/text_change_use_case.dart';
-import 'package:pole/feature/excursions/child/planning/domain/change_place_category_selection_use_case.dart';
+import 'package:pole/feature/excursions/child/planning/child/place_selector/presentation/bloc/place_selector_bloc_factory.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/planning_bloc.dart';
 
 final class PlanningBlocFactory {
-  final ChangePlaceCategorySelectionUseCase _changePlaceCategorySelectionUseCase;
   final TextChangeUseCase _textChangeUseCase;
+  final PlaceSelectorBlocFactory _placeSelectorBlocFactory;
 
   PlanningBlocFactory({
-    required ChangePlaceCategorySelectionUseCase changePlaceCategorySelectionUseCase,
     required TextChangeUseCase textChangeUseCase,
-  }) : _changePlaceCategorySelectionUseCase = changePlaceCategorySelectionUseCase,
-    _textChangeUseCase = textChangeUseCase;
+    required PlaceSelectorBlocFactory placeSelectorBlocFactory,
+  }) : _textChangeUseCase = textChangeUseCase,
+    _placeSelectorBlocFactory = placeSelectorBlocFactory;
 
   PlanningBloc create({
     required City city,
     required DateTime date,
     required void Function() onResult,
   }) => PlanningBloc(
-    changePlaceCategorySelectionUseCase: _changePlaceCategorySelectionUseCase,
     textChangeUseCase: _textChangeUseCase,
+    placeSelectorBlocFactory: _placeSelectorBlocFactory,
     city: city,
     date: date,
     onResult: onResult,

@@ -1,7 +1,7 @@
 import 'package:dartx/dartx.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
 
-final class ChangePlaceCategorySelectionUseCase {
+final class SelectCategoryUseCase {
   void execute({
     required PlaceCategory category,
     required List<PlaceCategory> currentSelected,

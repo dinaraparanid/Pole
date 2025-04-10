@@ -46,7 +46,7 @@ final class TimetableItem extends StatelessWidget {
             alignment: Alignment.center,
             child: InkWell(
               onTap: () => switch (place) {
-                null => onEvent(ShowPlaceSelector(startDate: time)),
+                null => onEvent(ShowPlaceSelector(startTime: time)),
                 _ => onEvent(RemovePlace()),
               },
               child: SvgPicture.asset(

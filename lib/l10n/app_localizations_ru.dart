@@ -18,6 +18,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get next => 'Далее';
 
   @override
+  String get failed_to_load => 'Не получилось загрузить';
+
+  @override
+  String get try_again => 'Повторить';
+
+  @override
   String get splash_title => 'Познакомим с Иннополисом';
 
   @override

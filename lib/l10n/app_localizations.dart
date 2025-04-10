@@ -113,6 +113,18 @@ abstract class AppLocalizations {
   /// **'Next'**
   String get next;
 
+  /// No description provided for @failed_to_load.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load'**
+  String get failed_to_load;
+
+  /// No description provided for @try_again.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get try_again;
+
   /// No description provided for @splash_title.
   ///
   /// In en, this message translates to:
