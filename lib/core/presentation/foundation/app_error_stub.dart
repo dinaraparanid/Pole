@@ -13,6 +13,7 @@ final class AppErrorStub extends StatelessWidget {
     final strings = context.strings;
 
     return Column(
+      mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [

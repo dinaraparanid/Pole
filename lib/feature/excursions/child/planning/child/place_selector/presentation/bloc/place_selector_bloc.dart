@@ -36,3 +36,9 @@ final class PlaceSelectorBloc extends Bloc<PlaceSelectorEvent, PlaceSelectorStat
     });
   }
 }
+
+List<PlaceCategory> _contentStub() => [
+  PlaceCategory(id: 0, name: 'Еда'),
+  PlaceCategory(id: 0, name: 'Развлечения'),
+  PlaceCategory(id: 0, name: 'ТЦ'),
+];
