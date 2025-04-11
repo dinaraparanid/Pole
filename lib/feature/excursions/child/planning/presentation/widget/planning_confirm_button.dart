@@ -29,7 +29,6 @@ final class PlanningConfirmButton extends StatelessWidget {
             strings.next,
             style: theme.typography.h.h3.copyWith(
               color: theme.colors.text.primary,
-              fontWeight: FontWeight.w700,
             ),
           ),
         ),

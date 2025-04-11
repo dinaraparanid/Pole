@@ -35,7 +35,6 @@ final class TimetableItem extends StatelessWidget {
               time.toAppTimeFormat(),
               style: theme.typography.caption.copyWith(
                 color: theme.colors.text.primary,
-                fontWeight: FontWeight.w700,
               ),
             ),
           ),

@@ -29,7 +29,6 @@ final class AppErrorStub extends StatelessWidget {
           strings.failed_to_load,
           style: theme.typography.body.copyWith(
             color: theme.colors.text.primary,
-            fontWeight: FontWeight.w700,
           ),
         ),
 

@@ -85,7 +85,7 @@ final class _AppOutlineTextFieldState extends State<AppOutlineTextField> {
     );
 
   BorderRadius borderRadius(AppTheme theme) =>
-    BorderRadius.all(Radius.circular(theme.dimensions.radius.small));
+    BorderRadius.circular(theme.dimensions.radius.small);
 
   Widget CupertinoUi({required AppTheme theme}) => Column(
     mainAxisSize: MainAxisSize.min,

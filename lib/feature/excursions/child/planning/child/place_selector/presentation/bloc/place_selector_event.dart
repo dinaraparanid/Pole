@@ -4,9 +4,16 @@ sealed class PlaceSelectorEvent {}
 
 final class LoadCategories extends PlaceSelectorEvent {}
 
+final class LoadNextPlacesPage extends PlaceSelectorEvent {}
+
 final class SelectCategory extends PlaceSelectorEvent {
-  final PlaceCategory category;
-  SelectCategory({required this.category});
+  final PlaceCategoryId id;
+  SelectCategory({required this.id});
+}
+
+final class SelectPlace extends PlaceSelectorEvent {
+  final VisitPlace place;
+  SelectPlace({required this.place});
 }
 
 final class SetVisitDuration extends PlaceSelectorEvent {}

@@ -18,27 +18,31 @@ final class PlaceSelectorScreen extends StatelessWidget {
 
     return BlocBuilder<PlaceSelectorBloc, PlaceSelectorState>(
       builder: (context, state) => Expanded(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: theme.dimensions.padding.extraMedium,
-          ),
-          child: switch (state.availableCategories) {
-            Initial<List<PlaceCategory>>() ||
-            Loading<List<PlaceCategory>>() ||
-            Refreshing<List<PlaceCategory>>() =>
-              AppProgressIndicator(),
+        child: switch (state.availableCategories) {
+          Initial<List<PlaceCategory>>() ||
+          Loading<List<PlaceCategory>>() ||
+          Refreshing<List<PlaceCategory>>() =>
+            AppProgressIndicator(),
 
-            Data<List<PlaceCategory>>(value: []) ||
-            Error<List<PlaceCategory>>() =>
-              AppErrorStub(retry: () => onEvent(LoadCategories())),
+          Data<List<PlaceCategory>>(value: []) ||
+          Error<List<PlaceCategory>>() =>
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: theme.dimensions.padding.extraMedium,
+              ),
+              child: AppErrorStub(retry: () => onEvent(LoadCategories())),
+            ),
 
-            Data<List<PlaceCategory>>(value: final categories) =>
-              PlaceSelectorContent(availableCategories: categories),
+          Data<List<PlaceCategory>>(value: final categories) =>
+            PlaceSelectorContent(
+              availableCategories: categories,
+              selectedCategories: state.selectedCategories,
+              onEvent: onEvent,
+            ),
 
-            Success<List<PlaceCategory>>() =>
-              throw StateError('Invalid state: Success'),
-          },
-        ),
+          Success<List<PlaceCategory>>() =>
+            throw StateError('Invalid state: Success'),
+        },
       ),
     );
   }

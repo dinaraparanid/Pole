@@ -16,7 +16,7 @@ final class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppTheme();
+    final theme = const AppTheme();
 
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 

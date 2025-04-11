@@ -13,9 +13,7 @@ final class ExcursionsTimetable extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = context.appTheme;
 
-    final borderRadius = BorderRadius.all(
-      Radius.circular(theme.dimensions.radius.small),
-    );
+    final borderRadius = BorderRadius.circular(theme.dimensions.radius.small);
 
     return BlocBuilder<PlanningBloc, PlanningState>(
       builder: (context, state) => Container(

@@ -1,26 +1,12 @@
-import 'package:dartx/dartx.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
 
 final class SelectCategoryUseCase {
   void execute({
-    required PlaceCategory category,
-    required List<PlaceCategory> currentSelected,
-    required void Function(List<PlaceCategory>) updateSelection,
-  }) {
-    final wasCategorySelected = currentSelected.firstOrNullWhere((cat) =>
-      cat.id == category.id
-    ) != null;
-
-    switch (wasCategorySelected) {
-      case true:
-        updateSelection(
-          currentSelected
-            .where((cat) => cat.id != category.id)
-            .toList(growable: false)
-        );
-
-      case false:
-        updateSelection(currentSelected..add(category));
-    }
-  }
+    required PlaceCategoryId categoryId,
+    required Set<PlaceCategoryId> currentSelected,
+    required void Function(Set<PlaceCategoryId>) updateSelection,
+  }) => switch (currentSelected.contains(categoryId)) {
+    true => updateSelection(currentSelected..remove(categoryId)),
+    false => updateSelection(currentSelected..add(categoryId)),
+  };
 }

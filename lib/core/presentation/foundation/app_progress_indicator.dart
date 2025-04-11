@@ -8,15 +8,17 @@ final class AppProgressIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = context.appTheme;
 
-    return SizedBox(
-      width: theme.dimensions.size.medium,
-      height: theme.dimensions.size.medium,
-      child: FittedBox(
-        child: CircularProgressIndicator.adaptive(
-          backgroundColor: theme.colors.primary,
-          valueColor: AlwaysStoppedAnimation(theme.colors.primary),
+    return Wrap(children: [
+      SizedBox(
+        width: theme.dimensions.size.medium,
+        height: theme.dimensions.size.medium,
+        child: FittedBox(
+          child: CircularProgressIndicator.adaptive(
+            backgroundColor: theme.colors.primary,
+            valueColor: AlwaysStoppedAnimation(theme.colors.primary),
+          ),
         ),
-      ),
-    );
+      )
+    ]);
   }
 }

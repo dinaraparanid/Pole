@@ -133,9 +133,7 @@ final class _AppTextFieldState extends State<AppTextField> {
         ),
       ),
       errorBorder: UnderlineInputBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(theme.dimensions.radius.small),
-        ),
+        borderRadius: BorderRadius.circular(theme.dimensions.radius.small),
         borderSide: BorderSide(
           color: theme.colors.error,
           width: theme.dimensions.size.line.minimum,

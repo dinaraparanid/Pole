@@ -52,7 +52,6 @@ final class PlanningScreen extends StatelessWidget {
                   strings.planning_description,
                   style: theme.typography.body.copyWith(
                     color: theme.colors.text.secondary,
-                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),

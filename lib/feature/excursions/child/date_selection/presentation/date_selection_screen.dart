@@ -32,7 +32,6 @@ final class DateSelectionScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: theme.typography.h.h3.copyWith(
                     color: theme.colors.text.primary,
-                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -45,7 +44,6 @@ final class DateSelectionScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: theme.typography.body.copyWith(
                     color: theme.colors.text.secondary,
-                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -84,7 +82,6 @@ final class DateSelectionScreen extends StatelessWidget {
                       strings.continue_txt,
                       style: theme.typography.h.h3.copyWith(
                         color: theme.colors.text.primary,
-                        fontWeight: FontWeight.w700,
                       ),
                     ),
                   ),

@@ -23,7 +23,6 @@ Future<void> showPlaceSelectorBottomSheet({
             strings.planning_sheet_title,
             style: theme.typography.h.h3.copyWith(
               color: theme.colors.text.primary,
-              fontWeight: FontWeight.w700,
             ),
           ),
 

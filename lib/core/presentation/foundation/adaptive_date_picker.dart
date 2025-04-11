@@ -35,18 +35,15 @@ void _showMaterialDatePicker({
         textTheme: TextTheme(
           headlineLarge: theme.typography.h.h2.copyWith(
             color: theme.colors.text.secondary,
-            fontWeight: FontWeight.w700,
           ),
           titleLarge: theme.typography.h.h4.copyWith(
             color: theme.colors.text.secondary,
-            fontWeight: FontWeight.w700,
           ),
           bodyLarge: theme.typography.regular.copyWith(
             color: theme.colors.text.secondary,
-            fontWeight: FontWeight.w700,
           ),
           labelLarge: theme.typography.regular.copyWith(
-            fontWeight: FontWeight.w700,
+            color: theme.colors.text.secondary,
           ),
         ),
         textSelectionTheme: TextSelectionThemeData(
@@ -87,7 +84,6 @@ void _showCupertinoDatePicker({
           textTheme: CupertinoTextThemeData(
             dateTimePickerTextStyle: theme.typography.regular.copyWith(
               color: theme.colors.text.primary,
-              fontWeight: FontWeight.w700,
             )
           )
         ),

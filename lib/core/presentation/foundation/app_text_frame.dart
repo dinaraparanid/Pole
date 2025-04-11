@@ -32,9 +32,7 @@ final class AppTextFrame extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: theme.colors.text.background,
-          borderRadius: BorderRadius.all(
-            Radius.circular(theme.dimensions.radius.small),
-          ),
+          borderRadius: BorderRadius.circular(theme.dimensions.radius.small),
           border: Border.all(
             color: theme.colors.text.unfocused,
             width: theme.dimensions.size.line.small,
