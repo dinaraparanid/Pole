@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 
 final class AppButton extends StatelessWidget {
-  final Widget child;
+  final String text;
   final bool enabled;
   final Color? enabledColor;
   final Color? disabledColor;
@@ -10,11 +10,11 @@ final class AppButton extends StatelessWidget {
 
   const AppButton({
     super.key,
+    required this.text,
     required this.onClick,
     this.enabled = true,
     this.enabledColor,
     this.disabledColor,
-    required this.child,
   });
 
   @override
@@ -25,12 +25,28 @@ final class AppButton extends StatelessWidget {
       onPressed: enabled ? onClick : null,
       style: FilledButton.styleFrom(
         backgroundColor: enabledColor ?? theme.colors.button.primary,
-        disabledBackgroundColor: disabledColor ?? theme.colors.button.secondary,
+        foregroundColor: theme.colors.text.primary,
+        disabledBackgroundColor: disabledColor ?? theme.colors.button.disabled,
+        disabledForegroundColor: theme.colors.text.disabled,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(theme.dimensions.radius.small),
         )
       ),
-      child: child,
+      child: Container(
+        alignment: Alignment.center,
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(
+          vertical: theme.dimensions.padding.small,
+          horizontal: theme.dimensions.padding.large,
+        ),
+        child: FittedBox(
+          fit: BoxFit.fitWidth,
+          child: Text(
+            text,
+            style: theme.typography.h.h3,
+          ),
+        ),
+      ),
     );
   }
 }

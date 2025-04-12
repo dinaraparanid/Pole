@@ -25,14 +25,7 @@ final class AppClickable extends StatelessWidget {
         onTap: onClick,
         customBorder: border,
         splashColor: rippleColor ?? theme.colors.button.ripple,
-        child: Ink(
-          child: IgnorePointer(
-            child: Padding(
-              padding: EdgeInsets.all(theme.dimensions.size.minimum),
-              child: child,
-            ),
-          ),
-        ),
+        child: Ink(child: IgnorePointer(child: child)),
       ),
     );
   }

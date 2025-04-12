@@ -18,16 +18,28 @@ class AppLocalizationsEn extends AppLocalizations {
   String get next => 'Next';
 
   @override
+  String get confirm => 'Confirm';
+
+  @override
   String get failed_to_load => 'Failed to load';
+
+  @override
+  String get not_found => 'Nothing was found :(';
+
+  @override
+  String get not_found_filters => 'According to your filters, nothing was found :(';
 
   @override
   String get try_again => 'Try again';
 
   @override
+  String get reset_filters => 'Reset filters';
+
+  @override
   String get splash_title => 'Introducing Innopolis';
 
   @override
-  String get splash_description => 'Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.';
+  String get splash_description => 'Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.';
 
   @override
   String get splash_sign_up => 'Begin journey';
@@ -54,10 +66,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get auth_confirm_password => 'Confirm password';
 
   @override
-  String get auth_name_empty => 'The name is required to fill in';
+  String get auth_name_empty => 'The name is required to fill in';
 
   @override
-  String get auth_email_empty => 'The email is required to fill in';
+  String get auth_email_empty => 'The email is required to fill in';
 
   @override
   String get auth_password_weak => 'The password must be at least 8 characters long.';
@@ -81,7 +93,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sign_in_title => 'Authorization';
 
   @override
-  String get sign_in_description => 'To continue, log in to your account.';
+  String get sign_in_description => 'To continue, log in to your account.';
 
   @override
   String get sign_in_go_sign_up_label => 'No account?';
@@ -142,4 +154,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get planning_sheet_catalog => 'Catalog';
+
+  @override
+  String get planning_dialog_title => 'Provide information about the visit';
+
+  @override
+  String get planning_dialog_duration_label => 'Duration of the visit (in hours)';
+
+  @override
+  String get planning_dialog_duration_error_invalid_input => 'Specify a positive number';
+
+  @override
+  String get planning_dialog_duration_error_too_long => 'Duration is too long';
 }

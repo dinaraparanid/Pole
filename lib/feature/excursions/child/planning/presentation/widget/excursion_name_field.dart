@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pole/core/presentation/foundation/app_text_field.dart';
+import 'package:pole/core/presentation/foundation/text/app_text_field.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/mod.dart';
 

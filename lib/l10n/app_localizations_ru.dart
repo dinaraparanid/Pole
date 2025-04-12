@@ -18,10 +18,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get next => 'Далее';
 
   @override
+  String get confirm => 'Подтвердить';
+
+  @override
   String get failed_to_load => 'Не получилось загрузить';
 
   @override
+  String get not_found => 'Ничего не нашлось :(';
+
+  @override
+  String get not_found_filters => 'Согласно вашим фильтрам\nничего не нашлось :(';
+
+  @override
   String get try_again => 'Повторить';
+
+  @override
+  String get reset_filters => 'Сбросить фильтры';
 
   @override
   String get splash_title => 'Познакомим с Иннополисом';
@@ -142,4 +154,16 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get planning_sheet_catalog => 'Каталог';
+
+  @override
+  String get planning_dialog_title => 'Укажите информацию о посещении';
+
+  @override
+  String get planning_dialog_duration_label => 'Длительность посещения (в часах)';
+
+  @override
+  String get planning_dialog_duration_error_invalid_input => 'Укажите положительное число';
+
+  @override
+  String get planning_dialog_duration_error_too_long => 'Длительность слишком велика';
 }

@@ -10,30 +10,13 @@ final class ConfirmButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.appTheme;
     final strings = context.strings;
 
     return BlocBuilder<SignUpBloc, SignUpState>(
       builder: (context, state) => AppButton(
+        text: strings.auth_sign_up,
         onClick: onClick,
         enabled: state.isConfirmButtonEnabled,
-        child: Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(
-            vertical: theme.dimensions.padding.small,
-            horizontal: theme.dimensions.padding.large,
-          ),
-          child: FittedBox(
-            fit: BoxFit.fitWidth,
-            child: Text(
-              strings.auth_sign_up,
-              style: theme.typography.h.h3.copyWith(
-                color: theme.colors.text.primary,
-              ),
-            ),
-          ),
-        ),
       ),
     );
   }

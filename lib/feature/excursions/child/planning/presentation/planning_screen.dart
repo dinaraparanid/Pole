@@ -30,6 +30,9 @@ final class PlanningScreen extends StatelessWidget {
         listener: (context, effect) => switch (effect) {
           ShowPlaceSelectorBottomSheet() =>
             showPlaceSelectorBottomSheet(context: context, bloc: effect.bloc),
+
+          HidePlaceSelectorBottomSheet() =>
+            Navigator.of(context, rootNavigator: true).pop(),
         },
         child: BlocBuilder<PlanningBloc, PlanningState>(
           builder: (context, state) => Column(

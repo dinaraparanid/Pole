@@ -40,7 +40,9 @@ final class CategoryItem extends StatelessWidget {
             child: Text(
               category.name,
               style: theme.typography.captionSm.copyWith(
-                color: theme.colors.text.primary,
+                color: isSelected
+                  ? theme.colors.primary
+                  : theme.colors.text.primary,
               ),
             ),
           ),

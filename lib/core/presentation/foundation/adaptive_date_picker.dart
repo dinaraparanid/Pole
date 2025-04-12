@@ -89,6 +89,7 @@ void _showCupertinoDatePicker({
         ),
         child: CupertinoDatePicker(
           initialDateTime: selectedDateTime,
+          minimumDate: DateTime.now(),
           backgroundColor: theme.colors.navigationBar.background,
           mode: CupertinoDatePickerMode.date,
           onDateTimeChanged: onDatePicked,

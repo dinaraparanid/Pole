@@ -2,11 +2,15 @@
   "app_name": "Pole",
   "continue_txt": "Continue",
   "next": "Next",
+  "confirm": "Confirm",
   "failed_to_load": "Failed to load",
+  "not_found": "Nothing was found :(",
+  "not_found_filters": "According to your filters, nothing was found :(",
   "try_again": "Try again",
+  "reset_filters": "Reset filters",
 
   "splash_title": "Introducing Innopolis",
-  "splash_description": "Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.",
+  "splash_description": "Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.",
   "splash_sign_up": "Begin journey",
   "splash_sign_in": "Sign In",
 
@@ -16,8 +20,8 @@
   "auth_enter_email": "Enter email",
   "auth_enter_password": "Enter password",
   "auth_confirm_password": "Confirm password",
-  "auth_name_empty": "The name is required to fill in",
-  "auth_email_empty": "The email is required to fill in",
+  "auth_name_empty": "The name is required to fill in",
+  "auth_email_empty": "The email is required to fill in",
   "auth_password_weak": "The password must be at least 8 characters long.",
   "auth_password_not_match": "Passwords don't match",
   "auth_invalid_credentials": "Invalid login or password",
@@ -27,7 +31,7 @@
   "sign_up_go_sign_in_label": "Already have an account?",
 
   "sign_in_title": "Authorization",
-  "sign_in_description": "To continue, log in to your account.",
+  "sign_in_description": "To continue, log in to your account.",
   "sign_in_go_sign_up_label": "No account?",
 
   "main_tab_catalog": "Catalog",
@@ -51,5 +55,10 @@
   "planning_title_error": "Name must not be empty",
   "planning_description": "Fill your day with places to visit",
   "planning_sheet_title": "New place",
-  "planning_sheet_catalog": "Catalog"
+  "planning_sheet_catalog": "Catalog",
+
+  "planning_dialog_title": "Provide information about the visit",
+  "planning_dialog_duration_label": "Duration of the visit (in hours)",
+  "planning_dialog_duration_error_invalid_input": "Specify a positive number",
+  "planning_dialog_duration_error_too_long": "Duration is too long"
 }

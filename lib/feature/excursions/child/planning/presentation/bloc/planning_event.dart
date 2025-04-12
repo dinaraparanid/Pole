@@ -1,4 +1,4 @@
-import 'package:pole/core/domain/visit_place/entity/mod.dart';
+import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
 
 sealed class PlanningEvent {}
 
@@ -13,8 +13,8 @@ final class ShowPlaceSelector extends PlanningEvent {
 }
 
 final class SelectPlace extends PlanningEvent {
-  final VisitPlace place;
-  SelectPlace({required this.place});
+  final Visitation visitation;
+  SelectPlace({required this.visitation});
 }
 
 final class RemovePlace extends PlanningEvent {}

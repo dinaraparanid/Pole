@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
-import 'package:pole/core/presentation/foundation/app_error_stub.dart';
+import 'package:pole/core/presentation/foundation/stub/mod.dart';
 import 'package:pole/core/presentation/foundation/app_progress_indicator.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/paging_state_ext.dart';
@@ -12,6 +12,8 @@ import 'package:pole/feature/excursions/child/planning/child/place_selector/pres
 final class PlacesPagingList extends StatelessWidget {
   final void Function(PlaceSelectorEvent) onEvent;
   const PlacesPagingList({super.key, required this.onEvent});
+
+  void loadNextPage() => onEvent(LoadNextPlacesPage());
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,8 @@ final class PlacesPagingList extends StatelessWidget {
               child: PagedListView<int, VisitPlace>.separated(
                 state: state.pagingState,
                 physics: state.pagingState.scrollPhysics,
-                fetchNextPage: () => onEvent(LoadNextPlacesPage()),
+                fetchNextPage: loadNextPage,
+                padding: EdgeInsets.zero,
                 builderDelegate: PagedChildBuilderDelegate(
                   firstPageProgressIndicatorBuilder: (context) =>
                     Stack(
@@ -49,9 +52,12 @@ final class PlacesPagingList extends StatelessWidget {
                       children: [AppProgressIndicator()],
                     ),
                   firstPageErrorIndicatorBuilder: (context) =>
-                    AppErrorStub(retry: () => onEvent(LoadNextPlacesPage())),
+                    AppErrorStub(retry: loadNextPage),
                   noItemsFoundIndicatorBuilder: (context) =>
-                    Text('TODO: No items found'),
+                    switch (state.isAnyCategorySelected) {
+                      true => AppEmptyFiltersStub(resetFilters: loadNextPage),
+                      false => AppEmptyStub(retry: loadNextPage),
+                    },
                   itemBuilder: (context, item, index) => PlaceItem(
                     key: ValueKey(item.id),
                     place: item,

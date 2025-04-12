@@ -2,8 +2,12 @@
   "app_name": "Pole",
   "continue_txt": "Продолжить",
   "next": "Далее",
+  "confirm": "Подтвердить",
   "failed_to_load": "Не получилось загрузить",
+  "not_found": "Ничего не нашлось :(",
+  "not_found_filters": "Согласно вашим фильтрам\nничего не нашлось :(",
   "try_again": "Повторить",
+  "reset_filters": "Сбросить фильтры",
 
   "splash_title": "Познакомим с Иннополисом",
   "splash_description": "Подберите гида, места для посещения и удобное вам время.\nДружим с ведущими гидами Иннополиса.",
@@ -51,5 +55,10 @@
   "planning_title_error": "Имя не может быть пустым",
   "planning_description": "Заполните ваш день местами для посещения",
   "planning_sheet_title": "Новое место",
-  "planning_sheet_catalog": "Каталог"
+  "planning_sheet_catalog": "Каталог",
+
+  "planning_dialog_title": "Укажите информацию о посещении",
+  "planning_dialog_duration_label": "Длительность посещения (в часах)",
+  "planning_dialog_duration_error_invalid_input": "Укажите положительное число",
+  "planning_dialog_duration_error_too_long": "Длительность слишком велика"
 }

@@ -1,3 +1,4 @@
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
@@ -6,8 +7,8 @@ import 'package:pole/feature/excursions/child/planning/child/place_selector/pres
 import 'package:pole/feature/excursions/child/planning/child/place_selector/presentation/widget/places_paging_list.dart';
 
 final class PlaceSelectorContent extends StatelessWidget {
-  final List<PlaceCategory> availableCategories;
-  final Set<PlaceCategoryId> selectedCategories;
+  final IList<PlaceCategory> availableCategories;
+  final ISet<PlaceCategoryId> selectedCategories;
   final void Function(PlaceSelectorEvent) onEvent;
 
   const PlaceSelectorContent({

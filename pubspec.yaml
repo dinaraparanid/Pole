@@ -26,6 +26,7 @@ dependencies:
   dartx: ^1.2.0
   bloc_presentation: ^1.1.0
   infinite_scroll_pagination: ^5.0.0
+  fast_immutable_collections: ^11.0.4
 
 dev_dependencies:
   flutter_test:

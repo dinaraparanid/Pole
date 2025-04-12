@@ -69,22 +69,9 @@ final class DateSelectionScreen extends StatelessWidget {
 
               CommonPadding(
                 child: AppButton(
+                  text: strings.continue_txt,
                   enabled: state.isContinueButtonEnabled,
                   onClick: () => bloc.add(ContinueClick()),
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: double.infinity,
-                    padding: EdgeInsets.symmetric(
-                      vertical: theme.dimensions.padding.small,
-                      horizontal: theme.dimensions.padding.large,
-                    ),
-                    child: Text(
-                      strings.continue_txt,
-                      style: theme.typography.h.h3.copyWith(
-                        color: theme.colors.text.primary,
-                      ),
-                    ),
-                  ),
                 ),
               ),
 

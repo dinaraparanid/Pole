@@ -11,27 +11,13 @@ final class PlanningConfirmButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.appTheme;
     final strings = context.strings;
 
     return BlocBuilder<PlanningBloc, PlanningState>(
       builder: (context, state) => AppButton(
+        text: strings.next,
         enabled: state.isContinueButtonEnabled,
         onClick: () => onEvent(ConfirmDayPlan()),
-        child: Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(
-            vertical: theme.dimensions.padding.small,
-            horizontal: theme.dimensions.padding.large,
-          ),
-          child: Text(
-            strings.next,
-            style: theme.typography.h.h3.copyWith(
-              color: theme.colors.text.primary,
-            ),
-          ),
-        ),
       ),
     );
   }

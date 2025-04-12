@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pole/core/domain/city/entity/city.dart';
-import 'package:pole/core/presentation/foundation/app_text_frame.dart';
+import 'package:pole/core/presentation/foundation/text/app_text_frame.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 
 final class CityPicker extends StatelessWidget {

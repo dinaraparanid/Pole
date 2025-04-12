@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pole/core/presentation/foundation/app_outline_text_field.dart';
+import 'package:pole/core/presentation/foundation/text/app_outline_text_field.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/bloc/mod.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/widget/confirm_button.dart';

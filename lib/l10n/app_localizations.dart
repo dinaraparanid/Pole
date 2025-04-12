@@ -113,17 +113,41 @@ abstract class AppLocalizations {
   /// **'Next'**
   String get next;
 
+  /// No description provided for @confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get confirm;
+
   /// No description provided for @failed_to_load.
   ///
   /// In en, this message translates to:
   /// **'Failed to load'**
   String get failed_to_load;
 
+  /// No description provided for @not_found.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing was found :('**
+  String get not_found;
+
+  /// No description provided for @not_found_filters.
+  ///
+  /// In en, this message translates to:
+  /// **'According to your filters, nothing was found :('**
+  String get not_found_filters;
+
   /// No description provided for @try_again.
   ///
   /// In en, this message translates to:
   /// **'Try again'**
   String get try_again;
+
+  /// No description provided for @reset_filters.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset filters'**
+  String get reset_filters;
 
   /// No description provided for @splash_title.
   ///
@@ -134,7 +158,7 @@ abstract class AppLocalizations {
   /// No description provided for @splash_description.
   ///
   /// In en, this message translates to:
-  /// **'Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.'**
+  /// **'Choose a guide, places to visit and a convenient time for you.\nWe are friends with the leading guides of Innopolis.'**
   String get splash_description;
 
   /// No description provided for @splash_sign_up.
@@ -188,13 +212,13 @@ abstract class AppLocalizations {
   /// No description provided for @auth_name_empty.
   ///
   /// In en, this message translates to:
-  /// **'The name is required to fill in'**
+  /// **'The name is required to fill in'**
   String get auth_name_empty;
 
   /// No description provided for @auth_email_empty.
   ///
   /// In en, this message translates to:
-  /// **'The email is required to fill in'**
+  /// **'The email is required to fill in'**
   String get auth_email_empty;
 
   /// No description provided for @auth_password_weak.
@@ -242,7 +266,7 @@ abstract class AppLocalizations {
   /// No description provided for @sign_in_description.
   ///
   /// In en, this message translates to:
-  /// **'To continue, log in to your account.'**
+  /// **'To continue, log in to your account.'**
   String get sign_in_description;
 
   /// No description provided for @sign_in_go_sign_up_label.
@@ -364,6 +388,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Catalog'**
   String get planning_sheet_catalog;
+
+  /// No description provided for @planning_dialog_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Provide information about the visit'**
+  String get planning_dialog_title;
+
+  /// No description provided for @planning_dialog_duration_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration of the visit (in hours)'**
+  String get planning_dialog_duration_label;
+
+  /// No description provided for @planning_dialog_duration_error_invalid_input.
+  ///
+  /// In en, this message translates to:
+  /// **'Specify a positive number'**
+  String get planning_dialog_duration_error_invalid_input;
+
+  /// No description provided for @planning_dialog_duration_error_too_long.
+  ///
+  /// In en, this message translates to:
+  /// **'Duration is too long'**
+  String get planning_dialog_duration_error_too_long;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

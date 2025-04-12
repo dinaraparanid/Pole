@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pole/core/presentation/foundation/adaptive_date_picker.dart';
-import 'package:pole/core/presentation/foundation/app_text_frame.dart';
+import 'package:pole/core/presentation/foundation/text/app_text_frame.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/date_time.dart';
 

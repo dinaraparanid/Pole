@@ -34,44 +34,18 @@ final class SplashNode extends StatelessWidget {
         ),
 
         SizedBox(height: theme.dimensions.padding.large),
-        
+
         AppButton(
+          text: strings.splash_sign_up,
           onClick: () => onEvent(OnSignUpClick()),
-          child: Container(
-            alignment: Alignment.center,
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(
-              vertical: theme.dimensions.padding.small,
-              horizontal: theme.dimensions.padding.medium,
-            ),
-            child: Text(
-              strings.splash_sign_up,
-              style: theme.typography.h.h3.copyWith(
-                color: theme.colors.text.primary,
-              ),
-            ),
-          ),
         ),
 
         SizedBox(height: theme.dimensions.padding.medium),
 
         AppButton(
+          text: strings.splash_sign_in,
           onClick: () => onEvent(OnSignInClick()),
           enabledColor: theme.colors.button.secondary,
-          child: Container(
-            alignment: Alignment.center,
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(
-              vertical: theme.dimensions.padding.small,
-              horizontal: theme.dimensions.padding.large,
-            ),
-            child: Text(
-              strings.splash_sign_in,
-              style: theme.typography.h.h3.copyWith(
-                color: theme.colors.text.primary,
-              ),
-            ),
-          ),
         ),
       ],
     );

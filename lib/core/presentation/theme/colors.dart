@@ -5,6 +5,7 @@ const _EerieBlack = Color(0xFF1E1E1A);
 const _DarkLemonLime = Color(0xFF88C025);
 const _DarkLemonLime25 = Color(0x4088C025);
 const _DarkLemonLime50 = Color(0x8088C025);
+const _MaximumGreen = Color(0xFF657E38);
 const _BlackOlive = Color(0xFF3F3F36);
 const _PineTree = Color(0xFF292924);
 const _PersianRed = Color(0xFFD73232);
@@ -41,11 +42,13 @@ final class AppColors {
 final class AppButtonColors {
   final Color primary;
   final Color secondary;
+  final Color disabled;
   final Color ripple;
 
   const AppButtonColors({
     this.primary = _DarkLemonLime,
     this.secondary = _BlackOlive,
+    this.disabled = _DarkLemonLime25,
     this.ripple = _DarkLemonLime50,
   });
 }
@@ -97,7 +100,7 @@ final class AppUniqueComponentsColors {
 
   const AppUniqueComponentsColors({
     this.excursionProgressActive = _DarkLemonLime,
-    this.excursionProgressPassed = _DarkLemonLime50,
+    this.excursionProgressPassed = _MaximumGreen,
     this.excursionProgressLeft = _BlackOlive,
     this.excursionTimetableBackground = _EerieBlack,
     this.excursionTimetableItemBackground = _PineTree,

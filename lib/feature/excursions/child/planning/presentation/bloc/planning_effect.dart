@@ -6,3 +6,5 @@ final class ShowPlaceSelectorBottomSheet extends PlanningEffect {
   final PlaceSelectorBloc bloc;
   ShowPlaceSelectorBottomSheet({required this.bloc});
 }
+
+final class HidePlaceSelectorBottomSheet extends PlanningEffect {}
