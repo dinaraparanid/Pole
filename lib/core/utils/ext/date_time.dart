@@ -1,6 +1,6 @@
 extension DateTimeExt on DateTime {
   String toAppDateFormat() => '${day.zeroed}.${month.zeroed}.$year';
-  String toAppTimeFormat() => '${hour.zeroed}.${minute.zeroed}';
+  String toAppTimeFormat() => '${hour.zeroed}:${minute.zeroed}';
 }
 
 extension _DateFormat on int {

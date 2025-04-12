@@ -25,7 +25,7 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState>
     required void Function() onResult,
   }) : _onResult = onResult,
     _placeSelectorBlocFactory = placeSelectorBlocFactory,
-    super(PlanningState()) {
+    super(PlanningState(date: date)) {
 
     on<ChangeExcursionName>((event, emit) {
       textChangeUseCase.execute(
@@ -49,12 +49,12 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState>
     );
 
     on<SelectPlace>((event, emit) => emit(state.copyWith(
-      selectedPlaces: state.selectedPlaces.add(event.visitation).sort()
+      selectedPlaces: state.selectedPlaces.add(event.visitation).sort(),
     )));
 
-    on<RemovePlace>((event, emit) {
-      // TODO
-    });
+    on<RemovePlace>((event, emit) => emit(state.copyWith(
+      selectedPlaces: state.selectedPlaces.remove(event.visitation),
+    )));
 
     on<ConfirmDayPlan>((event, emit) {
       // TODO

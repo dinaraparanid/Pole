@@ -17,6 +17,9 @@ final class SelectPlace extends PlanningEvent {
   SelectPlace({required this.visitation});
 }
 
-final class RemovePlace extends PlanningEvent {}
+final class RemovePlace extends PlanningEvent {
+  final Visitation visitation;
+  RemovePlace({required this.visitation});
+}
 
 final class ConfirmDayPlan extends PlanningEvent {}

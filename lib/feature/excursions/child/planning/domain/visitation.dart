@@ -11,3 +11,7 @@ abstract class Visitation with _$Visitation {
     required Duration duration,
   }) = _Visitation;
 }
+
+extension Properties on Visitation {
+  DateTime get endTime => startTime.add(duration);
+}
