@@ -1,7 +1,9 @@
 import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:dartx/dartx.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/domain/city/entity/city.dart';
+import 'package:pole/core/domain/excursion/excursion.dart';
 import 'package:pole/core/domain/text/text_change_use_case.dart';
 import 'package:pole/feature/excursions/child/planning/child/place_selector/presentation/bloc/place_selector_bloc.dart';
 import 'package:pole/feature/excursions/child/planning/child/place_selector/presentation/bloc/place_selector_bloc_factory.dart';
@@ -14,7 +16,7 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState>
   with BlocPresentationMixin<PlanningState, PlanningEffect> {
 
   final PlaceSelectorBlocFactory _placeSelectorBlocFactory;
-  final void Function() _onResult;
+  final void Function(Excursion) _onResult;
 
   PlanningBloc({
     required PlaceSelectorBlocFactory placeSelectorBlocFactory,
@@ -22,7 +24,7 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState>
     required CalculateMaxVisitDurationUseCase calculateMaxVisitDurationUseCase,
     required City city,
     required DateTime date,
-    required void Function() onResult,
+    required void Function(Excursion) onResult,
   }) : _onResult = onResult,
     _placeSelectorBlocFactory = placeSelectorBlocFactory,
     super(PlanningState(date: date)) {
@@ -56,9 +58,13 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState>
       selectedPlaces: state.selectedPlaces.remove(event.visitation),
     )));
 
-    on<ConfirmDayPlan>((event, emit) {
-      // TODO
-    });
+    on<ConfirmDayPlan>((event, emit) => _onResult(
+      Excursion(
+        city: city,
+        excursionName: state.excursionName.value,
+        visitations: IList(state.produceTimetable().whereNotNull()),
+      ),
+    ));
   }
 
   PlaceSelectorBloc _createPlaceSelectorBloc({

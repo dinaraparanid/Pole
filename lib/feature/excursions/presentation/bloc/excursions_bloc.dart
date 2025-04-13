@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pole/core/domain/excursion/excursion.dart';
 import 'package:pole/feature/excursions/child/date_selection/presentation/bloc/mod.dart';
+import 'package:pole/feature/excursions/child/overview/presentation/bloc/overview_bloc.dart';
+import 'package:pole/feature/excursions/child/overview/presentation/bloc/overview_bloc_factory.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_event.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_state.dart';
@@ -13,20 +16,24 @@ import 'package:pole/feature/main/routing/main_extra.dart';
 final class ExcursionsBloc extends Bloc<ExcursionsEvent, ExcursionsState> {
   final DateSelectionBlocFactory _dateSelectionBlocFactory;
   final PlanningBlocFactory _planningBlocFactory;
+  final OverviewBlocFactory _overviewBlocFactory;
   final NavigateToExcursionStepUseCase _navigateToExcursionStepUseCase;
 
   StreamSubscription<ExcursionsStep>? _stepChangesListener;
 
   DateSelectionBloc? _dateSelectionBloc;
   PlanningBloc? _planningBloc;
+  OverviewBloc? _overviewBloc;
 
   ExcursionsBloc({
     required MainBloc mainBloc,
     required DateSelectionBlocFactory dateSelectionBlocFactory,
     required PlanningBlocFactory planningBlocFactory,
+    required OverviewBlocFactory overviewBlocFactory,
     required NavigateToExcursionStepUseCase navigateToExcursionStepUseCase,
   }) : _dateSelectionBlocFactory = dateSelectionBlocFactory,
     _planningBlocFactory = planningBlocFactory,
+    _overviewBlocFactory = overviewBlocFactory,
     _navigateToExcursionStepUseCase = navigateToExcursionStepUseCase,
     super(ExcursionsState()) {
 
@@ -36,6 +43,9 @@ final class ExcursionsBloc extends Bloc<ExcursionsEvent, ExcursionsState> {
 
       _planningBloc?.close();
       _planningBloc = null;
+
+      _overviewBloc?.close();
+      _overviewBloc = null;
 
       emit(state.copyWith(step: event.step));
     });
@@ -67,6 +77,7 @@ final class ExcursionsBloc extends Bloc<ExcursionsEvent, ExcursionsState> {
 
         Overview() => ExcursionsExtra(
           excursionsBloc: this,
+          overviewBloc: _overviewBloc,
         ),
       },
     );
@@ -89,6 +100,7 @@ final class ExcursionsBloc extends Bloc<ExcursionsEvent, ExcursionsState> {
       excursionsBloc: this,
       dateSelectionBlocFactory: () => _dateSelectionBloc!,
       planningBlocFactory: () => _planningBloc!,
+      overviewBlocFactory: () => _overviewBloc!,
     );
   }
 
@@ -108,15 +120,18 @@ final class ExcursionsBloc extends Bloc<ExcursionsEvent, ExcursionsState> {
         _planningBloc = _planningBlocFactory.create(
           city: step.city,
           date: step.date,
-          onResult: () => add(UpdateStep(
-            step: ExcursionsStep.overview(
-              city: step.city,
-              date: step.date,
-            ),
+          onResult: (excursion) => add(UpdateStep(
+            step: ExcursionsStep.overview(excursion: excursion),
           )),
         );
 
-      case Overview(): // TODO
+      case Overview():
+        _overviewBloc = _overviewBlocFactory.create(
+          excursion: step.excursion,
+          onResult: () {
+            // TODO
+          }
+        );
     }
   }
 }

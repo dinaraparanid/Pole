@@ -1,4 +1,5 @@
 import 'package:pole/feature/excursions/child/date_selection/presentation/bloc/date_selection_bloc.dart';
+import 'package:pole/feature/excursions/child/overview/presentation/bloc/overview_bloc.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/planning_bloc.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_bloc.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_step.dart';
@@ -17,6 +18,7 @@ final class NavigateToExcursionStepUseCase {
     required ExcursionsBloc excursionsBloc,
     required DateSelectionBloc Function() dateSelectionBlocFactory,
     required PlanningBloc Function() planningBlocFactory,
+    required OverviewBloc Function() overviewBlocFactory,
   }) {
     switch (step) {
       case DateSelection():
@@ -50,6 +52,7 @@ final class NavigateToExcursionStepUseCase {
             mainBloc: mainBloc,
             excursionsExtra: ExcursionsExtra(
               excursionsBloc: excursionsBloc,
+              overviewBloc: overviewBlocFactory(),
             ),
           ),
         );

@@ -169,7 +169,7 @@ final class AppRouter {
                         builder: (context, state) {
                           final mainExtra = (state.extra ?? _redirectExtra) as MainExtra;
                           final extra = mainExtra.excursionsExtra!;
-                          return Text('TODO: OverviewScreen');
+                          return OverviewScreen(bloc: extra.overviewBloc!);
                         },
                       ),
                     ],

@@ -44,6 +44,8 @@ final class TimetableItem extends StatelessWidget {
             ),
           ),
 
+          SizedBox(width: theme.dimensions.padding.extraSmall),
+
           Expanded(
             child: visitation
               ?.takeIf((v) => v.startTime == startTime)
@@ -55,6 +57,8 @@ final class TimetableItem extends StatelessWidget {
               ))
               ?? SizedBox(),
           ),
+
+          SizedBox(width: theme.dimensions.padding.extraSmall),
 
           Align(
             alignment: Alignment.center,

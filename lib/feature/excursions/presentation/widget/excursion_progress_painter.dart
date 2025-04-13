@@ -219,15 +219,15 @@ final class ExcursionProgressPainter extends CustomPainter {
       }
 
       if (progress > ExcursionsState.planningProgress) {
-        final dx = step2Center.dx - svg.size.width / 2;
-        final dy = step2Center.dy - svg.size.height / 2;
+        final dx = step2Center.dx - step1Center.dx;
+        final dy = step2Center.dy - step1Center.dy;
         canvas.translate(dx, dy);
         canvas.drawPicture(svg.picture);
       }
 
       if (progress >= ExcursionsState.overviewProgress) {
-        final dx = step3Center.dx - svg.size.width / 2;
-        final dy = step3Center.dy - svg.size.height / 2;
+        final dx = step3Center.dx - step2Center.dx;
+        final dy = step3Center.dy - step2Center.dy;
         canvas.translate(dx, dy);
         canvas.drawPicture(svg.picture);
       }

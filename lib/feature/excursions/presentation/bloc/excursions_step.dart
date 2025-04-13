@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pole/core/domain/city/entity/city.dart';
+import 'package:pole/core/domain/excursion/excursion.dart';
 
 part 'excursions_step.freezed.dart';
 
@@ -13,7 +14,6 @@ sealed class ExcursionsStep with _$ExcursionsStep {
   }) = Planning;
 
   const factory ExcursionsStep.overview({
-    required City city,
-    required DateTime date,
+    required Excursion excursion,
   }) = Overview;
 }
