@@ -2,6 +2,11 @@ import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
 
 sealed class PlanningEvent {}
 
+final class OnCreate extends PlanningEvent {
+  final String initialName;
+  OnCreate({required this.initialName});
+}
+
 final class ChangeExcursionName extends PlanningEvent {
   final String name;
   ChangeExcursionName({required this.name});

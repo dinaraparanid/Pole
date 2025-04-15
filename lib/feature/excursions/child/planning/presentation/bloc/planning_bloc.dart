@@ -29,6 +29,12 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState>
     _placeSelectorBlocFactory = placeSelectorBlocFactory,
     super(PlanningState(date: date)) {
 
+    on<OnCreate>((event, emit) {
+      if (state.excursionName.value.isEmpty) {
+        add(ChangeExcursionName(name: event.initialName));
+      }
+    });
+
     on<ChangeExcursionName>((event, emit) {
       textChangeUseCase.execute(
         next: event.name,

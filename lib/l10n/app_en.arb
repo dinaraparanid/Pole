@@ -60,5 +60,9 @@
   "planning_dialog_title": "Provide information about the visit",
   "planning_dialog_duration_label": "Duration of the visit (in hours)",
   "planning_dialog_duration_error_invalid_input": "Specify a positive number",
-  "planning_dialog_duration_error_too_long": "Duration is too long"
+  "planning_dialog_duration_error_too_long": "Duration is too long",
+
+  "overview_description": "Check out the places to visit and create a guided tour",
+
+  "excursion_end_of_tour": "End of the tour"
 }

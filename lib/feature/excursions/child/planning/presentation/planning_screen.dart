@@ -25,7 +25,9 @@ final class PlanningScreen extends StatelessWidget {
     );
 
     return BlocProvider(
-      create: (_) => bloc,
+      create: (_) => bloc..add(
+        OnCreate(initialName: strings.planning_title_placeholder)
+      ),
       child: BlocPresentationListener<PlanningBloc, PlanningEffect>(
         listener: (context, effect) => switch (effect) {
           ShowPlaceSelectorBottomSheet() =>

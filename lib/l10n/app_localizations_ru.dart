@@ -166,4 +166,10 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get planning_dialog_duration_error_too_long => 'Длительность слишком велика';
+
+  @override
+  String get overview_description => 'Проверьте места для посещения и создайте экскурсию';
+
+  @override
+  String get excursion_end_of_tour => 'Конец экскурсии';
 }

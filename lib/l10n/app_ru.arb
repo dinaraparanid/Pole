@@ -60,5 +60,9 @@
   "planning_dialog_title": "Укажите информацию о посещении",
   "planning_dialog_duration_label": "Длительность посещения (в часах)",
   "planning_dialog_duration_error_invalid_input": "Укажите положительное число",
-  "planning_dialog_duration_error_too_long": "Длительность слишком велика"
+  "planning_dialog_duration_error_too_long": "Длительность слишком велика",
+
+  "overview_description": "Проверьте места для посещения и создайте экскурсию",
+
+  "excursion_end_of_tour": "Конец экскурсии"
 }

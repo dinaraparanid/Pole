@@ -166,4 +166,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get planning_dialog_duration_error_too_long => 'Duration is too long';
+
+  @override
+  String get overview_description => 'Check out the places to visit and create a guided tour';
+
+  @override
+  String get excursion_end_of_tour => 'End of the tour';
 }

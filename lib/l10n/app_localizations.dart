@@ -412,6 +412,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Duration is too long'**
   String get planning_dialog_duration_error_too_long;
+
+  /// No description provided for @overview_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Check out the places to visit and create a guided tour'**
+  String get overview_description;
+
+  /// No description provided for @excursion_end_of_tour.
+  ///
+  /// In en, this message translates to:
+  /// **'End of the tour'**
+  String get excursion_end_of_tour;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
