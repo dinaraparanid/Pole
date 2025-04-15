@@ -24,7 +24,7 @@ final class MainScreen extends StatelessWidget {
       child: BlocBuilder<MainBloc, MainState>(
         builder: (context, state) => Scaffold(
           extendBody: true,
-          backgroundColor: theme.colors.background,
+          backgroundColor: theme.colors.background.primary,
           body: SafeArea(child: navigationShell),
           bottomNavigationBar: MainNavigationBar(
             onTabClick: (tab) => bloc.add(TabClicked(tab: tab)),

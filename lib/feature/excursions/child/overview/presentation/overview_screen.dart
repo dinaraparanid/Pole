@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pole/core/presentation/excursion/excursion_places.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/excursions/child/overview/presentation/bloc/mod.dart';
+import 'package:pole/feature/excursions/child/overview/presentation/widget/create_excursion_button.dart';
 
 final class OverviewScreen extends StatelessWidget {
   final OverviewBloc bloc;
@@ -39,6 +41,16 @@ final class OverviewScreen extends StatelessWidget {
                     color: theme.colors.text.secondary,
                   ),
                 ),
+
+                SizedBox(height: theme.dimensions.padding.large),
+
+                ExcursionPlaces(excursion: state.excursion),
+
+                SizedBox(height: theme.dimensions.padding.large),
+
+                CreateExcursionButton(onClick: () => bloc.add(CreateExcursion())),
+
+                SizedBox(height: theme.dimensions.padding.large),
               ],
             ),
           ),

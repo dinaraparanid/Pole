@@ -69,7 +69,7 @@ final class PlanningScreen extends StatelessWidget {
 
               CommonPadding(child: PlanningConfirmButton(onEvent: bloc.add)),
 
-              SizedBox(height: theme.dimensions.padding.big),
+              SizedBox(height: theme.dimensions.padding.large),
             ],
           ),
         ),

@@ -37,7 +37,7 @@ final class App extends StatelessWidget {
         create: (_) => rootBlocFactory.create(),
         child: MaterialApp.router(
           routerConfig: router.value,
-          color: theme.colors.background,
+          color: theme.colors.background.primary,
           theme: ThemeData(
             splashFactory: InkRipple.splashFactory,
             highlightColor: Colors.transparent,

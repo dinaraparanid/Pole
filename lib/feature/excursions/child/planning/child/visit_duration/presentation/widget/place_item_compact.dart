@@ -18,7 +18,7 @@ final class PlaceItemCompact extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        color: theme.colors.containerBackground,
+        color: theme.colors.background.secondary,
         borderRadius: borderRadius,
       ),
       child: Padding(

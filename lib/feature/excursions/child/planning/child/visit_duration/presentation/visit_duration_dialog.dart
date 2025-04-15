@@ -15,7 +15,7 @@ void showVisitTimeDialog({
     context: context,
     barrierDismissible: true,
     builder: (context) => AlertDialog(
-      backgroundColor: theme.colors.background,
+      backgroundColor: theme.colors.background.primary,
       surfaceTintColor: Colors.transparent,
       title: Text(
         strings.planning_dialog_title,

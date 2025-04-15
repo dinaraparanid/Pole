@@ -75,7 +75,7 @@ final class DateSelectionScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: theme.dimensions.padding.big),
+              SizedBox(height: theme.dimensions.padding.large),
             ],
           ),
         ),

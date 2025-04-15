@@ -63,6 +63,18 @@
   "planning_dialog_duration_error_too_long": "Duration is too long",
 
   "overview_description": "Check out the places to visit and create a guided tour",
+  "overview_create_excursion": "Create tour",
 
-  "excursion_end_of_tour": "End of the tour"
+  "excursion_end_of_tour": "End of the tour",
+
+  "hours": "{count, plural, =0{less than an hour} =1{1 hour} other{{count} hours}}",
+  "@hours": {
+    "description": "Number of hours",
+    "placeholders": {
+      "count": {
+        "type": "num",
+        "format": "compact"
+      }
+    }
+  }
 }

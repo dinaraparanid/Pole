@@ -171,5 +171,26 @@ class AppLocalizationsEn extends AppLocalizations {
   String get overview_description => 'Check out the places to visit and create a guided tour';
 
   @override
+  String get overview_create_excursion => 'Create tour';
+
+  @override
   String get excursion_end_of_tour => 'End of the tour';
+
+  @override
+  String hours(num count) {
+    final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
+      locale: localeName,
+      
+    );
+    final String countString = countNumberFormat.format(count);
+
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countString hours',
+      one: '1 hour',
+      zero: 'less than an hour',
+    );
+    return '$_temp0';
+  }
 }

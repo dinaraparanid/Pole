@@ -24,7 +24,7 @@ Future<void> _showCupertinoBottomSheet({
   return showCupertinoSheet(
     context: context,
     pageBuilder: (context) => Container(
-      color: theme.colors.background,
+      color: theme.colors.background.primary,
       padding: EdgeInsets.symmetric(
         vertical: theme.dimensions.padding.medium,
       ),
@@ -41,7 +41,7 @@ Future<void> _showMaterialBottomSheet({
 
   return showModalBottomSheet(
     context: context,
-    backgroundColor: theme.colors.background,
+    backgroundColor: theme.colors.background.primary,
     useRootNavigator: true,
     enableDrag: true,
     showDragHandle: true,

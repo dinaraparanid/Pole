@@ -15,7 +15,7 @@ final class RootScreen extends StatelessWidget {
       create: (_) => bloc,
       child: Scaffold(
         extendBody: true,
-        backgroundColor: theme.colors.background,
+        backgroundColor: theme.colors.background.primary,
       ),
     );
   }

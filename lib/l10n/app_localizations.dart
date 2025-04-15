@@ -419,11 +419,23 @@ abstract class AppLocalizations {
   /// **'Check out the places to visit and create a guided tour'**
   String get overview_description;
 
+  /// No description provided for @overview_create_excursion.
+  ///
+  /// In en, this message translates to:
+  /// **'Create tour'**
+  String get overview_create_excursion;
+
   /// No description provided for @excursion_end_of_tour.
   ///
   /// In en, this message translates to:
   /// **'End of the tour'**
   String get excursion_end_of_tour;
+
+  /// Number of hours
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{less than an hour} =1{1 hour} other{{count} hours}}'**
+  String hours(num count);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

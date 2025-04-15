@@ -171,5 +171,28 @@ class AppLocalizationsRu extends AppLocalizations {
   String get overview_description => 'Проверьте места для посещения и создайте экскурсию';
 
   @override
+  String get overview_create_excursion => 'Создать экскурсию';
+
+  @override
   String get excursion_end_of_tour => 'Конец экскурсии';
+
+  @override
+  String hours(num count) {
+    final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
+      locale: localeName,
+      
+    );
+    final String countString = countNumberFormat.format(count);
+
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countString часов',
+      few: '3 часа',
+      two: '2 часа',
+      one: '1 час',
+      zero: 'меньше часа',
+    );
+    return '$_temp0';
+  }
 }

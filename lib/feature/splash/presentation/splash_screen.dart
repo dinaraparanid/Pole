@@ -15,7 +15,7 @@ final class SplashScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => bloc,
       child: Scaffold(
-        backgroundColor: theme.colors.background,
+        backgroundColor: theme.colors.background.primary,
         extendBody: true,
         body: Stack(
           children: [

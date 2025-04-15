@@ -18,9 +18,8 @@ const _TextDisabled = Color(0x80FFFFFF);
 @immutable
 final class AppColors {
   final Color primary;
-  final Color background;
-  final Color containerBackground;
   final Color error;
+  final AppBackgroundColors background;
   final AppTextColors text;
   final AppButtonColors button;
   final AppNavigationBarColors navigationBar;
@@ -28,13 +27,23 @@ final class AppColors {
 
   const AppColors({
     this.primary = _DarkLemonLime,
-    this.background = _EerieBlack,
-    this.containerBackground = _PineTree,
     this.error = _PersianRed,
+    this.background = const AppBackgroundColors(),
     this.button = const AppButtonColors(),
     this.uniqueComponents = const AppUniqueComponentsColors(),
     this.text = const AppTextColors(),
     this.navigationBar = const AppNavigationBarColors(),
+  });
+}
+
+@immutable
+final class AppBackgroundColors {
+  final Color primary;
+  final Color secondary;
+
+  const AppBackgroundColors({
+    this.primary = _EerieBlack,
+    this.secondary = _PineTree,
   });
 }
 
