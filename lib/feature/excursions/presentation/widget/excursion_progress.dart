@@ -20,7 +20,8 @@ final class ExcursionProgress extends StatefulWidget {
   State<StatefulWidget> createState() => _ExcursionProgressState();
 }
 
-final class _ExcursionProgressState extends State<ExcursionProgress> with SingleTickerProviderStateMixin {
+final class _ExcursionProgressState extends State<ExcursionProgress>
+  with SingleTickerProviderStateMixin {
 
   static const _animationDuration = Duration(milliseconds: 500);
 

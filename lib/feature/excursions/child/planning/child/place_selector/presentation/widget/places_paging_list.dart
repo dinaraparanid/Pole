@@ -5,7 +5,7 @@ import 'package:pole/core/domain/visit_place/entity/mod.dart';
 import 'package:pole/core/presentation/foundation/stub/mod.dart';
 import 'package:pole/core/presentation/foundation/app_progress_indicator.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
-import 'package:pole/core/utils/ext/paging_state_ext.dart';
+import 'package:pole/core/utils/ext/paging_state.dart';
 import 'package:pole/feature/excursions/child/planning/child/place_selector/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/child/planning/child/place_selector/presentation/widget/place_item.dart';
 

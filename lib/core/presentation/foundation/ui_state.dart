@@ -3,13 +3,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'ui_state.freezed.dart';
 
 @freezed
-sealed class UiState<T> {
-  const factory UiState.initial() = Initial;
-  const factory UiState.loading() = Loading;
-  const factory UiState.refreshing({required UiState<T> value}) = Refreshing;
-  const factory UiState.data({required T value}) = Data;
-  const factory UiState.success() = Success;
-  const factory UiState.error([Exception? e]) = Error;
+sealed class UiState<T> with _$UiState<T> {
+  const factory UiState.initial() = Initial<T>;
+  const factory UiState.loading() = Loading<T>;
+  const factory UiState.refreshing({required UiState<T> value}) = Refreshing<T>;
+  const factory UiState.data({required T value}) = Data<T>;
+  const factory UiState.success() = Success<T>;
+  const factory UiState.error([Exception? e]) = Error<T>;
 }
 
 extension Properties<T> on UiState<T> {

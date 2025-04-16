@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pole/core/utils/ext/color.dart';
 
 const _EerieBlack = Color(0xFF1E1E1A);
 const _DarkLemonLime = Color(0xFF88C025);
 const _DarkLemonLime25 = Color(0x4088C025);
 const _DarkLemonLime50 = Color(0x8088C025);
+const _DarkLemonLime75 = Color(0xBF88C025);
 const _MaximumGreen = Color(0xFF657E38);
 const _BlackOlive = Color(0xFF3F3F36);
 const _PineTree = Color(0xFF292924);
@@ -107,6 +107,9 @@ final class AppUniqueComponentsColors {
   final Color activeFilter;
   final Color inactiveFilter;
 
+  final Color excursionPlacesStep;
+  final Color excursionPlacesBridge;
+
   const AppUniqueComponentsColors({
     this.excursionProgressActive = _DarkLemonLime,
     this.excursionProgressPassed = _MaximumGreen,
@@ -116,5 +119,7 @@ final class AppUniqueComponentsColors {
     this.excursionTimetableBorder = _DarkCharcoal,
     this.activeFilter = _DarkLemonLime25,
     this.inactiveFilter = _PineTree,
+    this.excursionPlacesStep = _DarkLemonLime75,
+    this.excursionPlacesBridge = _DarkLemonLime50,
   });
 }

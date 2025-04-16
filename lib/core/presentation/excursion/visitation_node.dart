@@ -1,6 +1,7 @@
 import 'package:dartx/dartx.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pole/core/presentation/excursion/excursion_place_controller.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/date_time.dart';
 import 'package:pole/core/utils/ext/duration.dart';
@@ -10,9 +11,34 @@ import 'package:pole/l10n/app_localizations.dart';
 const _maxLinesTitle = 2;
 const _maxLinesCategory = 1;
 
-final class VisitationNode extends StatelessWidget {
+final class VisitationNode extends StatefulWidget {
   final Visitation visitation;
-  const VisitationNode({super.key, required this.visitation});
+  final ExcursionPlaceController? controller;
+  final void Function(ExcursionPlaceController) onControllerAttached;
+
+  const VisitationNode({
+    super.key,
+    required this.visitation,
+    this.controller,
+    required this.onControllerAttached,
+  });
+
+  @override
+  State<StatefulWidget> createState() => _VisitationNodeState();
+}
+
+final class _VisitationNodeState extends State<VisitationNode> {
+
+  late final controller = widget.controller ?? ExcursionPlaceController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) =>
+      widget.onControllerAttached(controller),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +46,7 @@ final class VisitationNode extends StatelessWidget {
     final strings = context.strings;
 
     return Container(
+      key: controller.key,
       decoration: BoxDecoration(
         color: theme.colors.background.secondary,
         borderRadius: BorderRadius.circular(theme.dimensions.radius.small),
@@ -60,7 +87,7 @@ final class VisitationNode extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
-        visitation.place.name,
+        widget.visitation.place.name,
         maxLines: _maxLinesTitle,
         overflow: TextOverflow.ellipsis,
         style: theme.typography.body.copyWith(
@@ -69,7 +96,7 @@ final class VisitationNode extends StatelessWidget {
       ),
 
       Text(
-        visitation.place.category.name,
+        widget.visitation.place.category.name,
         maxLines: _maxLinesCategory,
         overflow: TextOverflow.ellipsis,
         style: theme.typography.body.copyWith(
@@ -80,7 +107,7 @@ final class VisitationNode extends StatelessWidget {
   );
 
   Widget StartTime({required AppTheme theme}) => Text(
-    visitation.startTime.toAppTimeFormat(),
+    widget.visitation.startTime.toAppTimeFormat(),
     style: theme.typography.body.copyWith(
       color: theme.colors.text.primary,
     ),
@@ -89,7 +116,7 @@ final class VisitationNode extends StatelessWidget {
   Widget PlaceCover({required AppTheme theme}) => ClipRRect(
     borderRadius: BorderRadius.circular(theme.dimensions.radius.extraSmall),
     child: Image.network(
-      visitation.place.images.firstOrNull.orEmpty(),
+      widget.visitation.place.images.firstOrNull.orEmpty(),
       width: theme.dimensions.size.big,
       height: theme.dimensions.size.extraMedium,
       fit: BoxFit.cover,
@@ -112,7 +139,7 @@ final class VisitationNode extends StatelessWidget {
           SizedBox(width: theme.dimensions.padding.small),
 
           Text(
-            visitation.place.address,
+            widget.visitation.place.address,
             style: theme.typography.caption.copyWith(
               color: theme.colors.text.secondary,
             ),
@@ -131,7 +158,7 @@ final class VisitationNode extends StatelessWidget {
           SizedBox(width: theme.dimensions.padding.small),
 
           Text(
-            visitation.duration.toAppHoursFormat(strings: strings),
+            widget.visitation.duration.toAppHoursFormat(strings: strings),
             style: theme.typography.caption.copyWith(
               color: theme.colors.text.secondary,
             ),

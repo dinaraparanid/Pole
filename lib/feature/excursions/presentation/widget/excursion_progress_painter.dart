@@ -254,11 +254,15 @@ final class ExcursionProgressPainter extends CustomPainter {
     }
 
     if (progress <= ExcursionsState.planningProgress) {
-      return ExcursionsState.planningProgress - 0.2;
+      return (progress - 0.2).coerceAtLeast(
+        ExcursionsState.dateSelectionProgress,
+      );
     }
 
     if (progress <= ExcursionsState.overviewProgress) {
-      return ExcursionsState.overviewProgress - 0.2;
+      return (progress - 0.2).coerceAtLeast(
+        ExcursionsState.planningProgress,
+      );
     }
 
     return ExcursionsState.overviewProgress;
