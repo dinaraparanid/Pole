@@ -28,7 +28,6 @@ final class _ExcursionPlacesState extends State<ExcursionPlaces> {
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
-    final strings = context.strings;
 
     return Row(
       children: [
@@ -67,7 +66,7 @@ final class _ExcursionPlacesState extends State<ExcursionPlaces> {
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 }

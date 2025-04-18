@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pole/core/presentation/foundation/app_clickable.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
@@ -13,13 +14,11 @@ const _animDuration = Duration(milliseconds: 300);
 final class TimetableItem extends StatelessWidget {
   final DateTime startTime;
   final Visitation? visitation;
-  final void Function(PlanningEvent) onEvent;
 
   const TimetableItem({
     super.key,
     required this.startTime,
     this.visitation,
-    required this.onEvent,
   });
 
   @override
@@ -62,7 +61,7 @@ final class TimetableItem extends StatelessWidget {
 
           Align(
             alignment: Alignment.center,
-            child: SuffixIcon(theme: theme),
+            child: SuffixIcon(context: context),
           ),
 
           SizedBox(width: theme.dimensions.padding.extraMedium),
@@ -71,17 +70,24 @@ final class TimetableItem extends StatelessWidget {
     );
   }
 
-  Widget? SuffixIcon({required AppTheme theme}) {
+  Widget? SuffixIcon({required BuildContext context}) {
     if (visitation != null && visitation?.startTime != startTime) {
       return null;
     }
+
+    final theme = context.appTheme;
 
     return AppClickable(
       border: CircleBorder(),
       rippleColor: theme.colors.text.disabled,
       onClick: switch (visitation) {
-        null => () => onEvent(ShowPlaceSelector(startTime: startTime)),
-        final v => () => onEvent(RemovePlace(visitation: v)),
+        null => () => BlocProvider
+          .of<PlanningBloc>(context)
+          .add(ShowPlaceSelector(startTime: startTime)),
+
+        final v => () => BlocProvider
+          .of<PlanningBloc>(context)
+          .add(RemovePlace(visitation: v)),
       },
       child: SvgPicture.asset(
         AppImages.loadSvg(visitation == null ? 'ic_plus' : 'ic_bin').value,

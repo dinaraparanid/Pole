@@ -16,10 +16,10 @@ final class MainNavigationBar extends StatelessWidget {
     final theme = context.appTheme;
     final strings = context.strings;
 
-    return BlocBuilder<MainBloc, MainState>(
+    return BlocBuilder<MainCubit, MainState>(
       builder: (context, state) => platformCall(
         android: MaterialUi,
-        iOS: MaterialUi,
+        iOS: CupertinoUi,
         macOS: CupertinoUi,
       )(theme: theme, strings: strings, state: state),
     );

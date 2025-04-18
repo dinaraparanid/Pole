@@ -1,10 +1,10 @@
 import 'package:pole/feature/splash/presentation/bloc/splash_bloc.dart';
-import 'package:pole/feature/splash/presentation/bloc/splash_result.dart';
+import 'package:pole/navigation/app_router.dart';
 
 final class SplashBlocFactory {
-  SplashBlocFactory();
+  final AppRouter _router;
 
-  SplashBloc create({required void Function(SplashResult) onDone}) => SplashBloc(
-    onDone: onDone,
-  );
+  SplashBlocFactory({required AppRouter router}) : _router = router;
+
+  SplashBloc create() => SplashBloc(router: _router);
 }

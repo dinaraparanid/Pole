@@ -39,8 +39,11 @@ final class _ExcursionStepsState extends State<ExcursionSteps> {
   Widget build(BuildContext context) {
     final theme = context.appTheme;
 
-    return SizedBox(
-      width: ExcursionStepsPainter.calcStepRadius() * 2,
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minWidth: ExcursionStepsPainter.calcStepRadius() * 2,
+        minHeight: ExcursionStepsPainter.calcStepRadius() * 2,
+      ),
       child: CustomPaint(
         key: _excursionStepsPainterKey,
         painter: ExcursionStepsPainter(

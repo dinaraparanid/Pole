@@ -4,7 +4,7 @@ import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/widget/timetable/timetable_config.dart';
 
 final class CalculateMaxVisitDurationUseCase {
-  Duration execute({
+  Duration call({
     required Iterable<Visitation> selectedPlaces,
     required DateTime startTime,
   }) => selectedPlaces

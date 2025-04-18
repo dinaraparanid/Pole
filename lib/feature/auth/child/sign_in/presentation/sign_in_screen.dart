@@ -5,15 +5,15 @@ import 'package:pole/feature/auth/child/sign_in/presentation/bloc/mod.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/widget/sign_in_content.dart';
 
 final class SignInScreen extends StatelessWidget {
-  final SignInBloc bloc;
-  const SignInScreen({super.key, required this.bloc});
+  final SignInBlocFactory blocFactory;
+  const SignInScreen({super.key, required this.blocFactory});
 
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
 
     return BlocProvider(
-      create: (_) => bloc,
+      create: (_) => blocFactory.create(),
       child: Scaffold(
         backgroundColor: theme.colors.background.primary,
         extendBody: true,
@@ -31,7 +31,7 @@ final class SignInScreen extends StatelessWidget {
               ),
             ),
 
-            SafeArea(child: SignInContent(onEvent: bloc.add)),
+            SafeArea(child: SignInContent()),
           ],
         ),
       ),

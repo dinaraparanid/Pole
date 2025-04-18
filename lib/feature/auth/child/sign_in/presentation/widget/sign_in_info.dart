@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/bloc/mod.dart';
 
 final class SignInInfo extends StatelessWidget {
-  final void Function(SignInEvent) onEvent;
-  const SignInInfo({super.key, required this.onEvent});
+  const SignInInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,9 @@ final class SignInInfo extends StatelessWidget {
             ),
 
             GestureDetector(
-              onTap: () => onEvent(SignUpClick()),
+              onTap: () => BlocProvider
+                .of<SignInBloc>(context)
+                .add(SignUpClick()),
               child: Text(
                 strings.auth_sign_up,
                 style: theme.typography.body.copyWith(
@@ -54,9 +56,9 @@ final class SignInInfo extends StatelessWidget {
                   decorationColor: theme.colors.text.secondary,
                 ),
               ),
-            )
+            ),
           ],
-        )
+        ),
       ],
     );
   }

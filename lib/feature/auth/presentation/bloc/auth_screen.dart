@@ -1,1 +1,0 @@
-enum AuthScreen { signIn, signUp }

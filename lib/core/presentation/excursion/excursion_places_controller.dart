@@ -28,7 +28,7 @@ final class ExcursionPlacesController with ChangeNotifier {
 
   @override
   void dispose() {
-    super.dispose();
     _itemControllers = _itemControllers.clear();
+    super.dispose();
   }
 }

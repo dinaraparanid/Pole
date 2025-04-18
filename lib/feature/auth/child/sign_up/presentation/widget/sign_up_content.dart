@@ -8,8 +8,7 @@ import 'package:pole/feature/auth/child/sign_up/presentation/widget/confirm_butt
 import 'package:pole/feature/auth/child/sign_up/presentation/widget/sign_up_info.dart';
 
 final class SignUpContent extends StatelessWidget {
-  final void Function(SignUpEvent) onEvent;
-  const SignUpContent({super.key, required this.onEvent});
+  const SignUpContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +42,7 @@ final class SignUpContent extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Padding(
                   padding: commonPadding,
-                  child: SignUpInfo(onEvent: onEvent),
+                  child: SignUpInfo(),
                 ),
               ),
 
@@ -56,7 +55,9 @@ final class SignUpContent extends StatelessWidget {
                   child: AppOutlineTextField(
                     label: strings.auth_enter_name,
                     error: state.name.error ? strings.auth_name_empty : null,
-                    onChanged: (input) => onEvent(NameChange(name: input)),
+                    onChanged: (input) => BlocProvider
+                      .of<SignUpBloc>(context)
+                      .add(NameChange(name: input)),
                   ),
                 ),
               ),
@@ -70,7 +71,9 @@ final class SignUpContent extends StatelessWidget {
                   child: AppOutlineTextField(
                     label: strings.auth_enter_email,
                     error: state.email.error ? strings.auth_email_empty : null,
-                    onChanged: (input) => onEvent(EmailChange(email: input)),
+                    onChanged: (input) => BlocProvider
+                      .of<SignUpBloc>(context)
+                      .add(EmailChange(email: input)),
                   ),
                 ),
               ),
@@ -84,8 +87,12 @@ final class SignUpContent extends StatelessWidget {
                   child: AppOutlineTextField(
                     label: strings.auth_enter_password,
                     obscureText: true,
-                    error: state.password.error ? strings.auth_password_weak : null,
-                    onChanged: (input) => onEvent(PasswordChange(password: input)),
+                    error: state.password.error
+                      ? strings.auth_password_weak
+                      : null,
+                    onChanged: (input) => BlocProvider
+                      .of<SignUpBloc>(context)
+                      .add(PasswordChange(password: input)),
                   ),
                 ),
               ),
@@ -99,8 +106,12 @@ final class SignUpContent extends StatelessWidget {
                   child: AppOutlineTextField(
                     label: strings.auth_confirm_password,
                     obscureText: true,
-                    error: state.confirmPassword.error ? strings.auth_password_not_match : null,
-                    onChanged: (input) => onEvent(ConfirmPasswordChange(password: input)),
+                    error: state.confirmPassword.error
+                      ? strings.auth_password_not_match
+                      : null,
+                    onChanged: (input) => BlocProvider
+                      .of<SignUpBloc>(context)
+                      .add(ConfirmPasswordChange(password: input)),
                   ),
                 ),
               ),
@@ -109,7 +120,11 @@ final class SignUpContent extends StatelessWidget {
 
               Padding(
                 padding: commonPadding,
-                child: ConfirmButton(onClick: () => onEvent(ConfirmClick())),
+                child: ConfirmButton(
+                  onClick: () => BlocProvider
+                    .of<SignUpBloc>(context)
+                    .add(ConfirmClick()),
+                ),
               ),
             ],
           ),

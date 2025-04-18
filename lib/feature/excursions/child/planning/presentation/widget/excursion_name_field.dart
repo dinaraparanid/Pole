@@ -33,12 +33,6 @@ final class _ExcursionNameFieldState extends State<ExcursionNameField> {
   }
 
   @override
-  void dispose() {
-    super.dispose();
-    controller.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
     final strings = context.strings;

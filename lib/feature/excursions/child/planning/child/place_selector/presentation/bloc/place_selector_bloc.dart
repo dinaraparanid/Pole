@@ -48,7 +48,7 @@ final class PlaceSelectorBloc extends Bloc<PlaceSelectorEvent, PlaceSelectorStat
     });
 
     on<SelectCategory>((event, emit) =>
-      selectCategoryUseCase.execute(
+      selectCategoryUseCase(
         categoryId: event.id,
         currentSelected: state.selectedCategories,
         updateSelection: (newSelected) =>

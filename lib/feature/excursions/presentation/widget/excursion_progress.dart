@@ -36,12 +36,17 @@ final class _ExcursionProgressState extends State<ExcursionProgress>
     _progressController = AnimationController(
       vsync: this,
       duration: _animationDuration,
+      lowerBound: 0,
+      upperBound: ExcursionsState.creationFinishProgress,
     );
 
     _progressController.value = widget.initialProgress
       ?? ExcursionsState.dateSelectionProgress;
 
-    _progressTween = Tween(begin: 0, end: 1);
+    _progressTween = Tween(
+      begin: 0,
+      end: ExcursionsState.creationFinishProgress,
+    );
 
     _progressAnimation = _progressTween.animate(_progressController);
   }
@@ -58,7 +63,7 @@ final class _ExcursionProgressState extends State<ExcursionProgress>
     final strings = context.strings;
     final size = MediaQuery.of(context).size;
 
-    return BlocConsumer<ExcursionsBloc, ExcursionsState>(
+    return BlocConsumer<ExcursionsCubit, ExcursionsState>(
       listenWhen: distinctState((x) => x.step),
       listener: (_, state) => _progressController.animateTo(
         state.progress,
@@ -73,7 +78,7 @@ final class _ExcursionProgressState extends State<ExcursionProgress>
           builder: (context, icCheck) => CustomPaint(
             size: Size(size.width, _progressMinHeight),
             painter: ExcursionProgressPainter(
-              progress: _progressAnimation.value,
+              progress: _progressAnimation.value / ExcursionsState.creationFinishProgress,
               icCheck: icCheck.data,
               theme: theme,
               strings: strings,

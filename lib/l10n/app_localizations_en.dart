@@ -174,6 +174,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get overview_create_excursion => 'Create tour';
 
   @override
+  String get finish_title => 'Tour is successfully created!';
+
+  @override
+  String get finish_description => 'Now you can see it in your profile :)';
+
+  @override
+  String get finish_confirm => 'Go to profile';
+
+  @override
   String get excursion_end_of_tour => 'End of the tour';
 
   @override

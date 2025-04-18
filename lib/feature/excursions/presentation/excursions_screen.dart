@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/excursions/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/presentation/widget/excursion_progress.dart';
 
 final class ExcursionsScreen extends StatelessWidget {
-  final ExcursionsBloc bloc;
-  final StatefulNavigationShell navigationShell;
+  final ExcursionsCubitFactory blocFactory;
+  final Widget child;
 
   const ExcursionsScreen({
     super.key,
-    required this.bloc,
-    required this.navigationShell,
+    required this.blocFactory,
+    required this.child,
   });
 
   @override
@@ -20,8 +19,8 @@ final class ExcursionsScreen extends StatelessWidget {
     final theme = context.appTheme;
 
     return BlocProvider(
-      create: (_) => bloc,
-      child: BlocBuilder<ExcursionsBloc, ExcursionsState>(
+      create: (_) => blocFactory(),
+      child: BlocBuilder<ExcursionsCubit, ExcursionsState>(
         builder: (context, state) => Container(
           color: theme.colors.background.primary,
           child: Column(
@@ -38,7 +37,7 @@ final class ExcursionsScreen extends StatelessWidget {
 
               SizedBox(height: theme.dimensions.padding.extraLarge),
 
-              Expanded(child: SingleChildScrollView(child: navigationShell)),
+              Expanded(child: child),
             ],
           ),
         )

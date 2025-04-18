@@ -174,6 +174,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get overview_create_excursion => 'Создать экскурсию';
 
   @override
+  String get finish_title => 'Экскурсия успешно создана!';
+
+  @override
+  String get finish_description => 'Теперь вы сможете её просмотреть в своём профиле :)';
+
+  @override
+  String get finish_confirm => 'Перейти в профиль';
+
+  @override
   String get excursion_end_of_tour => 'Конец экскурсии';
 
   @override

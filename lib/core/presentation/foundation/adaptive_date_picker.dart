@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pole/core/presentation/foundation/platform_call.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
+import 'package:pole/core/utils/ext/date_time.dart';
 import 'package:pole/core/utils/ext/general.dart';
 
 void showAdaptiveDatePicker({
@@ -28,7 +29,7 @@ void _showMaterialDatePicker({
   showDatePicker(
     context: context,
     initialDate: selectedDateTime,
-    firstDate: DateTime.now(),
+    firstDate: DateTime.now().toBeginningOfDay(),
     lastDate: DateTime(2100),
     builder: (context, child) => Theme(
       data: Theme.of(context).copyWith(
@@ -84,12 +85,12 @@ void _showCupertinoDatePicker({
           textTheme: CupertinoTextThemeData(
             dateTimePickerTextStyle: theme.typography.regular.copyWith(
               color: theme.colors.text.primary,
-            )
-          )
+            ),
+          ),
         ),
         child: CupertinoDatePicker(
           initialDateTime: selectedDateTime,
-          minimumDate: DateTime.now(),
+          minimumDate: DateTime.now().toBeginningOfDay(),
           backgroundColor: theme.colors.navigationBar.background,
           mode: CupertinoDatePickerMode.date,
           onDateTimeChanged: onDatePicked,

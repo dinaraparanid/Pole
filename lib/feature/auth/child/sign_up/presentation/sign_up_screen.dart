@@ -5,15 +5,15 @@ import 'package:pole/feature/auth/child/sign_up/presentation/bloc/mod.dart';
 import 'package:pole/feature/auth/child/sign_up/presentation/widget/sign_up_content.dart';
 
 final class SignUpScreen extends StatelessWidget {
-  final SignUpBloc bloc;
-  const SignUpScreen({super.key, required this.bloc});
+  final SignUpBlocFactory blocFactory;
+  const SignUpScreen({super.key, required this.blocFactory});
 
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
 
     return BlocProvider(
-      create: (_) => bloc,
+      create: (_) => blocFactory.create(),
       child: Scaffold(
         backgroundColor: theme.colors.background.primary,
         extendBody: true,
@@ -31,7 +31,7 @@ final class SignUpScreen extends StatelessWidget {
               ),
             ),
 
-            SafeArea(child: SignUpContent(onEvent: bloc.add)),
+            SafeArea(child: SignUpContent()),
           ],
         ),
       ),

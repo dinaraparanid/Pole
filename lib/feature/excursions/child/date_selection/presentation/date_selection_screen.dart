@@ -5,10 +5,11 @@ import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/excursions/child/date_selection/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/child/date_selection/presentation/widget/city_picker.dart';
 import 'package:pole/feature/excursions/child/date_selection/presentation/widget/date_picker.dart';
+import 'package:pole/feature/excursions/presentation/bloc/mod.dart';
 
 final class DateSelectionScreen extends StatelessWidget {
-  final DateSelectionBloc bloc;
-  const DateSelectionScreen({super.key, required this.bloc});
+  final DateSelectionBlocFactory blocFactory;
+  const DateSelectionScreen({super.key, required this.blocFactory});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ final class DateSelectionScreen extends StatelessWidget {
     );
 
     return BlocProvider(
-      create: (_) => bloc,
+      create: (_) => blocFactory.create(),
       child: BlocBuilder<DateSelectionBloc, DateSelectionState>(
         builder: (context, state) => SingleChildScrollView(
           child: Column(
@@ -61,7 +62,9 @@ final class DateSelectionScreen extends StatelessWidget {
               CommonPadding(
                 child: DatePicker(
                   selectedDate: state.selectedDate,
-                  onDatePicked: (date) => bloc.add(SelectDate(date: date)),
+                  onDatePicked: (date) => BlocProvider
+                    .of<DateSelectionBloc>(context)
+                    .add(SelectDate(date: date)),
                 ),
               ),
 
@@ -71,7 +74,9 @@ final class DateSelectionScreen extends StatelessWidget {
                 child: AppButton(
                   text: strings.continue_txt,
                   enabled: state.isContinueButtonEnabled,
-                  onClick: () => bloc.add(ContinueClick()),
+                  onClick: () => BlocProvider
+                    .of<DateSelectionBloc>(context)
+                    .add(ContinueClick()),
                 ),
               ),
 

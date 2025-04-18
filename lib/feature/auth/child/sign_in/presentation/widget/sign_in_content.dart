@@ -8,8 +8,7 @@ import 'package:pole/feature/auth/child/sign_in/presentation/widget/confirm_butt
 import 'package:pole/feature/auth/child/sign_in/presentation/widget/sign_in_info.dart';
 
 final class SignInContent extends StatelessWidget {
-  final void Function(SignInEvent) onEvent;
-  const SignInContent({super.key, required this.onEvent});
+  const SignInContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +42,7 @@ final class SignInContent extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Padding(
                   padding: commonPadding,
-                  child: SignInInfo(onEvent: onEvent),
+                  child: SignInInfo(),
                 ),
               ),
 
@@ -56,7 +55,9 @@ final class SignInContent extends StatelessWidget {
                   child: AppOutlineTextField(
                     label: strings.auth_enter_email,
                     error: state.email.error ? '' : null,
-                    onChanged: (input) => onEvent(EmailChange(email: input)),
+                    onChanged: (input) => BlocProvider
+                      .of<SignInBloc>(context)
+                      .add(EmailChange(email: input)),
                   ),
                 ),
               ),
@@ -70,8 +71,12 @@ final class SignInContent extends StatelessWidget {
                   child: AppOutlineTextField(
                     label: strings.auth_enter_password,
                     obscureText: true,
-                    error: state.password.error ? strings.auth_invalid_credentials : null,
-                    onChanged: (input) => onEvent(PasswordChange(password: input)),
+                    error: state.password.error
+                      ? strings.auth_invalid_credentials
+                      : null,
+                    onChanged: (input) => BlocProvider
+                      .of<SignInBloc>(context)
+                      .add(PasswordChange(password: input)),
                   ),
                 ),
               ),
@@ -80,7 +85,10 @@ final class SignInContent extends StatelessWidget {
 
               Padding(
                 padding: commonPadding,
-                child: ConfirmButton(onClick: () => onEvent(ConfirmClick())),
+                child: ConfirmButton(onClick: () => BlocProvider
+                  .of<SignInBloc>(context)
+                  .add(ConfirmClick()),
+                ),
               ),
             ],
           ),

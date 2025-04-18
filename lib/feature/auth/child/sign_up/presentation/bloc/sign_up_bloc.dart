@@ -3,21 +3,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/domain/text/text_change_use_case.dart';
 import 'package:pole/core/utils/ext/bool.dart';
 import 'package:pole/feature/auth/child/sign_up/presentation/bloc/sign_up_event.dart';
-import 'package:pole/feature/auth/child/sign_up/presentation/bloc/sign_up_result.dart';
 import 'package:pole/feature/auth/child/sign_up/presentation/bloc/sign_up_state.dart';
+import 'package:pole/feature/auth/presentation/bloc/auth_route.dart';
+import 'package:pole/navigation/app_route.dart';
+import 'package:pole/navigation/app_router.dart';
 
 final class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
-  final void Function(SignUpResult) _onDone;
-
   SignUpBloc({
+    required AppRouter router,
     required TextChangeUseCase textChangeUseCase,
-    required void Function(SignUpResult) onDone,
-  }) : _onDone = onDone, super(SignUpState()) {
-    on<SignInClick>((event, emit) => _onDone(NavigateToSignIn()));
+  }) : super(SignUpState()) {
+    on<SignInClick>((event, emit) =>
+      router.value.replaceNamed(AppRoute.signIn.name, extra: AuthRoute.signIn)
+    );
 
     on<ConfirmClick>((event, emit) {
       // TODO check with api and show error
-      _onDone(SignedUp());
+      router.value.replaceNamed(AppRoute.main.name);
     });
 
     on<NameChange>((event, emit) {

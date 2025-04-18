@@ -65,6 +65,10 @@
   "overview_description": "Проверьте места для посещения и создайте экскурсию",
   "overview_create_excursion": "Создать экскурсию",
 
+  "finish_title": "Экскурсия успешно создана!",
+  "finish_description": "Теперь вы сможете её просмотреть в своём профиле :)",
+  "finish_confirm": "Перейти в профиль",
+
   "excursion_end_of_tour": "Конец экскурсии",
 
   "hours": "{count, plural, =0{меньше часа} =1{1 час} =2{2 часа} few{3 часа} other{{count} часов}}",

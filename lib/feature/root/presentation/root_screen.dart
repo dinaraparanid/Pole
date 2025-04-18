@@ -4,15 +4,16 @@ import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/root/presentation/bloc/mod.dart';
 
 final class RootScreen extends StatelessWidget {
-  final RootBloc bloc;
-  const RootScreen({super.key, required this.bloc});
+  final RootBlocFactory blocFactory;
+  const RootScreen({super.key, required this.blocFactory});
 
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
 
     return BlocProvider(
-      create: (_) => bloc,
+      lazy: false,
+      create: (_) => blocFactory.create(),
       child: Scaffold(
         extendBody: true,
         backgroundColor: theme.colors.background.primary,

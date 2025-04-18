@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/main/presentation/bloc/mod.dart';
 import 'package:pole/feature/main/presentation/widget/main_navigation_bar.dart';
 
 final class MainScreen extends StatelessWidget {
-  final MainBloc bloc;
-  final StatefulNavigationShell navigationShell;
+  final MainCubitFactory cubitFactory;
+  final Widget child;
 
   const MainScreen({
     super.key,
-    required this.bloc,
-    required this.navigationShell,
+    required this.cubitFactory,
+    required this.child,
   });
 
   @override
@@ -20,14 +19,16 @@ final class MainScreen extends StatelessWidget {
     final theme = context.appTheme;
 
     return BlocProvider(
-      create: (_) => bloc,
-      child: BlocBuilder<MainBloc, MainState>(
+      create: (_) => cubitFactory.create(),
+      child: BlocBuilder<MainCubit, MainState>(
         builder: (context, state) => Scaffold(
           extendBody: true,
           backgroundColor: theme.colors.background.primary,
-          body: SafeArea(child: navigationShell),
+          body: SafeArea(child: child),
           bottomNavigationBar: MainNavigationBar(
-            onTabClick: (tab) => bloc.add(TabClicked(tab: tab)),
+            onTabClick: (tab) => BlocProvider
+              .of<MainCubit>(context)
+              .navigateToTab(tab),
           ),
         ),
       ),

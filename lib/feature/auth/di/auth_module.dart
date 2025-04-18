@@ -13,8 +13,6 @@ extension AuthModule on GetIt {
       router: this(),
     )),
     provideSingleton<AuthBlocFactory>(() => AuthBlocFactory(
-      signInBlocFactory: this(),
-      signUpBlocFactory: this(),
       navigateToAuthScreenUseCase: this(),
     )),
   ];

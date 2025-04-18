@@ -8,6 +8,7 @@ abstract class ExcursionsState with _$ExcursionsState {
   static final dateSelectionProgress = 0.2;
   static final planningProgress = 0.6;
   static final overviewProgress = 1.0;
+  static final creationFinishProgress = 1.2;
 
   const factory ExcursionsState({
     @Default(DateSelection()) ExcursionsStep step,
@@ -19,5 +20,6 @@ extension Properties on ExcursionsState {
     DateSelection() => ExcursionsState.dateSelectionProgress,
     Planning() => ExcursionsState.planningProgress,
     Overview() => ExcursionsState.overviewProgress,
+    CreationFinish() => ExcursionsState.creationFinishProgress,
   };
 }

@@ -16,6 +16,7 @@ extension PlanningModule on GetIt {
     ),
     provideSingleton<PlanningBlocFactory>(() =>
       PlanningBlocFactory(
+        router: this(),
         placeSelectorBlocFactory: this(),
         textChangeUseCase: this(),
         calculateMaxVisitDurationUseCase: this(),

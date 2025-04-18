@@ -425,6 +425,24 @@ abstract class AppLocalizations {
   /// **'Create tour'**
   String get overview_create_excursion;
 
+  /// No description provided for @finish_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Tour is successfully created!'**
+  String get finish_title;
+
+  /// No description provided for @finish_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Now you can see it in your profile :)'**
+  String get finish_description;
+
+  /// No description provided for @finish_confirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to profile'**
+  String get finish_confirm;
+
   /// No description provided for @excursion_end_of_tour.
   ///
   /// In en, this message translates to:

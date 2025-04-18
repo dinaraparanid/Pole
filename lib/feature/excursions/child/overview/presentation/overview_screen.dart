@@ -1,13 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pole/core/domain/excursion/excursion.dart';
 import 'package:pole/core/presentation/excursion/excursion_places.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/excursions/child/overview/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/child/overview/presentation/widget/create_excursion_button.dart';
+import 'package:pole/feature/excursions/presentation/bloc/excursions_cubit.dart';
+import 'package:pole/feature/excursions/presentation/bloc/excursions_step.dart';
 
 final class OverviewScreen extends StatelessWidget {
-  final OverviewBloc bloc;
-  const OverviewScreen({super.key, required this.bloc});
+  final OverviewCubitFactory cubitFactory;
+  final Excursion excursion;
+
+  const OverviewScreen({
+    super.key,
+    required this.cubitFactory,
+    required this.excursion,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +24,8 @@ final class OverviewScreen extends StatelessWidget {
     final strings = context.strings;
 
     return BlocProvider(
-      create: (_) => bloc,
-      child: BlocBuilder<OverviewBloc, OverviewState>(
+      create: (_) => cubitFactory.create(excursion: excursion),
+      child: BlocBuilder<OverviewCubit, OverviewState>(
         builder: (context, state) => SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.symmetric(
@@ -48,7 +57,9 @@ final class OverviewScreen extends StatelessWidget {
 
                 SizedBox(height: theme.dimensions.padding.large),
 
-                CreateExcursionButton(onClick: () => bloc.add(CreateExcursion())),
+                CreateExcursionButton(onClick: () =>
+                  BlocProvider.of<OverviewCubit>(context).createExcursion(),
+                ),
 
                 SizedBox(height: theme.dimensions.padding.large),
               ],

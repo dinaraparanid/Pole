@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/presentation/foundation/app_button.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
+import 'package:pole/feature/splash/presentation/bloc/splash_bloc.dart';
 import 'package:pole/feature/splash/presentation/bloc/splash_event.dart';
 
 final class SplashNode extends StatelessWidget {
-  final void Function(SplashEvent) onEvent;
-  const SplashNode({super.key, required this.onEvent});
+  const SplashNode({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +38,19 @@ final class SplashNode extends StatelessWidget {
 
         AppButton(
           text: strings.splash_sign_up,
-          onClick: () => onEvent(OnSignUpClick()),
+          onClick: () => BlocProvider
+            .of<SplashBloc>(context)
+            .add(OnSignUpClick()),
         ),
 
         SizedBox(height: theme.dimensions.padding.medium),
 
         AppButton(
           text: strings.splash_sign_in,
-          onClick: () => onEvent(OnSignInClick()),
           enabledColor: theme.colors.button.secondary,
+          onClick: () => BlocProvider
+            .of<SplashBloc>(context)
+            .add(OnSignInClick()),
         ),
       ],
     );

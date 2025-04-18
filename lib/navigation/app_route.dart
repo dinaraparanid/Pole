@@ -10,6 +10,7 @@ enum AppRoute {
   dateSelection(path: '/main/excursions/dateSelection'),
   planning(path: '/main/excursions/planning'),
   overview(path: '/main/excursions/overview'),
+  creationFinish(path: '/main/excursions/creation_finish'),
   profile(path: '/main/profile');
 
   final String path;

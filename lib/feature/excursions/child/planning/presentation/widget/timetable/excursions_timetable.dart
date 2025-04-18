@@ -8,8 +8,7 @@ import 'package:pole/feature/excursions/child/planning/presentation/widget/timet
 import 'package:pole/feature/excursions/child/planning/presentation/widget/timetable/timetable_item_background.dart';
 
 final class ExcursionsTimetable extends StatelessWidget {
-  final void Function(PlanningEvent) onEvent;
-  const ExcursionsTimetable({super.key, required this.onEvent});
+  const ExcursionsTimetable({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +75,6 @@ final class ExcursionsTimetable extends StatelessWidget {
                       key: ValueKey(startTime),
                       startTime: startTime,
                       visitation: state.visitationAt(time: startTime),
-                      onEvent: onEvent,
                     );
                   },
                   separatorBuilder: (context, _) => separatorColored,

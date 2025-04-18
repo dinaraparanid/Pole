@@ -11,22 +11,22 @@ import 'package:pole/feature/excursions/child/planning/domain/calculate_max_visi
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/planning_effect.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/planning_event.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/planning_state.dart';
+import 'package:pole/navigation/app_route.dart';
+import 'package:pole/navigation/app_router.dart';
 
 final class PlanningBloc extends Bloc<PlanningEvent, PlanningState>
   with BlocPresentationMixin<PlanningState, PlanningEffect> {
 
   final PlaceSelectorBlocFactory _placeSelectorBlocFactory;
-  final void Function(Excursion) _onResult;
 
   PlanningBloc({
+    required AppRouter router,
     required PlaceSelectorBlocFactory placeSelectorBlocFactory,
     required TextChangeUseCase textChangeUseCase,
     required CalculateMaxVisitDurationUseCase calculateMaxVisitDurationUseCase,
     required City city,
     required DateTime date,
-    required void Function(Excursion) onResult,
-  }) : _onResult = onResult,
-    _placeSelectorBlocFactory = placeSelectorBlocFactory,
+  }) : _placeSelectorBlocFactory = placeSelectorBlocFactory,
     super(PlanningState(date: date)) {
 
     on<OnCreate>((event, emit) {
@@ -48,7 +48,7 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState>
       emitPresentation(ShowPlaceSelectorBottomSheet(
         bloc: _createPlaceSelectorBloc(
           startTime: event.startTime,
-          maxDuration: calculateMaxVisitDurationUseCase.execute(
+          maxDuration: calculateMaxVisitDurationUseCase(
             selectedPlaces: state.selectedPlaces,
             startTime: event.startTime,
           ),
@@ -64,8 +64,9 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState>
       selectedPlaces: state.selectedPlaces.remove(event.visitation),
     )));
 
-    on<ConfirmDayPlan>((event, emit) => _onResult(
-      Excursion(
+    on<ConfirmDayPlan>((event, emit) => router.value.goNamed(
+      AppRoute.overview.name,
+      extra: Excursion(
         city: city,
         excursionName: state.excursionName.value,
         visitations: IList(state.produceTimetable().whereNotNull()),

@@ -44,10 +44,10 @@ final class _AppTextFieldState extends State<AppTextField> {
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
     focusNode.removeListener(onFocusChange);
     focusNode.dispose();
+    super.dispose();
   }
 
   void onFocusChange() => setState(() => isFocused = focusNode.hasFocus);

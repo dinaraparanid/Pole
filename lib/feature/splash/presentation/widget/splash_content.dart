@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
-import 'package:pole/feature/splash/presentation/bloc/splash_event.dart';
 import 'package:pole/feature/splash/presentation/widget/splash_node.dart';
 
 final class SplashContent extends StatelessWidget {
-  final void Function(SplashEvent) onEvent;
-  const SplashContent({super.key, required this.onEvent});
+  const SplashContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +31,7 @@ final class SplashContent extends StatelessWidget {
             alignment: Alignment.center,
             child: Padding(
               padding: commonPadding,
-              child: SplashNode(onEvent: onEvent),
+              child: SplashNode(),
             ),
           ),
         ],

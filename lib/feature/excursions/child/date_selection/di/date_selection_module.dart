@@ -4,6 +4,8 @@ import 'package:pole/feature/excursions/child/date_selection/presentation/bloc/d
 
 extension DateSelectionModule on GetIt {
   List<Type> registerDateSelectionModule() => [
-    provideSingleton<DateSelectionBlocFactory>(() => DateSelectionBlocFactory()),
+    provideSingleton<DateSelectionBlocFactory>(() => DateSelectionBlocFactory(
+      router: this(),
+    )),
   ];
 }

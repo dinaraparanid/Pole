@@ -1,5 +1,5 @@
 import 'package:pole/feature/auth/presentation/bloc/auth_bloc_factory.dart';
-import 'package:pole/feature/main/presentation/bloc/main_bloc_factory.dart';
+import 'package:pole/feature/main/presentation/bloc/main_cubit_factory.dart';
 import 'package:pole/feature/root/presentation/bloc/root_bloc.dart';
 import 'package:pole/feature/root/domain/use_case/initial_screen_use_case.dart';
 import 'package:pole/feature/splash/presentation/bloc/splash_bloc_factory.dart';
@@ -10,14 +10,14 @@ final class RootBlocFactory {
   final InitialScreenUseCase _initialScreenUseCase;
   final SplashBlocFactory _splashBlocFactory;
   final AuthBlocFactory _authBlocFactory;
-  final MainBlocFactory _mainBlocFactory;
+  final MainCubitFactory _mainBlocFactory;
 
   RootBlocFactory({
     required AppRouter router,
     required InitialScreenUseCase initialScreenUseCase,
     required SplashBlocFactory splashBlocFactory,
     required AuthBlocFactory authBlocFactory,
-    required MainBlocFactory mainBlocFactory,
+    required MainCubitFactory mainBlocFactory,
   }) : _router = router,
     _initialScreenUseCase = initialScreenUseCase,
     _splashBlocFactory = splashBlocFactory,
