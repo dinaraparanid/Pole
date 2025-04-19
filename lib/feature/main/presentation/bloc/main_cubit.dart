@@ -15,7 +15,7 @@ final class MainCubit extends Cubit<MainState> {
 
   StreamSubscription<MainTabs>? _tabsChangesListener;
 
-  void navigateToTab(MainTabs tab) => emit(state.copyWith(selectedTab: tab));
+  void selectTab(MainTabs tab) => emit(state.copyWith(selectedTab: tab));
 
   @override
   Future<void> close() {
@@ -31,8 +31,6 @@ final class MainCubit extends Cubit<MainState> {
   }
 
   void _navigateToMainTab(MainTabs tab) {
-    print('BIBA NAVIGATE TAB $tab');
-
     switch (tab) {
       case MainTabs.catalog:
         _router.value.goNamed(AppRoute.catalog.name);

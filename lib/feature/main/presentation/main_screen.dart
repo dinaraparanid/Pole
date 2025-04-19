@@ -28,7 +28,7 @@ final class MainScreen extends StatelessWidget {
           bottomNavigationBar: MainNavigationBar(
             onTabClick: (tab) => BlocProvider
               .of<MainCubit>(context)
-              .navigateToTab(tab),
+              .selectTab(tab),
           ),
         ),
       ),

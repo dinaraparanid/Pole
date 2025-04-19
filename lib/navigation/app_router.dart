@@ -23,7 +23,9 @@ import 'package:pole/feature/excursions/presentation/bloc/excursions_cubit.dart'
 import 'package:pole/feature/excursions/presentation/bloc/excursions_cubit_factory.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_step.dart';
 import 'package:pole/feature/excursions/presentation/excursions_screen.dart';
+import 'package:pole/feature/main/presentation/bloc/main_cubit.dart';
 import 'package:pole/feature/main/presentation/bloc/main_cubit_factory.dart';
+import 'package:pole/feature/main/presentation/bloc/main_state.dart';
 import 'package:pole/feature/main/presentation/main_screen.dart';
 import 'package:pole/feature/root/presentation/bloc/root_bloc_factory.dart';
 import 'package:pole/feature/root/presentation/root_screen.dart';
@@ -118,15 +120,25 @@ final class AppRouter {
             path: AppRoute.catalog.path,
             name: AppRoute.catalog.name,
             builder: (context, state) {
+              BlocProvider
+                .of<MainCubit>(context)
+                .selectTab(MainTabs.catalog);
+
               return Text('TODO: CatalogScreen');
             },
           ),
           ShellRoute(
             observers: [_excursionsObserver],
-            builder: (context, state, navigationShell) => ExcursionsScreen(
-              blocFactory: di<ExcursionsCubitFactory>(),
-              child: navigationShell,
-            ),
+            builder: (context, state, navigationShell) {
+              BlocProvider
+                .of<MainCubit>(context)
+                .selectTab(MainTabs.excursions);
+
+              return ExcursionsScreen(
+                blocFactory: di<ExcursionsCubitFactory>(),
+                child: navigationShell,
+              );
+            },
             routes: [
               GoRoute(
                 path: AppRoute.excursions.path,
@@ -152,14 +164,10 @@ final class AppRouter {
                 name: AppRoute.planning.name,
                 builder: (context, state) {
                   _excursionsObserver.storeExtra(state.extra);
-                  
-                  print('BIBA HERE PLANNING');
 
                   BlocProvider
                     .of<ExcursionsCubit>(context)
                     .updateStep(ExcursionsStep.planning());
-
-                  print('BIBA STEP PLANNING');
 
                   final (city, date) = (state.extra ?? _excursionsObserver.extra)
                     as (City, DateTime);
@@ -193,6 +201,10 @@ final class AppRouter {
               GoRoute(
                 path: AppRoute.creationFinish.path,
                 name: AppRoute.creationFinish.name,
+                onExit: (_, _) {
+                  _excursionsObserver.onExitCreationFinish();
+                  return true;
+                },
                 builder: (context, state) {
                   BlocProvider
                     .of<ExcursionsCubit>(context)
@@ -209,6 +221,10 @@ final class AppRouter {
             path: AppRoute.profile.path,
             name: AppRoute.profile.name,
             builder: (context, state) {
+              BlocProvider
+                .of<MainCubit>(context)
+                .selectTab(MainTabs.profile);
+
               return Text('TODO: ProfileScreen');
             },
           ),

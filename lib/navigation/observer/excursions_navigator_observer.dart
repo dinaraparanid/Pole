@@ -10,4 +10,6 @@ final class ExcursionsNavigatorObserver extends AppNavigatorObserver {
     data.name == AppRoute.overview.name ||
     data.name == AppRoute.creationFinish.name
   ) ?? AppRouteData(name: AppRoute.dateSelection.name, extra: null);
+
+  void onExitCreationFinish() => backStack.clear();
 }
