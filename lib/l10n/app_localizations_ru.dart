@@ -21,16 +21,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get confirm => 'Подтвердить';
 
   @override
+  String get ok => 'ОК';
+
+  @override
   String get failed_to_load => 'Не получилось загрузить';
 
   @override
   String get not_found => 'Ничего не нашлось :(';
 
   @override
-  String get not_found_filters => 'Согласно вашим фильтрам\nничего не нашлось :(';
+  String get not_found_filters => 'Согласно вашим фильтрам\nничего не нашлось :(';
 
   @override
   String get try_again => 'Повторить';
+
+  @override
+  String get something_went_wrong_try_again_later => 'Что-то пошло не так.\nПопробуйте еще раз';
 
   @override
   String get reset_filters => 'Сбросить фильтры';
@@ -75,7 +81,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get auth_password_weak => 'Пароль должен быть от 8 символов';
 
   @override
-  String get auth_password_not_match => 'Пароли не совпадают';
+  String get auth_password_not_match => 'Пароли не совпадают';
 
   @override
   String get auth_invalid_credentials => 'Неправильный логин или пароль';
@@ -90,6 +96,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get sign_up_go_sign_in_label => 'Уже есть аккаунт?';
 
   @override
+  String get sign_up_failed => 'Не получилось зарегистрироваться';
+
+  @override
   String get sign_in_title => 'Авторизация';
 
   @override
@@ -97,6 +106,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get sign_in_go_sign_up_label => 'Нет аккаунта?';
+
+  @override
+  String get sign_in_failed => 'Не получилось авторизоваться';
 
   @override
   String get main_tab_catalog => 'Каталог';
@@ -144,7 +156,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get planning_title_placeholder => 'Новая экскурсия';
 
   @override
-  String get planning_title_error => 'Имя не может быть пустым';
+  String get planning_title_error => 'Имя не может быть пустым';
 
   @override
   String get planning_description => 'Заполните ваш день местами для посещения';

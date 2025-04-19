@@ -5,8 +5,6 @@ import 'package:pole/core/presentation/excursion/excursion_places.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/excursions/child/overview/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/child/overview/presentation/widget/create_excursion_button.dart';
-import 'package:pole/feature/excursions/presentation/bloc/excursions_cubit.dart';
-import 'package:pole/feature/excursions/presentation/bloc/excursions_step.dart';
 
 final class OverviewScreen extends StatelessWidget {
   final OverviewCubitFactory cubitFactory;

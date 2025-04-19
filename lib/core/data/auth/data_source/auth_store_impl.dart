@@ -11,6 +11,13 @@ final class AuthStoreImpl with AuthStore {
   }
 
   @override
+  Stream<bool> get authorizedStream => RxSharedPreferences
+    .getInstance()
+    .getStringStream(_keyToken)
+    .map((s) => s != null)
+    .distinct();
+
+  @override
   Future<void> storeBearerToken({required String token}) async {
     final prefs = RxSharedPreferences.getInstance();
     await prefs.setString(_keyToken, token);

@@ -8,5 +8,5 @@ final class MainNavigatorObserver extends AppNavigatorObserver {
     data.name == AppRoute.catalog.name ||
     data.name == AppRoute.excursions.name ||
     data.name == AppRoute.profile.name
-  ) ?? AppRouteData(name: AppRoute.excursions.name, extra: null);
+  ) ?? AppRouteData(name: AppRoute.excursions.name);
 }

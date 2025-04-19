@@ -21,6 +21,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirm => 'Confirm';
 
   @override
+  String get ok => 'OK';
+
+  @override
   String get failed_to_load => 'Failed to load';
 
   @override
@@ -31,6 +34,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get try_again => 'Try again';
+
+  @override
+  String get something_went_wrong_try_again_later => 'Something went wrong.\nTry again later';
 
   @override
   String get reset_filters => 'Reset filters';
@@ -90,6 +96,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sign_up_go_sign_in_label => 'Already have an account?';
 
   @override
+  String get sign_up_failed => 'Failed to sign up';
+
+  @override
   String get sign_in_title => 'Authorization';
 
   @override
@@ -97,6 +106,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get sign_in_go_sign_up_label => 'No account?';
+
+  @override
+  String get sign_in_failed => 'Failed to sign in';
 
   @override
   String get main_tab_catalog => 'Catalog';

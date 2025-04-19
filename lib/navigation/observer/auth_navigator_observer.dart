@@ -7,5 +7,5 @@ final class AuthNavigatorObserver extends AppNavigatorObserver {
   AppRouteData get redirectRoute => findPreviousRoute((data) =>
     data.name == AppRoute.signIn.name ||
     data.name == AppRoute.signUp.name
-  ) ?? AppRouteData(name: AppRoute.signIn.name, extra: null);
+  ) ?? AppRouteData(name: AppRoute.signIn.name);
 }

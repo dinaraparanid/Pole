@@ -1,18 +1,12 @@
-import 'package:pole/feature/auth/domain/navigate_to_auth_screen_use_case.dart';
 import 'package:pole/feature/auth/presentation/bloc/auth_route.dart';
 import 'package:pole/feature/auth/presentation/bloc/auth_bloc.dart';
+import 'package:pole/navigation/app_router.dart';
 
 final class AuthBlocFactory {
-  final NavigateToAuthScreenUseCase _navigateToAuthScreenUseCase;
+  final AppRouter _router;
 
-  AuthBlocFactory({
-    required NavigateToAuthScreenUseCase navigateToAuthScreenUseCase,
-  }) : _navigateToAuthScreenUseCase = navigateToAuthScreenUseCase;
+  AuthBlocFactory({required AppRouter router}) : _router = router;
 
-  AuthBloc create({
-    required AuthRoute route,
-  }) => AuthBloc(
-    navigateToAuthScreenUseCase: _navigateToAuthScreenUseCase,
-    route: route,
-  );
+  AuthBloc create({required AuthRoute route}) =>
+    AuthBloc(router: _router, route: route);
 }

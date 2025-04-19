@@ -38,7 +38,7 @@ final class VisitDurationContent extends StatelessWidget {
 
           AppButton(
             text: strings.confirm,
-            enabled: state.isConfirmButtonEnabled,
+            isEnabled: state.isConfirmButtonEnabled,
             onClick: () => context.read<VisitDurationCubit>().confirm(),
           ),
         ],

@@ -2,7 +2,6 @@ import 'package:get_it/get_it.dart';
 import 'package:pole/core/data/account/data_source/account_api_impl.dart';
 import 'package:pole/core/data/account/data_source/account_store_impl.dart';
 import 'package:pole/core/data/account/repository/account_repository_impl.dart';
-import 'package:pole/core/di/core_module.dart';
 import 'package:pole/core/di/provide.dart';
 import 'package:pole/core/domain/account/data_source/account_api.dart';
 import 'package:pole/core/domain/account/data_source/account_store.dart';

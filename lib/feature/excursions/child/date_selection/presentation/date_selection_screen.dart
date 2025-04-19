@@ -5,7 +5,6 @@ import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/excursions/child/date_selection/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/child/date_selection/presentation/widget/city_picker.dart';
 import 'package:pole/feature/excursions/child/date_selection/presentation/widget/date_picker.dart';
-import 'package:pole/feature/excursions/presentation/bloc/mod.dart';
 
 final class DateSelectionScreen extends StatelessWidget {
   final DateSelectionBlocFactory blocFactory;
@@ -73,7 +72,7 @@ final class DateSelectionScreen extends StatelessWidget {
               CommonPadding(
                 child: AppButton(
                   text: strings.continue_txt,
-                  enabled: state.isContinueButtonEnabled,
+                  isEnabled: state.isContinueButtonEnabled,
                   onClick: () => BlocProvider
                     .of<DateSelectionBloc>(context)
                     .add(ContinueClick()),

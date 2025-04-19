@@ -3,10 +3,12 @@
   "continue_txt": "Продолжить",
   "next": "Далее",
   "confirm": "Подтвердить",
+  "ok": "ОК",
   "failed_to_load": "Не получилось загрузить",
   "not_found": "Ничего не нашлось :(",
-  "not_found_filters": "Согласно вашим фильтрам\nничего не нашлось :(",
+  "not_found_filters": "Согласно вашим фильтрам\nничего не нашлось :(",
   "try_again": "Повторить",
+  "something_went_wrong_try_again_later": "Что-то пошло не так.\nПопробуйте еще раз",
   "reset_filters": "Сбросить фильтры",
 
   "splash_title": "Познакомим с Иннополисом",
@@ -23,16 +25,18 @@
   "auth_name_empty": "Имя обязательно для заполнения",
   "auth_email_empty": "Email обязателен для заполнения",
   "auth_password_weak": "Пароль должен быть от 8 символов",
-  "auth_password_not_match": "Пароли не совпадают",
+  "auth_password_not_match": "Пароли не совпадают",
   "auth_invalid_credentials": "Неправильный логин или пароль",
 
   "sign_up_title": "Регистрация",
   "sign_up_description": "Создайте свой аккаунт и начните собирать экскурсии уже сейчас.",
   "sign_up_go_sign_in_label": "Уже есть аккаунт?",
+  "sign_up_failed": "Не получилось зарегистрироваться",
 
   "sign_in_title": "Авторизация",
   "sign_in_description": "Чтобы продолжить, войдите в свой аккаунт.",
   "sign_in_go_sign_up_label": "Нет аккаунта?",
+  "sign_in_failed": "Не получилось авторизоваться",
 
   "main_tab_catalog": "Каталог",
   "main_tab_excursions": "Экскурсии",
@@ -52,7 +56,7 @@
   "date_selection_popular_excursions": "Популярные экскурсии",
 
   "planning_title_placeholder": "Новая экскурсия",
-  "planning_title_error": "Имя не может быть пустым",
+  "planning_title_error": "Имя не может быть пустым",
   "planning_description": "Заполните ваш день местами для посещения",
   "planning_sheet_title": "Новое место",
   "planning_sheet_catalog": "Каталог",

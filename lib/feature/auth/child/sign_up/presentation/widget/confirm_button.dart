@@ -16,7 +16,7 @@ final class ConfirmButton extends StatelessWidget {
       builder: (context, state) => AppButton(
         text: strings.auth_sign_up,
         onClick: onClick,
-        enabled: state.isConfirmButtonEnabled,
+        isEnabled: state.isConfirmButtonEnabled,
       ),
     );
   }

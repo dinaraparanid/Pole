@@ -14,6 +14,8 @@ abstract class SignInState with _$SignInState {
 
     @Default(TextContainer(value: '', error: false))
     TextContainer<bool> password,
+
+    @Default(false) bool isConfirmButtonLoading,
   }) = _SignUpState;
 }
 

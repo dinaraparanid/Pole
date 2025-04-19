@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 
 final class AppProgressIndicator extends StatelessWidget {
-  const AppProgressIndicator({super.key});
+  final double? size;
+  const AppProgressIndicator({super.key, this.size});
 
   @override
   Widget build(BuildContext context) {
     final theme = context.appTheme;
+    final appliedSize = size ?? theme.dimensions.size.medium;
 
     return Wrap(children: [
       SizedBox(
-        width: theme.dimensions.size.medium,
-        height: theme.dimensions.size.medium,
+        width: appliedSize,
+        height: appliedSize,
         child: FittedBox(
           child: CircularProgressIndicator.adaptive(
             backgroundColor: theme.colors.primary,

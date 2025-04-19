@@ -8,7 +8,7 @@ abstract class BaseResponseBody<T> with _$BaseResponseBody<T> {
   const factory BaseResponseBody({
     @JsonKey(name: 'status') required String status,
     @JsonKey(name: 'message') required String message,
-    @JsonKey(name: 'response') required T response,
+    @JsonKey(name: 'response', required: false) T? response,
   }) = _BaseResponseBody<T>;
 
   factory BaseResponseBody.fromJson(

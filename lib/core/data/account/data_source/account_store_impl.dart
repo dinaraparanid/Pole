@@ -20,6 +20,7 @@ final class AccountStoreImpl with AccountStore {
     .getInstance()
     .getStringStream(_keyProfile)
     .whereNotNull()
+    .distinct()
     .map((s) => Profile.fromJson(jsonDecode(s)));
 
   @override

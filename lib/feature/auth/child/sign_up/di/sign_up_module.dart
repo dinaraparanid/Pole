@@ -6,6 +6,7 @@ extension SignUpModule on GetIt {
   List<Type> registerSignUpModule() => [
     provideSingleton<SignUpBlocFactory>(() => SignUpBlocFactory(
       router: this(),
+      signUpUseCase: this(),
       textChangeUseCase: this(),
     )),
   ];

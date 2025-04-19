@@ -3,10 +3,12 @@
   "continue_txt": "Continue",
   "next": "Next",
   "confirm": "Confirm",
+  "ok": "OK",
   "failed_to_load": "Failed to load",
   "not_found": "Nothing was found :(",
   "not_found_filters": "According to your filters, nothing was found :(",
   "try_again": "Try again",
+  "something_went_wrong_try_again_later": "Something went wrong.\nTry again later",
   "reset_filters": "Reset filters",
 
   "splash_title": "Introducing Innopolis",
@@ -29,10 +31,12 @@
   "sign_up_title": "Registration",
   "sign_up_description": "Create your account and start touring now",
   "sign_up_go_sign_in_label": "Already have an account?",
+  "sign_up_failed": "Failed to sign up",
 
   "sign_in_title": "Authorization",
   "sign_in_description": "To continue, log in to your account.",
   "sign_in_go_sign_up_label": "No account?",
+  "sign_in_failed": "Failed to sign in",
 
   "main_tab_catalog": "Catalog",
   "main_tab_excursions": "Excursions",

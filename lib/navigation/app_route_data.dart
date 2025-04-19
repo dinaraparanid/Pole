@@ -4,6 +4,6 @@ final class AppRouteData {
 
   AppRouteData({
     required this.name,
-    required this.extra,
+    this.extra,
   });
 }

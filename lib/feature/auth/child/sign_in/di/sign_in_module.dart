@@ -4,8 +4,9 @@ import 'package:pole/feature/auth/child/sign_in/presentation/bloc/mod.dart';
 
 extension SignInModule on GetIt {
   List<Type> registerSignInModule() => [
-    provideSingleton<SignInBlocFactory>(() => SignInBlocFactory(
+    provideSingleton(() => SignInBlocFactory(
       router: this(),
+      signInUseCase: this(),
       textChangeUseCase: this(),
     )),
   ];

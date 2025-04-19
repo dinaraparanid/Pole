@@ -1,34 +1,18 @@
-import 'package:pole/feature/auth/presentation/bloc/auth_bloc_factory.dart';
-import 'package:pole/feature/main/presentation/bloc/main_cubit_factory.dart';
+import 'package:pole/core/domain/auth/data_source/auth_store.dart';
 import 'package:pole/feature/root/presentation/bloc/root_bloc.dart';
-import 'package:pole/feature/root/domain/use_case/initial_screen_use_case.dart';
-import 'package:pole/feature/splash/presentation/bloc/splash_bloc_factory.dart';
 import 'package:pole/navigation/app_router.dart';
 
 final class RootBlocFactory {
   final AppRouter _router;
-  final InitialScreenUseCase _initialScreenUseCase;
-  final SplashBlocFactory _splashBlocFactory;
-  final AuthBlocFactory _authBlocFactory;
-  final MainCubitFactory _mainBlocFactory;
+  final AuthStore _authStore;
 
   RootBlocFactory({
     required AppRouter router,
-    required InitialScreenUseCase initialScreenUseCase,
-    required SplashBlocFactory splashBlocFactory,
-    required AuthBlocFactory authBlocFactory,
-    required MainCubitFactory mainBlocFactory,
-  }) : _router = router,
-    _initialScreenUseCase = initialScreenUseCase,
-    _splashBlocFactory = splashBlocFactory,
-    _authBlocFactory = authBlocFactory,
-    _mainBlocFactory = mainBlocFactory;
+    required AuthStore authStore,
+  }) : _router = router, _authStore = authStore;
 
   RootBloc create() => RootBloc(
     router: _router,
-    initialScreenUseCase: _initialScreenUseCase,
-    splashBlocFactory: _splashBlocFactory,
-    authBlocFactory: _authBlocFactory,
-    mainBlocFactory: _mainBlocFactory,
+    authStore: _authStore,
   );
 }

@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pole/core/presentation/foundation/app_button.dart';
 import 'package:pole/core/presentation/foundation/text/app_outline_text_field.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/bloc/mod.dart';
-import 'package:pole/feature/auth/child/sign_in/presentation/widget/confirm_button.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/widget/sign_in_info.dart';
 
 final class SignInContent extends StatelessWidget {
@@ -85,9 +85,13 @@ final class SignInContent extends StatelessWidget {
 
               Padding(
                 padding: commonPadding,
-                child: ConfirmButton(onClick: () => BlocProvider
-                  .of<SignInBloc>(context)
-                  .add(ConfirmClick()),
+                child: AppButton(
+                  text: strings.auth_sign_in,
+                  isEnabled: state.isConfirmButtonEnabled,
+                  isLoading: state.isConfirmButtonLoading,
+                  onClick: () => BlocProvider
+                    .of<SignInBloc>(context)
+                    .add(ConfirmClick()),
                 ),
               ),
             ],

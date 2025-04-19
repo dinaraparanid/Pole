@@ -23,17 +23,22 @@ final class AccountApiImpl with AccountApi {
     required String password,
   }) async {
     try {
-      final response = await _dio.post<BaseResponseBody<TokenResponse>>(
+      final response = await _dio.post(
         _routeRegister,
         data: RegisterRequest(name: name, email: email, password: password),
       );
 
+      final data = BaseResponseBody<TokenResponse>.fromJson(
+        response.data,
+        (json) => TokenResponse.fromJson(json as Map<String, dynamic>),
+      );
+
       if (response.statusCode != 200) {
-        return Either.left(Exception(response.data?.message));
+        return Either.left(Exception(data.message));
       }
 
-      return Either.right(AccountToken(value: response.data!.response.token));
-    } on Exception catch (e) {
+      return Either.right(AccountToken(value: data.response!.token));
+    } on Exception catch (_) {
       return Either.left(Exception());
     }
   }
@@ -44,17 +49,22 @@ final class AccountApiImpl with AccountApi {
     required String password,
   }) async {
     try {
-      final response = await _dio.post<BaseResponseBody<TokenResponse>>(
+      final response = await _dio.post(
         _routeAuth,
         data: AuthRequest(email: email, password: password),
+      );
+
+      final data = BaseResponseBody<TokenResponse>.fromJson(
+        response.data,
+        (json) => TokenResponse.fromJson(json as Map<String, dynamic>),
       );
 
       if (response.statusCode != 200) {
         return Either.left(Exception(response.data?.message));
       }
 
-      return Either.right(response.data!.response.toAccountToken());
-    } on Exception catch (e) {
+      return Either.right(data.response!.toAccountToken());
+    } on Exception catch (_) {
       return Either.left(Exception());
     }
   }
@@ -62,16 +72,21 @@ final class AccountApiImpl with AccountApi {
   @override
   Future<Either<Exception, Profile>> loadProfile() async {
     try {
-      final response = await _dio.post<BaseResponseBody<ProfileResponse>>(
+      final response = await _dio.post(
         _routeProfile,
+      );
+
+      final data = BaseResponseBody<ProfileResponse>.fromJson(
+        response.data,
+        (json) => ProfileResponse.fromJson(json as Map<String, dynamic>),
       );
 
       if (response.statusCode != 200) {
         return Either.left(Exception(response.data?.message));
       }
 
-      return Either.right(response.data!.response.toProfile());
-    } on Exception catch (e) {
+      return Either.right(data.response!.toProfile());
+    } on Exception catch (_) {
       return Either.left(Exception());
     }
   }

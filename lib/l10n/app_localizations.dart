@@ -119,6 +119,12 @@ abstract class AppLocalizations {
   /// **'Confirm'**
   String get confirm;
 
+  /// No description provided for @ok.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
+
   /// No description provided for @failed_to_load.
   ///
   /// In en, this message translates to:
@@ -142,6 +148,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Try again'**
   String get try_again;
+
+  /// No description provided for @something_went_wrong_try_again_later.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong.\nTry again later'**
+  String get something_went_wrong_try_again_later;
 
   /// No description provided for @reset_filters.
   ///
@@ -257,6 +269,12 @@ abstract class AppLocalizations {
   /// **'Already have an account?'**
   String get sign_up_go_sign_in_label;
 
+  /// No description provided for @sign_up_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to sign up'**
+  String get sign_up_failed;
+
   /// No description provided for @sign_in_title.
   ///
   /// In en, this message translates to:
@@ -274,6 +292,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No account?'**
   String get sign_in_go_sign_up_label;
+
+  /// No description provided for @sign_in_failed.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to sign in'**
+  String get sign_in_failed;
 
   /// No description provided for @main_tab_catalog.
   ///

@@ -65,181 +65,187 @@ final class AppRouter {
     navigatorKey: _rootNavigatorKey,
     initialLocation: AppRoute.root.path,
     routes: [
-      GoRoute(
-        path: AppRoute.root.path,
-        name: AppRoute.root.name,
-        builder: (context, state) => RootScreen(
+      ShellRoute(
+        builder: (context, state, child) => RootScreen(
           blocFactory: di<RootBlocFactory>(),
-        ),
-      ),
-      GoRoute(
-        path: AppRoute.splash.path,
-        name: AppRoute.splash.name,
-        builder: (context, state) => SplashScreen(
-          blocFactory: di<SplashBlocFactory>(),
-        ),
-      ),
-      ShellRoute(
-        observers: [_authObserver],
-        builder: (context, state, child) {
-          _authObserver.storeExtra(state.extra);
-
-          final route = (state.extra ?? _authObserver.extra) as AuthRoute;
-
-          return AuthScreen(
-            blocFactory: di<AuthBlocFactory>(),
-            route: route,
-            child: child,
-          );
-        },
-        routes: [
-          GoRoute(
-            path: AppRoute.auth.path,
-            name: AppRoute.auth.name,
-            redirect: (context, state) => _authObserver.redirectPath.path,
-          ),
-          GoRoute(
-            path: AppRoute.signIn.path,
-            name: AppRoute.signIn.name,
-            builder: (context, state) => SignInScreen(
-              blocFactory: di<SignInBlocFactory>(),
-            ),
-          ),
-          GoRoute(
-            path: AppRoute.signUp.path,
-            name: AppRoute.signUp.name,
-            builder: (context, state) => SignUpScreen(
-              blocFactory: di<SignUpBlocFactory>(),
-            ),
-          ),
-        ],
-      ),
-      ShellRoute(
-        observers: [_mainObserver],
-        builder: (context, state, child) => MainScreen(
-          cubitFactory: di<MainCubitFactory>(),
           child: child,
         ),
         routes: [
           GoRoute(
-            path: AppRoute.main.path,
-            name: AppRoute.main.name,
-            redirect: (context, state) => _mainObserver.redirectPath.path,
+            path: AppRoute.root.path,
+            name: AppRoute.root.name,
+            builder: (context, state) => SizedBox(),
           ),
           GoRoute(
-            path: AppRoute.catalog.path,
-            name: AppRoute.catalog.name,
-            builder: (context, state) {
-              BlocProvider
-                .of<MainCubit>(context)
-                .selectTab(MainTabs.catalog);
-
-              return Text('TODO: CatalogScreen');
-            },
+            path: AppRoute.splash.path,
+            name: AppRoute.splash.name,
+            builder: (context, state) => SplashScreen(
+              blocFactory: di<SplashBlocFactory>(),
+            ),
           ),
           ShellRoute(
-            observers: [_excursionsObserver],
-            builder: (context, state, navigationShell) {
-              BlocProvider
-                .of<MainCubit>(context)
-                .selectTab(MainTabs.excursions);
+            observers: [_authObserver],
+            builder: (context, state, child) {
+              _authObserver.storeExtra(state.extra);
 
-              return ExcursionsScreen(
-                blocFactory: di<ExcursionsCubitFactory>(),
-                child: navigationShell,
+              final route = (state.extra ?? _authObserver.extra) as AuthRoute;
+
+              return AuthScreen(
+                blocFactory: di<AuthBlocFactory>(),
+                route: route,
+                child: child,
               );
             },
             routes: [
               GoRoute(
-                path: AppRoute.excursions.path,
-                name: AppRoute.excursions.name,
-                redirect: (context, state) =>
-                  _excursionsObserver.redirectPath.path,
+                path: AppRoute.auth.path,
+                name: AppRoute.auth.name,
+                redirect: (context, state) => _authObserver.redirectPath.path,
               ),
               GoRoute(
-                path: AppRoute.dateSelection.path,
-                name: AppRoute.dateSelection.name,
-                builder: (context, state) {
-                  BlocProvider
-                    .of<ExcursionsCubit>(context)
-                    .updateStep(ExcursionsStep.dateSelection());
-
-                  return DateSelectionScreen(
-                    blocFactory: di<DateSelectionBlocFactory>(),
-                  );
-                },
+                path: AppRoute.signIn.path,
+                name: AppRoute.signIn.name,
+                builder: (context, state) => SignInScreen(
+                  blocFactory: di<SignInBlocFactory>(),
+                ),
               ),
               GoRoute(
-                path: AppRoute.planning.path,
-                name: AppRoute.planning.name,
-                builder: (context, state) {
-                  _excursionsObserver.storeExtra(state.extra);
-
-                  BlocProvider
-                    .of<ExcursionsCubit>(context)
-                    .updateStep(ExcursionsStep.planning());
-
-                  final (city, date) = (state.extra ?? _excursionsObserver.extra)
-                    as (City, DateTime);
-
-                  return PlanningScreen(
-                    blocFactory: di<PlanningBlocFactory>(),
-                    city: city,
-                    date: date,
-                  );
-                },
+                path: AppRoute.signUp.path,
+                name: AppRoute.signUp.name,
+                builder: (context, state) => SignUpScreen(
+                  blocFactory: di<SignUpBlocFactory>(),
+                ),
+              ),
+            ],
+          ),
+          ShellRoute(
+            observers: [_mainObserver],
+            builder: (context, state, child) => MainScreen(
+              cubitFactory: di<MainCubitFactory>(),
+              child: child,
+            ),
+            routes: [
+              GoRoute(
+                path: AppRoute.main.path,
+                name: AppRoute.main.name,
+                redirect: (context, state) => _mainObserver.redirectPath.path,
               ),
               GoRoute(
-                path: AppRoute.overview.path,
-                name: AppRoute.overview.name,
+                path: AppRoute.catalog.path,
+                name: AppRoute.catalog.name,
                 builder: (context, state) {
-                  _excursionsObserver.storeExtra(state.extra);
-
                   BlocProvider
-                    .of<ExcursionsCubit>(context)
-                    .updateStep(ExcursionsStep.overview());
+                    .of<MainCubit>(context)
+                    .selectTab(MainTabs.catalog);
 
-                  final excursion = (state.extra ?? _excursionsObserver.extra)
-                    as Excursion;
-
-                  return OverviewScreen(
-                    cubitFactory: di<OverviewCubitFactory>(),
-                    excursion: excursion,
-                  );
+                  return Text('TODO: CatalogScreen');
                 },
               ),
-              GoRoute(
-                path: AppRoute.creationFinish.path,
-                name: AppRoute.creationFinish.name,
-                onExit: (_, _) {
-                  _excursionsObserver.onExitCreationFinish();
-                  return true;
+              ShellRoute(
+                observers: [_excursionsObserver],
+                builder: (context, state, navigationShell) {
+                  BlocProvider
+                    .of<MainCubit>(context)
+                    .selectTab(MainTabs.excursions);
+
+                  return ExcursionsScreen(
+                    blocFactory: di<ExcursionsCubitFactory>(),
+                    child: navigationShell,
+                  );
                 },
+                routes: [
+                  GoRoute(
+                    path: AppRoute.excursions.path,
+                    name: AppRoute.excursions.name,
+                    redirect: (context, state) =>
+                    _excursionsObserver.redirectPath.path,
+                  ),
+                  GoRoute(
+                    path: AppRoute.dateSelection.path,
+                    name: AppRoute.dateSelection.name,
+                    builder: (context, state) {
+                      BlocProvider
+                        .of<ExcursionsCubit>(context)
+                        .updateStep(ExcursionsStep.dateSelection());
+
+                      return DateSelectionScreen(
+                        blocFactory: di<DateSelectionBlocFactory>(),
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: AppRoute.planning.path,
+                    name: AppRoute.planning.name,
+                    builder: (context, state) {
+                      _excursionsObserver.storeExtra(state.extra);
+
+                      BlocProvider
+                        .of<ExcursionsCubit>(context)
+                        .updateStep(ExcursionsStep.planning());
+
+                      final (city, date) = (state.extra ?? _excursionsObserver.extra)
+                        as (City, DateTime);
+
+                      return PlanningScreen(
+                        blocFactory: di<PlanningBlocFactory>(),
+                        city: city,
+                        date: date,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: AppRoute.overview.path,
+                    name: AppRoute.overview.name,
+                    builder: (context, state) {
+                      _excursionsObserver.storeExtra(state.extra);
+
+                      BlocProvider
+                        .of<ExcursionsCubit>(context)
+                        .updateStep(ExcursionsStep.overview());
+
+                      final excursion = (state.extra ?? _excursionsObserver.extra)
+                        as Excursion;
+
+                      return OverviewScreen(
+                        cubitFactory: di<OverviewCubitFactory>(),
+                        excursion: excursion,
+                      );
+                    },
+                  ),
+                  GoRoute(
+                    path: AppRoute.creationFinish.path,
+                    name: AppRoute.creationFinish.name,
+                    onExit: (_, _) {
+                      _excursionsObserver.onExitCreationFinish();
+                      return true;
+                    },
+                    builder: (context, state) {
+                      BlocProvider
+                        .of<ExcursionsCubit>(context)
+                        .updateStep(ExcursionsStep.creationFinish());
+
+                      return CreationFinishScreen(
+                        cubitFactory: di<CreationFinishCubitFactory>(),
+                      );
+                    },
+                  ),
+                ],
+              ),
+              GoRoute(
+                path: AppRoute.profile.path,
+                name: AppRoute.profile.name,
                 builder: (context, state) {
                   BlocProvider
-                    .of<ExcursionsCubit>(context)
-                    .updateStep(ExcursionsStep.creationFinish());
+                    .of<MainCubit>(context)
+                    .selectTab(MainTabs.profile);
 
-                  return CreationFinishScreen(
-                    cubitFactory: di<CreationFinishCubitFactory>(),
-                  );
+                  return Text('TODO: ProfileScreen');
                 },
               ),
             ],
           ),
-          GoRoute(
-            path: AppRoute.profile.path,
-            name: AppRoute.profile.name,
-            builder: (context, state) {
-              BlocProvider
-                .of<MainCubit>(context)
-                .selectTab(MainTabs.profile);
-
-              return Text('TODO: ProfileScreen');
-            },
-          ),
-        ],
-      ),
+        ]
+      )
     ],
   );
 }
