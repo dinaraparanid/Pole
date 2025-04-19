@@ -6,7 +6,10 @@ import 'package:pole/navigation/app_route_data.dart';
 import 'package:pole/navigation/app_router.dart';
 
 abstract class AppNavigatorObserver extends NavigatorObserver {
+
+  @protected
   final List<AppRouteData> backStack = [];
+
   Object? _tmpExtra;
 
   abstract final AppRouteData redirectRoute;
