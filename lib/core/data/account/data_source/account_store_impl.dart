@@ -23,8 +23,10 @@ final class AccountStoreImpl with AccountStore {
     .map((s) => Profile.fromJson(jsonDecode(s)));
 
   @override
-  Future<void> storeProfile(Profile profile) =>
-    RxSharedPreferences
-      .getInstance()
-      .setString(_keyProfile, jsonEncode(profile.toJson()));
+  Future<void> storeProfile(Profile profile) => RxSharedPreferences
+    .getInstance()
+    .setString(_keyProfile, jsonEncode(profile.toJson()));
+
+  @override
+  Future<void> clear() => RxSharedPreferences.getInstance().remove(_keyProfile);
 }

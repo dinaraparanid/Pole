@@ -29,6 +29,8 @@ abstract class AppNavigatorObserver extends NavigatorObserver {
     if (extra != null) _tmpExtra = extra;
   }
 
+  void clear() => backStack.clear();
+
   @override
   void didPush(Route route, Route? previousRoute) {
     final config = di<AppRouter>().value.routerDelegate.currentConfiguration;

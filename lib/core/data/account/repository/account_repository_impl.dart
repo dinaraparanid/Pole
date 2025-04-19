@@ -1,9 +1,9 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:pole/core/data/auth/auth_store.dart';
 import 'package:pole/core/domain/account/data_source/account_api.dart';
 import 'package:pole/core/domain/account/data_source/account_store.dart';
 import 'package:pole/core/domain/account/entity/profile.dart';
 import 'package:pole/core/domain/account/repository/account_repository.dart';
+import 'package:pole/core/domain/auth/data_source/auth_store.dart';
 import 'package:pole/core/utils/ext/either.dart';
 
 final class AccountRepositoryImpl extends AccountRepository {

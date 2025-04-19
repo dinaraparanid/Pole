@@ -51,6 +51,16 @@ final class AppRouter {
     _excursionsObserver = excursionsObserver,
     _mainObserver = mainObserver;
 
+  void clearBackStackHistory() {
+    _authObserver.clear();
+    _mainObserver.clear();
+    _excursionsObserver.clear();
+
+    while (value.canPop()) {
+      value.pop();
+    }
+  }
+
   late final value = GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: AppRoute.root.path,
