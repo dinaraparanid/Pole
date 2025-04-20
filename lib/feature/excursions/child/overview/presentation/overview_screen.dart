@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/domain/excursion/excursion.dart';
 import 'package:pole/core/presentation/excursion/excursion_places.dart';
+import 'package:pole/core/presentation/foundation/app_button.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/excursions/child/overview/presentation/bloc/mod.dart';
-import 'package:pole/feature/excursions/child/overview/presentation/widget/create_excursion_button.dart';
 
 final class OverviewScreen extends StatelessWidget {
   final OverviewCubitFactory cubitFactory;
@@ -55,8 +55,11 @@ final class OverviewScreen extends StatelessWidget {
 
                 SizedBox(height: theme.dimensions.padding.large),
 
-                CreateExcursionButton(onClick: () =>
-                  BlocProvider.of<OverviewCubit>(context).createExcursion(),
+                AppButton(
+                  text: context.strings.overview_create_excursion,
+                  onClick: BlocProvider
+                    .of<OverviewCubit>(context)
+                    .createExcursion,
                 ),
 
                 SizedBox(height: theme.dimensions.padding.large),

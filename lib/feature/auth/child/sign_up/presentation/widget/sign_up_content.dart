@@ -126,6 +126,8 @@ final class SignUpContent extends StatelessWidget {
                     .add(ConfirmClick()),
                 ),
               ),
+
+              SizedBox(height: theme.dimensions.padding.large),
             ],
           ),
         ),

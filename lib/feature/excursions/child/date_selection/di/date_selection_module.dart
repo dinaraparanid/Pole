@@ -6,6 +6,8 @@ extension DateSelectionModule on GetIt {
   List<Type> registerDateSelectionModule() => [
     provideSingleton<DateSelectionBlocFactory>(() => DateSelectionBlocFactory(
       router: this(),
+      excursionConfigChangesUseCase: this(),
+      excursionConfigRepository: this(),
     )),
   ];
 }

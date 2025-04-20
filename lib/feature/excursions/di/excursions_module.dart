@@ -4,6 +4,10 @@ import 'package:pole/feature/excursions/child/creation_finish/di/creation_finish
 import 'package:pole/feature/excursions/child/date_selection/di/date_selection_module.dart';
 import 'package:pole/feature/excursions/child/overview/di/overview_module.dart';
 import 'package:pole/feature/excursions/child/planning/di/planning_module.dart';
+import 'package:pole/feature/excursions/data/data_source/selected_city_store.dart';
+import 'package:pole/feature/excursions/data/data_source/selected_date_store.dart';
+import 'package:pole/feature/excursions/data/repository/excursion_config_repository.dart';
+import 'package:pole/feature/excursions/domain/use_case/listen_excursion_config_changes_use_case.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_cubit_factory.dart';
 
 extension ExcursionsModule on GetIt {
@@ -12,11 +16,19 @@ extension ExcursionsModule on GetIt {
     ...registerPlanningModule(),
     ...registerOverviewModule(),
     ...registerCreationFinishModule(),
-    provideSingleton<ExcursionsCubitFactory>(() => ExcursionsCubitFactory(
-      dateSelectionBlocFactory: this(),
-      planningBlocFactory: this(),
-      overviewBlocFactory: this(),
-      creationFinishCubitFactory: this(),
+
+    provideSingleton(() => SelectedCityStore()),
+    provideSingleton(() => SelectedDateStore()),
+
+    provideSingleton(() => ExcursionConfigRepository(
+      cityStore: this(),
+      dateStore: this(),
     )),
+
+    provideSingleton(() => ListenExcursionConfigChangesUseCase(
+      excursionConfigRepository: this(),
+    )),
+
+    provideSingleton(() => ExcursionsCubitFactory()),
   ];
 }

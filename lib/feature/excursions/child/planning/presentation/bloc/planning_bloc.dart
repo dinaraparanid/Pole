@@ -69,7 +69,7 @@ final class PlanningBloc extends Bloc<PlanningEvent, PlanningState>
       extra: Excursion(
         city: city,
         excursionName: state.excursionName.value,
-        visitations: IList(state.produceTimetable().whereNotNull()),
+        visitations: state.produceTimetable().whereNotNull().toIList(),
       ),
     ));
   }

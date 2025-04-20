@@ -48,9 +48,9 @@ final class _ExcursionStepsState extends State<ExcursionSteps> {
         key: _excursionStepsPainterKey,
         painter: ExcursionStepsPainter(
           theme: theme,
-          positions: IList(widget.controller.itemsGlobalYPositions.map(
+          positions: widget.controller.itemsGlobalYPositions.map(
             (itemY) => itemY - (_excursionStepsPainterKey.globalPosition?.dy ?? 0),
-          )),
+          ).toIList(),
         ),
       ),
     );

@@ -4,7 +4,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 const _optionConnectTimeout = Duration(seconds: 10);
 const _optionReceiveTimeout = Duration(seconds: 10);
 const _optionSendTimeout = Duration(seconds: 10);
-const _optionHost = 'http://localhost:8080';
+const _optionHost = 'https://pole.smashup.ru';
 
 Dio BaseDio() => Dio(
   BaseOptions(

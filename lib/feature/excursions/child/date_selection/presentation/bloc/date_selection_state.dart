@@ -6,7 +6,7 @@ part 'date_selection_state.freezed.dart';
 @freezed
 abstract class DateSelectionState with _$DateSelectionState {
   const factory DateSelectionState({
-    @Default(City(id: 0, name: 'г. Иннополис')) City? selectedCity,
+    City? selectedCity,
     DateTime? selectedDate,
   }) = _DateSelectionState;
 }
