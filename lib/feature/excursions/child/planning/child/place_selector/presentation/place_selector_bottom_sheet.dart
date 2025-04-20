@@ -8,27 +8,22 @@ import 'package:pole/feature/excursions/child/planning/child/place_selector/pres
 Future<void> showPlaceSelectorBottomSheet({
   required BuildContext context,
   required PlaceSelectorBloc bloc,
-}) {
-  final theme = context.appTheme;
-  final strings = context.strings;
-
-  return showAdaptiveBottomSheet(
-    context: context,
-    builder: (context) => BlocProvider(
-      create: (_) => bloc,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            strings.planning_sheet_title,
-            style: theme.typography.h.h3.copyWith(
-              color: theme.colors.text.primary,
-            ),
+}) => showAdaptiveBottomSheet(
+  context: context,
+  builder: (context) => BlocProvider(
+    create: (_) => bloc,
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          context.strings.planning_sheet_title,
+          style: context.appTheme.typography.h.h3.copyWith(
+            color: context.appTheme.colors.text.primary,
           ),
+        ),
 
-          PlaceSelectorScreen(onEvent: bloc.add),
-        ],
-      ),
+        PlaceSelectorScreen(),
+      ],
     ),
-  );
-}
+  ),
+);

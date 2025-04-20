@@ -1,6 +1,7 @@
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:pole/core/domain/city/entity/city_id.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
 import 'package:pole/core/presentation/foundation/ui_state.dart';
 
@@ -13,6 +14,7 @@ abstract class PlaceSelectorState with _$PlaceSelectorState {
     required Duration maxDuration,
     required UiState<IList<PlaceCategory>> availableCategories,
     required PagingState<int, VisitPlace> pagingState,
+    @Default(UiState.initial()) UiState<CityId> cityId,
     @Default(ISet.empty()) ISet<PlaceCategoryId> selectedCategories,
   }) = _PlaceSelectorState;
 }

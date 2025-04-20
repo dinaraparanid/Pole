@@ -10,7 +10,10 @@ extension PlaceSelectorModule on GetIt {
     provideSingleton<PlaceSelectorBlocFactory>(() =>
       PlaceSelectorBlocFactory(
         selectCategoryUseCase: this(),
+        loadCategoriesUseCase: this(),
+        excursionConfigChangesUseCase: this(),
         visitDurationCubitFactory: this(),
+        placeRepository: this(),
       )
     ),
   ];

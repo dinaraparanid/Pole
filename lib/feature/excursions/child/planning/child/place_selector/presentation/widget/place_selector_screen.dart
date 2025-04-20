@@ -12,14 +12,11 @@ import 'package:pole/feature/excursions/child/planning/child/place_selector/pres
 import 'package:pole/feature/excursions/child/planning/child/visit_duration/presentation/visit_duration_dialog.dart';
 
 final class PlaceSelectorScreen extends StatelessWidget {
-  final void Function(PlaceSelectorEvent) onEvent;
-  const PlaceSelectorScreen({super.key, required this.onEvent});
+  const PlaceSelectorScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final theme = context.appTheme;
-
-    return BlocPresentationListener<PlaceSelectorBloc, PlaceSelectorEffect>(
+  Widget build(BuildContext context) =>
+    BlocPresentationListener<PlaceSelectorBloc, PlaceSelectorEffect>(
       listener: (context, effect) => switch (effect) {
         ShowVisitTimeDialog() => showVisitTimeDialog(
           context: context,
@@ -31,33 +28,34 @@ final class PlaceSelectorScreen extends StatelessWidget {
       },
       child: BlocBuilder<PlaceSelectorBloc, PlaceSelectorState>(
         builder: (context, state) => Expanded(
-          child: switch (state.availableCategories) {
-            Initial<IList<PlaceCategory>>() ||
-            Loading<IList<PlaceCategory>>() ||
-            Refreshing<IList<PlaceCategory>>() =>
-              AppProgressIndicator(),
+          child: switch ((state.availableCategories, state.cityId.getOrNull)) {
+            (Initial<IList<PlaceCategory>>(), _) ||
+            (Loading<IList<PlaceCategory>>(), _) ||
+            (Refreshing<IList<PlaceCategory>>(), _) ||
+            (_, null) => AppProgressIndicator(),
 
-            Data<IList<PlaceCategory>>(value: []) ||
-            Error<IList<PlaceCategory>>() =>
+            (Data<IList<PlaceCategory>>(value: []), _) ||
+            (Error<IList<PlaceCategory>>(), _) =>
               Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: theme.dimensions.padding.extraMedium,
+                  horizontal: context.appTheme.dimensions.padding.extraMedium,
                 ),
-                child: AppErrorStub(retry: () => onEvent(LoadCategories())),
+                child: AppErrorStub(retry: () => BlocProvider
+                  .of<PlaceSelectorBloc>(context)
+                  .add(LoadCategories())
+                ),
               ),
 
-            Data<IList<PlaceCategory>>(value: final categories) =>
+            (Data<IList<PlaceCategory>>(value: final categories), _) =>
               PlaceSelectorContent(
                 availableCategories: categories,
                 selectedCategories: state.selectedCategories,
-                onEvent: onEvent,
               ),
 
-            Success<IList<PlaceCategory>>() =>
+            (Success<IList<PlaceCategory>>(), _) =>
               throw StateError('Invalid state: Success'),
           },
         ),
       ),
     );
-  }
 }

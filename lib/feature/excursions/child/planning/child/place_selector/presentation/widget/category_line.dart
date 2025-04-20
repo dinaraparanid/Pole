@@ -34,7 +34,7 @@ final class CategoryLine extends StatelessWidget {
             final isSelected = selectedCategories.contains(category.id);
 
             return CategoryItem(
-              key: ValueKey(category.id.id),
+              key: ValueKey(category.id.value),
               category: category,
               isSelected: isSelected,
               onClick: () => onItemClick(category.id),

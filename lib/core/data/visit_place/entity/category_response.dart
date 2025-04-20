@@ -17,7 +17,7 @@ abstract class CategoryResponse with _$CategoryResponse {
 
 extension Mapper on CategoryResponse {
   PlaceCategory toPlaceCategory() => PlaceCategory(
-    id: PlaceCategoryId(id: id),
+    id: PlaceCategoryId(value: id),
     name: name,
   );
 }

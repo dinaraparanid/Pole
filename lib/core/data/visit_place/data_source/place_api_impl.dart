@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:pole/core/data/base_paging_response_body.dart';
 import 'package:pole/core/data/base_response_body.dart';
-import 'package:pole/core/data/paging_requests.dart';
+import 'package:pole/core/domain/paging/paging_requests.dart';
 import 'package:pole/core/data/visit_place/entity/place_response.dart';
 import 'package:pole/core/domain/city/entity/city_id.dart';
-import 'package:pole/core/domain/has_next_page.dart';
+import 'package:pole/core/domain/paging/has_next_page.dart';
 import 'package:pole/core/domain/visit_place/data_source/place_api.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
 
@@ -21,13 +20,13 @@ final class PlaceApiImpl with PlaceApi {
   PlaceApiImpl({required Dio dio}) : _dio = dio;
 
   @override
-  Future<Either<Exception, (IList<VisitPlace>, HasNextPage)>> loadPlacesPage({
+  Future<Either<Exception, (List<VisitPlace>, HasNextPage)>> loadPlacesPage({
     int? pageIndex,
     int? pageSize,
     PlaceSortingField? sortingField,
     bool? isAscending,
-    IList<PlaceCategoryId>? categoryIdsFilter,
-    IList<CityId>? cityIdsFilter,
+    List<PlaceCategoryId>? categoryIdsFilter,
+    List<CityId>? cityIdsFilter,
   }) async {
     try {
       final response = await _dio.get(
@@ -35,8 +34,10 @@ final class PlaceApiImpl with PlaceApi {
           PagingRequests.queryPageIndex: pageIndex ?? PagingRequests.paramDefaultPageIndex,
           PagingRequests.queryPageSize: pageSize ?? PagingRequests.paramDefaultPageSize,
           _querySortingAsc: isAscending ?? false,
-          if (categoryIdsFilter != null) _queryCategoryIdsFilters: categoryIdsFilter,
-          if (categoryIdsFilter != null) _queryCityIdsFilters: cityIdsFilter,
+          if (categoryIdsFilter != null) _queryCategoryIdsFilters:
+            categoryIdsFilter.map((it) => it.value).toList(),
+          if (cityIdsFilter != null) _queryCityIdsFilters:
+            cityIdsFilter.map((it) => it.value).toList(),
         }
       );
 
@@ -54,7 +55,7 @@ final class PlaceApiImpl with PlaceApi {
 
       final pageData = data.response!;
 
-      final items = pageData.response.map((dto) => dto.toVisitPlace()).toIList();
+      final items = pageData.response.map((dto) => dto.toVisitPlace()).toList();
       final hasNext = HasNextPage(value: pageData.hasNext);
 
       return Either.right((items, hasNext));

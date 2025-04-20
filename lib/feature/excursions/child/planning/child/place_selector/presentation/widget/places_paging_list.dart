@@ -10,40 +10,36 @@ import 'package:pole/feature/excursions/child/planning/child/place_selector/pres
 import 'package:pole/feature/excursions/child/planning/child/place_selector/presentation/widget/place_item.dart';
 
 final class PlacesPagingList extends StatelessWidget {
-  final void Function(PlaceSelectorEvent) onEvent;
-  const PlacesPagingList({super.key, required this.onEvent});
-
-  void loadNextPage() => onEvent(LoadNextPlacesPage());
+  const PlacesPagingList({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final theme = context.appTheme;
-    final strings = context.strings;
-
-    return BlocBuilder<PlaceSelectorBloc, PlaceSelectorState>(
+  Widget build(BuildContext context) =>
+    BlocBuilder<PlaceSelectorBloc, PlaceSelectorState>(
       builder: (context, state) => Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: theme.dimensions.padding.extraMedium,
+          horizontal: context.appTheme.dimensions.padding.extraMedium,
         ),
         child: Column(
           children: [
             Align(
               alignment: Alignment.topLeft,
               child: Text(
-                strings.planning_sheet_catalog,
-                style: theme.typography.h.h3.copyWith(
-                  color: theme.colors.text.primary,
+                context.strings.planning_sheet_catalog,
+                style: context.appTheme.typography.h.h3.copyWith(
+                  color: context.appTheme.colors.text.primary,
                 ),
               ),
             ),
 
-            SizedBox(height: theme.dimensions.padding.small),
+            SizedBox(height: context.appTheme.dimensions.padding.small),
 
             Expanded(
               child: PagedListView<int, VisitPlace>.separated(
                 state: state.pagingState,
                 physics: state.pagingState.scrollPhysics,
-                fetchNextPage: loadNextPage,
+                fetchNextPage: () => BlocProvider
+                  .of<PlaceSelectorBloc>(context)
+                  .add(LoadNextPage()),
                 padding: EdgeInsets.zero,
                 builderDelegate: PagedChildBuilderDelegate(
                   firstPageProgressIndicatorBuilder: (context) =>
@@ -52,20 +48,34 @@ final class PlacesPagingList extends StatelessWidget {
                       children: [AppProgressIndicator()],
                     ),
                   firstPageErrorIndicatorBuilder: (context) =>
-                    AppErrorStub(retry: loadNextPage),
+                    AppErrorStub(retry: () => BlocProvider
+                      .of<PlaceSelectorBloc>(context)
+                      .add(Refresh()),
+                    ),
                   noItemsFoundIndicatorBuilder: (context) =>
                     switch (state.isAnyCategorySelected) {
-                      true => AppEmptyFiltersStub(resetFilters: loadNextPage),
-                      false => AppEmptyStub(retry: loadNextPage),
+                      true => AppEmptyFiltersStub(resetFilters: () =>
+                        BlocProvider
+                          .of<PlaceSelectorBloc>(context)
+                          .add(Refresh()),
+                      ),
+
+                      false => AppEmptyStub(retry: () =>
+                        BlocProvider
+                          .of<PlaceSelectorBloc>(context)
+                          .add(Refresh()),
+                      ),
                     },
                   itemBuilder: (context, item, index) => PlaceItem(
                     key: ValueKey(item.id),
                     place: item,
-                    onClick: () => onEvent(SelectPlace(place: item)),
+                    onClick: () => BlocProvider
+                      .of<PlaceSelectorBloc>(context)
+                      .add(SelectPlace(place: item)),
                   ),
                 ),
                 separatorBuilder: (context, _) => SizedBox(
-                  height: theme.dimensions.padding.small,
+                  height: context.appTheme.dimensions.padding.small,
                 ),
               ),
             ),
@@ -73,5 +83,4 @@ final class PlacesPagingList extends StatelessWidget {
         ),
       ),
     );
-  }
 }
