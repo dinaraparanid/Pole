@@ -34,7 +34,7 @@ final class OverviewScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  state.excursion.excursionName,
+                  state.excursion.name.value,
                   style: theme.typography.h.h4.copyWith(
                     color: theme.colors.text.primary,
                   ),

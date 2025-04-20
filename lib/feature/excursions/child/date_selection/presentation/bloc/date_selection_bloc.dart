@@ -16,21 +16,20 @@ final class DateSelectionBloc extends Bloc<DateSelectionEvent, DateSelectionStat
     required ExcursionConfigRepository excursionConfigRepository,
   }) : super(DateSelectionState()) {
     on<UpdateState>((event, emit) => emit(state.copyWith(
-      selectedCity: event.city,
-      selectedDate: event.date,
+      selectedCity: event.city ?? state.selectedCity,
+      selectedDate: event.date ?? state.selectedDate,
     )));
 
     on<SelectDate>((event, emit) async =>
       await excursionConfigRepository.selectDate(event.date),
     );
 
-    on<ContinueClick>((event, emit) => router.value.goNamed(
-      AppRoute.planning.name,
-      extra: (state.selectedCity!, state.selectedDate!),
-    ));
+    on<ContinueClick>((event, emit) =>
+      router.value.goNamed(AppRoute.planning.name),
+    );
 
     _excursionConfigChangesListener = excursionConfigChangesUseCase(
-      update: (city, date) => add(UpdateState(city: city, date: date)),
+      update: (city, date, _, _) => add(UpdateState(city: city, date: date)),
     );
 
     // TODO: remove stub

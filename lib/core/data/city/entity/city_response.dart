@@ -7,8 +7,8 @@ part 'city_response.g.dart';
 @freezed
 abstract class CityResponse with _$CityResponse {
   const factory CityResponse({
-    required int id,
-    required String name,
+    @JsonKey(name: 'id') required int id,
+    @JsonKey(name: 'name') required String name,
   }) = _CityResponse;
 
   factory CityResponse.fromJson(Map<String, dynamic> json) =>

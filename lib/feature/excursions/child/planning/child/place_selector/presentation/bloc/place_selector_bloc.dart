@@ -102,7 +102,6 @@ IList<PlaceCategory> _categoriesStub() => IList([
   PlaceCategory(id: PlaceCategoryId(id: 6), name: 'BABA'),
 ]);
 
-
 List<VisitPlace> _placesStub() => [
   VisitPlace(
     id: 0,
@@ -110,7 +109,7 @@ List<VisitPlace> _placesStub() => [
     category: PlaceCategory(id: PlaceCategoryId(id: 0), name: 'Еда 1'),
     address: 'Биба',
     visitTimeHours: 0,
-    images: ['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg'],
+    images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
     city: City(id: 0, name: 'Biba'),
   ),
   VisitPlace(
@@ -119,7 +118,7 @@ List<VisitPlace> _placesStub() => [
     category: PlaceCategory(id: PlaceCategoryId(id: 0), name: 'Еда 2'),
     address: 'Биба',
     visitTimeHours: 0,
-    images: ['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg'],
+    images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
     city: City(id: 0, name: 'Biba'),
   ),
   VisitPlace(
@@ -128,7 +127,7 @@ List<VisitPlace> _placesStub() => [
     category: PlaceCategory(id: PlaceCategoryId(id: 0), name: 'Еда 3'),
     address: 'Биба',
     visitTimeHours: 0,
-    images: ['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg'],
+    images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
     city: City(id: 0, name: 'Biba'),
   ),
   VisitPlace(
@@ -137,7 +136,7 @@ List<VisitPlace> _placesStub() => [
     category: PlaceCategory(id: PlaceCategoryId(id: 0), name: 'Еда 4'),
     address: 'Биба',
     visitTimeHours: 0,
-    images: ['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg'],
+    images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
     city: City(id: 0, name: 'Biba'),
   ),
   VisitPlace(
@@ -146,7 +145,7 @@ List<VisitPlace> _placesStub() => [
     category: PlaceCategory(id: PlaceCategoryId(id: 0), name: 'Еда 5'),
     address: 'Биба',
     visitTimeHours: 0,
-    images: ['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg'],
+    images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
     city: City(id: 0, name: 'Biba'),
   ),
   VisitPlace(
@@ -155,7 +154,7 @@ List<VisitPlace> _placesStub() => [
     category: PlaceCategory(id: PlaceCategoryId(id: 0), name: 'Еда 6'),
     address: 'Биба',
     visitTimeHours: 0,
-    images: ['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg'],
+    images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
     city: City(id: 0, name: 'Biba'),
   ),
   VisitPlace(
@@ -164,7 +163,7 @@ List<VisitPlace> _placesStub() => [
     category: PlaceCategory(id: PlaceCategoryId(id: 0), name: 'Еда 7'),
     address: 'Биба',
     visitTimeHours: 0,
-    images: ['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg'],
+    images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
     city: City(id: 0, name: 'Biba'),
   ),
   VisitPlace(
@@ -173,7 +172,7 @@ List<VisitPlace> _placesStub() => [
     category: PlaceCategory(id: PlaceCategoryId(id: 0), name: 'Еда 8'),
     address: 'Биба',
     visitTimeHours: 0,
-    images: ['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg'],
+    images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
     city: City(id: 0, name: 'Biba'),
   ),
   VisitPlace(
@@ -182,7 +181,7 @@ List<VisitPlace> _placesStub() => [
     category: PlaceCategory(id: PlaceCategoryId(id: 0), name: 'Еда 9'),
     address: 'Биба',
     visitTimeHours: 0,
-    images: ['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg'],
+    images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
     city: City(id: 0, name: 'Biba'),
   ),
   VisitPlace(
@@ -191,7 +190,7 @@ List<VisitPlace> _placesStub() => [
     category: PlaceCategory(id: PlaceCategoryId(id: 0), name: 'Еда 10'),
     address: 'Биба',
     visitTimeHours: 0,
-    images: ['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg'],
+    images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
     city: City(id: 0, name: 'Biba'),
   ),
 ];

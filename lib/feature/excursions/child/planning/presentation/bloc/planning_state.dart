@@ -12,7 +12,7 @@ part 'planning_state.freezed.dart';
 @freezed
 abstract class PlanningState with _$PlanningState {
   const factory PlanningState({
-    required DateTime date,
+    @Default(UiState.initial()) UiState<DateTime> dateState,
     @Default(TextContainer(value: '', error: false))
     TextContainer<bool> excursionName,
     @Default(UiState.initial()) UiState<IList<PlaceCategory>> allCategories,
@@ -21,6 +21,8 @@ abstract class PlanningState with _$PlanningState {
 }
 
 extension Properties on PlanningState {
+  DateTime get date => dateState.getOrNull!;
+
   bool get isContinueButtonEnabled => selectedPlaces.isNotEmpty;
 
   Visitation? visitationAt({required DateTime time}) =>

@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pole/core/domain/city/entity/city.dart';
 import 'package:pole/core/domain/excursion/excursion.dart';
 import 'package:pole/di/app_module.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/bloc/mod.dart';
@@ -177,20 +176,11 @@ final class AppRouter {
                     path: AppRoute.planning.path,
                     name: AppRoute.planning.name,
                     builder: (context, state) {
-                      _excursionsObserver.storeExtra(state.extra);
-
                       BlocProvider
                         .of<ExcursionsCubit>(context)
                         .updateStep(ExcursionsStep.planning());
 
-                      final (city, date) = (state.extra ?? _excursionsObserver.extra)
-                        as (City, DateTime);
-
-                      return PlanningScreen(
-                        blocFactory: di<PlanningBlocFactory>(),
-                        city: city,
-                        date: date,
-                      );
+                      return PlanningScreen(blocFactory: di<PlanningBlocFactory>());
                     },
                   ),
                   GoRoute(

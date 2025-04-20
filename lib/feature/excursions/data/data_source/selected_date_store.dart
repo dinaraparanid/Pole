@@ -1,6 +1,5 @@
 import 'package:dartx/dartx.dart';
 import 'package:pole/core/domain/base_store.dart';
-import 'package:rxdart/rxdart.dart';
 import 'package:pole/core/utils/ext/general.dart';
 import 'package:rx_shared_preferences/rx_shared_preferences.dart';
 
@@ -16,15 +15,13 @@ final class SelectedDateStore with BaseStore {
       .takeIf(_isDateValid);
   }
 
-  Stream<DateTime> get selectedDateStream => RxSharedPreferences
+  Stream<DateTime?> get selectedDateStream => RxSharedPreferences
     .getInstance()
     .getIntStream(_keySelectedDate)
-    .whereNotNull()
-    .map((millis) => DateTime
-      .fromMillisecondsSinceEpoch(millis)
-      .takeIf(_isDateValid),
+    .map((millis) => millis?.let((x) => DateTime
+      .fromMillisecondsSinceEpoch(x)
+      .takeIf(_isDateValid)),
     )
-    .whereNotNull()
     .distinct();
 
   Future<void> storeSelectedDate(DateTime date) => RxSharedPreferences
