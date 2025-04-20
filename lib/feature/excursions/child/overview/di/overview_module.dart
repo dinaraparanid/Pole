@@ -6,6 +6,7 @@ extension OverviewModule on GetIt {
   List<Type> registerOverviewModule() => [
     provideSingleton<OverviewCubitFactory>(() => OverviewCubitFactory(
       router: this(),
+      excursionConfigChangesUseCase: this(),
     )),
   ];
 }

@@ -187,18 +187,12 @@ final class AppRouter {
                     path: AppRoute.overview.path,
                     name: AppRoute.overview.name,
                     builder: (context, state) {
-                      _excursionsObserver.storeExtra(state.extra);
-
                       BlocProvider
                         .of<ExcursionsCubit>(context)
                         .updateStep(ExcursionsStep.overview());
 
-                      final excursion = (state.extra ?? _excursionsObserver.extra)
-                        as Excursion;
-
                       return OverviewScreen(
                         cubitFactory: di<OverviewCubitFactory>(),
-                        excursion: excursion,
                       );
                     },
                   ),

@@ -19,5 +19,5 @@ abstract class BasePagingResponseBody<T> with _$BasePagingResponseBody<T> {
 }
 
 extension BasePagingResponseBodyExt<T> on BasePagingResponseBody<T> {
-  bool get hasNext => currentPage == pageCount;
+  bool get hasNext => currentPage < pageCount;
 }
