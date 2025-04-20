@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pole/core/domain/city/entity/city.dart';
+import 'package:pole/core/domain/city/entity/mod.dart';
 
 part 'city_response.freezed.dart';
 part 'city_response.g.dart';
@@ -16,5 +16,5 @@ abstract class CityResponse with _$CityResponse {
 }
 
 extension Mapper on CityResponse {
-  City toCity() => City(id: id, name: name);
+  City toCity() => City(id: CityId(value: id), name: name);
 }

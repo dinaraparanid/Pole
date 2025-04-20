@@ -2,7 +2,7 @@ import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:pole/core/domain/city/entity/city.dart';
+import 'package:pole/core/domain/city/entity/mod.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
 import 'package:pole/core/presentation/foundation/ui_state.dart';
 import 'package:pole/feature/excursions/child/planning/child/place_selector/presentation/bloc/place_selector_effect.dart';
@@ -110,7 +110,7 @@ List<VisitPlace> _placesStub() => [
     address: 'Биба',
     visitTimeHours: 0,
     images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
-    city: City(id: 0, name: 'Biba'),
+    city: City(id: CityId(value: 0), name: 'Biba'),
   ),
   VisitPlace(
     id: 1,
@@ -119,7 +119,7 @@ List<VisitPlace> _placesStub() => [
     address: 'Биба',
     visitTimeHours: 0,
     images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
-    city: City(id: 0, name: 'Biba'),
+    city: City(id: CityId(value: 0), name: 'Biba'),
   ),
   VisitPlace(
     id: 2,
@@ -128,7 +128,7 @@ List<VisitPlace> _placesStub() => [
     address: 'Биба',
     visitTimeHours: 0,
     images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
-    city: City(id: 0, name: 'Biba'),
+    city: City(id: CityId(value: 0), name: 'Biba'),
   ),
   VisitPlace(
     id: 3,
@@ -137,7 +137,7 @@ List<VisitPlace> _placesStub() => [
     address: 'Биба',
     visitTimeHours: 0,
     images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
-    city: City(id: 0, name: 'Biba'),
+    city: City(id: CityId(value: 0), name: 'Biba'),
   ),
   VisitPlace(
     id: 4,
@@ -146,7 +146,7 @@ List<VisitPlace> _placesStub() => [
     address: 'Биба',
     visitTimeHours: 0,
     images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
-    city: City(id: 0, name: 'Biba'),
+    city: City(id: CityId(value: 0), name: 'Biba'),
   ),
   VisitPlace(
     id: 5,
@@ -155,7 +155,7 @@ List<VisitPlace> _placesStub() => [
     address: 'Биба',
     visitTimeHours: 0,
     images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
-    city: City(id: 0, name: 'Biba'),
+    city: City(id: CityId(value: 0), name: 'Biba'),
   ),
   VisitPlace(
     id: 6,
@@ -164,7 +164,7 @@ List<VisitPlace> _placesStub() => [
     address: 'Биба',
     visitTimeHours: 0,
     images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
-    city: City(id: 0, name: 'Biba'),
+    city: City(id: CityId(value: 0), name: 'Biba'),
   ),
   VisitPlace(
     id: 7,
@@ -173,7 +173,7 @@ List<VisitPlace> _placesStub() => [
     address: 'Биба',
     visitTimeHours: 0,
     images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
-    city: City(id: 0, name: 'Biba'),
+    city: City(id: CityId(value: 0), name: 'Biba'),
   ),
   VisitPlace(
     id: 8,
@@ -182,7 +182,7 @@ List<VisitPlace> _placesStub() => [
     address: 'Биба',
     visitTimeHours: 0,
     images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
-    city: City(id: 0, name: 'Biba'),
+    city: City(id: CityId(value: 0), name: 'Biba'),
   ),
   VisitPlace(
     id: 9,
@@ -191,6 +191,6 @@ List<VisitPlace> _placesStub() => [
     address: 'Биба',
     visitTimeHours: 0,
     images: IList(['https://upload.wikimedia.org/wikipedia/commons/d/d9/Bebra_Wasserturm.jpeg']),
-    city: City(id: 0, name: 'Biba'),
+    city: City(id: CityId(value: 0), name: 'Biba'),
   ),
 ];
