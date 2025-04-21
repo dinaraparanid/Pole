@@ -2,8 +2,8 @@ import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pole/core/presentation/foundation/app_progress_indicator.dart';
 import 'package:pole/core/presentation/foundation/stub/app_error_stub.dart';
+import 'package:pole/core/presentation/foundation/stub/app_progress_indicator_stub.dart';
 import 'package:pole/core/presentation/foundation/ui_state.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/general.dart';
@@ -39,10 +39,7 @@ final class PlanningScreen extends StatelessWidget {
         builder: (context, state) => switch (state.dateState) {
           Initial<DateTime>() ||
           Loading<DateTime>() ||
-          Refreshing<DateTime>() => Stack(
-            alignment: Alignment.center,
-            children: [AppProgressIndicator()],
-          ),
+          Refreshing<DateTime>() => AppProgressIndicatorStub(),
 
           Data<DateTime>() => Content(context: context, state: state),
 

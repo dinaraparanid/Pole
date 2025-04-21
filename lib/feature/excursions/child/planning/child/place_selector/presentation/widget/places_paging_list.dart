@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
+import 'package:pole/core/presentation/foundation/stub/app_progress_indicator_stub.dart';
 import 'package:pole/core/presentation/foundation/stub/mod.dart';
 import 'package:pole/core/presentation/foundation/app_progress_indicator.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
@@ -43,10 +44,7 @@ final class PlacesPagingList extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 builderDelegate: PagedChildBuilderDelegate(
                   firstPageProgressIndicatorBuilder: (context) =>
-                    Stack(
-                      alignment: Alignment.center,
-                      children: [AppProgressIndicator()],
-                    ),
+                    AppProgressIndicatorStub(),
                   firstPageErrorIndicatorBuilder: (context) =>
                     AppErrorStub(retry: () => BlocProvider
                       .of<PlaceSelectorBloc>(context)

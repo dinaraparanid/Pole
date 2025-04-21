@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:dartx/dartx.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pole/di/app_module.dart';
@@ -12,18 +13,17 @@ abstract class AppNavigatorObserver extends NavigatorObserver {
 
   Object? _tmpExtra;
 
-  abstract final AppRouteData redirectRoute;
+  abstract final FutureOr<AppRouteData> redirectRoute;
 
-  AppRoute get redirectPath {
-    final redirect = redirectRoute;
+  FutureOr<AppRoute> get redirectPath async {
+    final redirect = await redirectRoute;
     return AppRoute.values.firstWhere((route) => route.name == redirect.name);
   }
 
-  Object? get extra => redirectRoute.extra;
+  FutureOr<Object?> get extra async => (await redirectRoute).extra;
 
-  AppRouteData? findPreviousRoute(bool Function(AppRouteData) predicate) {
-    return backStack.reversed.firstOrNullWhere(predicate);
-  }
+  AppRouteData? findPreviousRoute(bool Function(AppRouteData) predicate) =>
+    backStack.reversed.firstOrNullWhere(predicate);
 
   void storeExtra(Object? extra) {
     if (extra != null) _tmpExtra = extra;

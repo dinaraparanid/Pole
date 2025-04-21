@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pole/core/presentation/foundation/stub/app_error_stub.dart';
+import 'package:pole/core/presentation/foundation/stub/app_progress_indicator_stub.dart';
+import 'package:pole/core/presentation/foundation/ui_state.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
+import 'package:pole/core/utils/funtions/do_nothing.dart';
 import 'package:pole/feature/excursions/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/presentation/widget/excursion_progress.dart';
 
@@ -15,33 +19,45 @@ final class ExcursionsScreen extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    final theme = context.appTheme;
+  Widget build(BuildContext context) => BlocProvider(
+    create: (_) => blocFactory(),
+    child: BlocBuilder<ExcursionsCubit, ExcursionsState>(
+      builder: (context, state) => switch (state.stepState) {
+        Initial<ExcursionsStep>() ||
+        Loading<ExcursionsStep>() ||
+        Refreshing<ExcursionsStep>() => AppProgressIndicatorStub(),
 
-    return BlocProvider(
-      create: (_) => blocFactory(),
-      child: BlocBuilder<ExcursionsCubit, ExcursionsState>(
-        builder: (context, state) => Container(
-          color: theme.colors.background.primary,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SizedBox(height: theme.dimensions.padding.large),
+        Data<ExcursionsStep>() => Content(context: context, state: state),
 
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: theme.dimensions.padding.large,
-                ),
-                child: ExcursionProgress(initialProgress: state.progress),
-              ),
+        // Probably must never happen
+        Error<ExcursionsStep>() => AppErrorStub(retry: doNothing),
 
-              SizedBox(height: theme.dimensions.padding.extraLarge),
+        Success<ExcursionsStep>() => throw StateError('Invalid state: Success'),
+      },
+    ),
+  );
 
-              Expanded(child: child),
-            ],
+  Widget Content({
+    required BuildContext context,
+    required ExcursionsState state,
+  }) => Container(
+    color: context.appTheme.colors.background.primary,
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(height: context.appTheme.dimensions.padding.large),
+
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: context.appTheme.dimensions.padding.large,
           ),
-        )
-      ),
-    );
-  }
+          child: ExcursionProgress(initialProgress: state.progress),
+        ),
+
+        SizedBox(height: context.appTheme.dimensions.padding.extraLarge),
+
+        Expanded(child: child),
+      ],
+    ),
+  );
 }

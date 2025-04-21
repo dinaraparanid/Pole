@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pole/core/domain/excursion/excursion.dart';
+import 'package:pole/core/domain/excursion/entity/excursion.dart';
 import 'package:pole/di/app_module.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/bloc/mod.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/sign_in_screen.dart';
@@ -20,7 +20,7 @@ import 'package:pole/feature/excursions/child/planning/presentation/bloc/mod.dar
 import 'package:pole/feature/excursions/child/planning/presentation/planning_screen.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_cubit.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_cubit_factory.dart';
-import 'package:pole/feature/excursions/presentation/bloc/excursions_step.dart';
+import 'package:pole/feature/excursions/domain/entity/excursions_step.dart';
 import 'package:pole/feature/excursions/presentation/excursions_screen.dart';
 import 'package:pole/feature/main/presentation/bloc/main_cubit.dart';
 import 'package:pole/feature/main/presentation/bloc/main_cubit_factory.dart';
@@ -99,7 +99,10 @@ final class AppRouter {
               GoRoute(
                 path: AppRoute.auth.path,
                 name: AppRoute.auth.name,
-                redirect: (context, state) => _authObserver.redirectPath.path,
+                redirect: (context, state) async {
+                  final route = await _authObserver.redirectPath;
+                  return route.path;
+                },
               ),
               GoRoute(
                 path: AppRoute.signIn.path,
@@ -127,7 +130,10 @@ final class AppRouter {
               GoRoute(
                 path: AppRoute.main.path,
                 name: AppRoute.main.name,
-                redirect: (context, state) => _mainObserver.redirectPath.path,
+                redirect: (context, state) async {
+                  final route = await _mainObserver.redirectPath;
+                  return route.path;
+                },
               ),
               GoRoute(
                 path: AppRoute.catalog.path,
@@ -156,8 +162,10 @@ final class AppRouter {
                   GoRoute(
                     path: AppRoute.excursions.path,
                     name: AppRoute.excursions.name,
-                    redirect: (context, state) =>
-                    _excursionsObserver.redirectPath.path,
+                    redirect: (context, state) async {
+                      final route = await _excursionsObserver.redirectPath;
+                      return route.path;
+                    }
                   ),
                   GoRoute(
                     path: AppRoute.dateSelection.path,

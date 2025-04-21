@@ -68,6 +68,7 @@
 
   "overview_description": "Check out the places to visit and create a guided tour",
   "overview_create_excursion": "Create tour",
+  "overview_failed_to_create_excursion": "Failed to create the tour",
 
   "finish_title": "Tour is successfully created!",
   "finish_description": "Now you can see it in your profile :)",

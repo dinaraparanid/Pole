@@ -186,6 +186,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get overview_create_excursion => 'Создать экскурсию';
 
   @override
+  String get overview_failed_to_create_excursion => 'Не получилось создать экскурсию';
+
+  @override
   String get finish_title => 'Экскурсия успешно создана!';
 
   @override

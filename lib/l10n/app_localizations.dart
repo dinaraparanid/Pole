@@ -449,6 +449,12 @@ abstract class AppLocalizations {
   /// **'Create tour'**
   String get overview_create_excursion;
 
+  /// No description provided for @overview_failed_to_create_excursion.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to create the tour'**
+  String get overview_failed_to_create_excursion;
+
   /// No description provided for @finish_title.
   ///
   /// In en, this message translates to:

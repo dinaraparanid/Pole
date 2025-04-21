@@ -3,7 +3,7 @@ import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:dartx/dartx.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pole/core/domain/excursion/excursion_name.dart';
+import 'package:pole/core/domain/excursion/entity/excursion_name.dart';
 import 'package:pole/core/domain/text/text_change_use_case.dart';
 import 'package:pole/core/domain/text/text_container.dart';
 import 'package:pole/core/presentation/foundation/ui_state.dart';

@@ -186,6 +186,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get overview_create_excursion => 'Create tour';
 
   @override
+  String get overview_failed_to_create_excursion => 'Failed to create the tour';
+
+  @override
   String get finish_title => 'Tour is successfully created!';
 
   @override

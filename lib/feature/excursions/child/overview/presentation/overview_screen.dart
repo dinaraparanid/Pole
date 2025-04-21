@@ -1,10 +1,12 @@
+import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pole/core/domain/excursion/excursion.dart';
+import 'package:pole/core/domain/excursion/entity/excursion.dart';
 import 'package:pole/core/presentation/excursion/excursion_places.dart';
 import 'package:pole/core/presentation/foundation/app_button.dart';
-import 'package:pole/core/presentation/foundation/app_progress_indicator.dart';
+import 'package:pole/core/presentation/foundation/error_dialog.dart';
 import 'package:pole/core/presentation/foundation/stub/app_error_stub.dart';
+import 'package:pole/core/presentation/foundation/stub/app_progress_indicator_stub.dart';
 import 'package:pole/core/presentation/foundation/ui_state.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/funtions/do_nothing.dart';
@@ -21,22 +23,28 @@ final class OverviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BlocProvider(
     create: (_) => cubitFactory.create(),
-    child: BlocBuilder<OverviewCubit, OverviewState>(
-      builder: (context, state) => switch (state.excursionState) {
-        Initial<Excursion>() ||
-        Loading<Excursion>() ||
-        Refreshing<Excursion>() => Stack(
-          alignment: Alignment.center,
-          children: [AppProgressIndicator()],
+    child: BlocPresentationListener<OverviewCubit, OverviewEffect>(
+      listener: (context, effect) => switch (effect) {
+        ShowFailedToCreateExcursionEffect() => showErrorDialog(
+          context: context,
+          title: context.strings.overview_failed_to_create_excursion,
+          description: context.strings.something_went_wrong_try_again_later,
         ),
-
-        Data<Excursion>() => Content(context: context, state: state),
-
-        // Probably must never happen
-        Error<Excursion>() => AppErrorStub(retry: doNothing),
-
-        Success<Excursion>() => throw StateError('Invalid state: Success'),
       },
+      child: BlocBuilder<OverviewCubit, OverviewState>(
+        builder: (context, state) => switch (state.excursionState) {
+          Initial<Excursion>() ||
+          Loading<Excursion>() ||
+          Refreshing<Excursion>() => AppProgressIndicatorStub(),
+
+          Data<Excursion>() => Content(context: context, state: state),
+
+          // Probably must never happen
+          Error<Excursion>() => AppErrorStub(retry: doNothing),
+
+          Success<Excursion>() => throw StateError('Invalid state: Success'),
+        },
+      ),
     ),
   );
 

@@ -8,7 +8,11 @@ import 'package:pole/navigation/observer/main_navigator_observer.dart';
 extension NavigationModule on GetIt {
   List<Type> registerNavigationModule() => [
     provideSingleton(() => AuthNavigatorObserver()),
-    provideSingleton(() => ExcursionsNavigatorObserver()),
+
+    provideSingleton(() => ExcursionsNavigatorObserver(
+      excursionStepStore: this()),
+    ),
+
     provideSingleton(() => MainNavigatorObserver()),
 
     provideSingleton(() => AppRouter(

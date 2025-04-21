@@ -4,6 +4,7 @@ import 'package:pole/feature/excursions/child/creation_finish/di/creation_finish
 import 'package:pole/feature/excursions/child/date_selection/di/date_selection_module.dart';
 import 'package:pole/feature/excursions/child/overview/di/overview_module.dart';
 import 'package:pole/feature/excursions/child/planning/di/planning_module.dart';
+import 'package:pole/feature/excursions/data/data_source/current_excursion_step_store.dart';
 import 'package:pole/feature/excursions/data/data_source/excursion_name_store.dart';
 import 'package:pole/feature/excursions/data/data_source/selected_city_store.dart';
 import 'package:pole/feature/excursions/data/data_source/selected_date_store.dart';
@@ -23,6 +24,7 @@ extension ExcursionsModule on GetIt {
     provideSingleton(() => SelectedDateStore()),
     provideSingleton(() => ExcursionNameStore()),
     provideSingleton(() => SelectedPlacesStore()),
+    provideSingleton(() => CurrentExcursionStepStore()),
 
     provideSingleton(() => ExcursionConfigRepository(
       cityStore: this(),
@@ -35,6 +37,8 @@ extension ExcursionsModule on GetIt {
       excursionConfigRepository: this(),
     )),
 
-    provideSingleton(() => ExcursionsCubitFactory()),
+    provideSingleton(() => ExcursionsCubitFactory(
+      excursionStepStore: this(),
+    )),
   ];
 }

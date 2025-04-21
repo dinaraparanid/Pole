@@ -1,5 +1,6 @@
 import 'package:pole/core/domain/account/data_source/account_store.dart';
 import 'package:pole/core/domain/auth/data_source/auth_store.dart';
+import 'package:pole/feature/excursions/data/data_source/current_excursion_step_store.dart';
 import 'package:pole/feature/excursions/data/data_source/excursion_name_store.dart';
 import 'package:pole/feature/excursions/data/data_source/selected_city_store.dart';
 import 'package:pole/feature/excursions/data/data_source/selected_date_store.dart';
@@ -12,6 +13,7 @@ final class StoreCleaner {
   final SelectedDateStore _selectedDateStore;
   final ExcursionNameStore _excursionNameStore;
   final SelectedPlacesStore _selectedPlacesStore;
+  final CurrentExcursionStepStore _excursionStepStore;
 
   StoreCleaner({
     required AccountStore accountStore,
@@ -20,12 +22,14 @@ final class StoreCleaner {
     required SelectedDateStore selectedDateStore,
     required ExcursionNameStore excursionNameStore,
     required SelectedPlacesStore selectedPlacesStore,
+    required CurrentExcursionStepStore excursionStepStore,
   }) : _accountStore = accountStore,
     _authStore = authStore,
     _selectedCityStore = selectedCityStore,
     _selectedDateStore = selectedDateStore,
     _excursionNameStore = excursionNameStore,
-    _selectedPlacesStore = selectedPlacesStore;
+    _selectedPlacesStore = selectedPlacesStore,
+    _excursionStepStore = excursionStepStore;
 
   Future<void> call() async {
     await _accountStore.clear();
@@ -34,5 +38,6 @@ final class StoreCleaner {
     await _selectedDateStore.clear();
     await _excursionNameStore.clear();
     await _selectedPlacesStore.clear();
+    await _excursionStepStore.clear();
   }
 }

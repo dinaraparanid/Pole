@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pole/feature/excursions/presentation/bloc/excursions_step.dart';
+import 'package:pole/core/presentation/foundation/ui_state.dart';
+import 'package:pole/feature/excursions/domain/entity/excursions_step.dart';
 
 part 'excursions_state.freezed.dart';
 
@@ -11,11 +12,13 @@ abstract class ExcursionsState with _$ExcursionsState {
   static final creationFinishProgress = 1.2;
 
   const factory ExcursionsState({
-    @Default(DateSelection()) ExcursionsStep step,
+    @Default(UiState.initial()) UiState<ExcursionsStep> stepState,
   }) = _ExcursionsState;
 }
 
 extension Properties on ExcursionsState {
+  ExcursionsStep get step => stepState.getOrNull!;
+
   double get progress => switch (step) {
     DateSelection() => ExcursionsState.dateSelectionProgress,
     Planning() => ExcursionsState.planningProgress,
