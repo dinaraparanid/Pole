@@ -76,6 +76,10 @@
 
   "excursion_end_of_tour": "Конец экскурсии",
 
+  "profile_failed_to_load_profile": "Не получилось загрузить профиль",
+  "profile_favourites": "Фавориты",
+  "profile_archive": "Архив",
+
   "hours": "{count, plural, =0{меньше часа} =1{1 час} =2{2 часа} few{3 часа} other{{count} часов}}",
   "@hours": {
     "description": "Кол-во часов",

@@ -5,6 +5,7 @@ import 'package:pole/core/data/account/repository/account_repository_impl.dart';
 import 'package:pole/core/di/provide.dart';
 import 'package:pole/core/domain/account/data_source/account_api.dart';
 import 'package:pole/core/domain/account/data_source/account_store.dart';
+import 'package:pole/core/domain/account/domain/listen_profile_changes_use_case.dart';
 import 'package:pole/core/domain/account/repository/account_repository.dart';
 
 extension AccountModule on GetIt {
@@ -17,6 +18,8 @@ extension AccountModule on GetIt {
       api: this(),
       store: this(),
       tokenStore: this(),
-    ))
+    )),
+
+    provideSingleton(() => ListenProfileChangesUseCase(repository: this())),
   ];
 }

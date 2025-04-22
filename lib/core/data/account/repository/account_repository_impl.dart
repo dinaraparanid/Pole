@@ -51,4 +51,7 @@ final class AccountRepositoryImpl extends AccountRepository {
 
   @override
   Future<Profile?> get profile => _store.profile;
+
+  @override
+  Stream<Profile?> get profileStream => _store.profileStream;
 }

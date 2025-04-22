@@ -76,6 +76,10 @@
 
   "excursion_end_of_tour": "End of the tour",
 
+  "profile_failed_to_load_profile": "Failed to load profile",
+  "profile_favourites": "Favourites",
+  "profile_archive": "Archive",
+
   "hours": "{count, plural, =0{less than an hour} =1{1 hour} other{{count} hours}}",
   "@hours": {
     "description": "Number of hours",

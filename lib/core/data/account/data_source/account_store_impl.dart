@@ -16,12 +16,11 @@ final class AccountStoreImpl with AccountStore {
   }
 
   @override
-  Stream<Profile> get profileStream => RxSharedPreferences
+  Stream<Profile?> get profileStream => RxSharedPreferences
     .getInstance()
     .getStringStream(_keyProfile)
-    .whereNotNull()
     .distinct()
-    .map((s) => Profile.fromJson(jsonDecode(s)));
+    .map((json) => json?.let((s) => Profile.fromJson(jsonDecode(s))));
 
   @override
   Future<void> storeProfile(Profile profile) => RxSharedPreferences

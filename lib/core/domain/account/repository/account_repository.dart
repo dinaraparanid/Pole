@@ -15,5 +15,7 @@ abstract class AccountRepository {
 
   Future<Profile?> get profile;
 
+  Stream<Profile?> get profileStream;
+
   Future<Either<Exception, Profile>> loadProfile();
 }

@@ -201,6 +201,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get excursion_end_of_tour => 'End of the tour';
 
   @override
+  String get profile_failed_to_load_profile => 'Failed to load profile';
+
+  @override
+  String get profile_favourites => 'Favourites';
+
+  @override
+  String get profile_archive => 'Archive';
+
+  @override
   String hours(num count) {
     final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
       locale: localeName,

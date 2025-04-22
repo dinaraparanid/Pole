@@ -1,0 +1,1 @@
+enum TourFilter { favourites, archive }

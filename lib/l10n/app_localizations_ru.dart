@@ -201,6 +201,15 @@ class AppLocalizationsRu extends AppLocalizations {
   String get excursion_end_of_tour => 'Конец экскурсии';
 
   @override
+  String get profile_failed_to_load_profile => 'Не получилось загрузить профиль';
+
+  @override
+  String get profile_favourites => 'Фавориты';
+
+  @override
+  String get profile_archive => 'Архив';
+
+  @override
   String hours(num count) {
     final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
       locale: localeName,

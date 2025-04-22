@@ -72,9 +72,7 @@ final class AccountApiImpl with AccountApi {
   @override
   Future<Either<Exception, Profile>> loadProfile() async {
     try {
-      final response = await _dio.post(
-        _routeProfile,
-      );
+      final response = await _dio.get(_routeProfile);
 
       final data = BaseResponseBody<ProfileResponse>.fromJson(
         response.data,

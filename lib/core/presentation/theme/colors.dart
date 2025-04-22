@@ -40,10 +40,12 @@ final class AppColors {
 final class AppBackgroundColors {
   final Color primary;
   final Color secondary;
+  final Color tertiary;
 
   const AppBackgroundColors({
     this.primary = _EerieBlack,
     this.secondary = _PineTree,
+    this.tertiary = _DarkCharcoal,
   });
 }
 

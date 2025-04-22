@@ -25,6 +25,8 @@ import 'package:pole/feature/main/presentation/bloc/main_cubit.dart';
 import 'package:pole/feature/main/presentation/bloc/main_cubit_factory.dart';
 import 'package:pole/feature/main/presentation/bloc/main_state.dart';
 import 'package:pole/feature/main/presentation/main_screen.dart';
+import 'package:pole/feature/profile/presentation/bloc/mod.dart';
+import 'package:pole/feature/profile/presentation/profile_screen.dart';
 import 'package:pole/feature/root/presentation/bloc/root_bloc_factory.dart';
 import 'package:pole/feature/root/presentation/root_screen.dart';
 import 'package:pole/feature/splash/presentation/bloc/splash_bloc_factory.dart';
@@ -147,14 +149,14 @@ final class AppRouter {
               ),
               ShellRoute(
                 observers: [_excursionsObserver],
-                builder: (context, state, navigationShell) {
+                builder: (context, state, child) {
                   BlocProvider
                     .of<MainCubit>(context)
                     .selectTab(MainTabs.excursions);
 
                   return ExcursionsScreen(
                     blocFactory: di<ExcursionsCubitFactory>(),
-                    child: navigationShell,
+                    child: child,
                   );
                 },
                 routes: [
@@ -187,7 +189,9 @@ final class AppRouter {
                         .of<ExcursionsCubit>(context)
                         .updateStep(ExcursionsStep.planning());
 
-                      return PlanningScreen(blocFactory: di<PlanningBlocFactory>());
+                      return PlanningScreen(
+                        blocFactory: di<PlanningBlocFactory>()
+                      );
                     },
                   ),
                   GoRoute(
@@ -222,16 +226,24 @@ final class AppRouter {
                   ),
                 ],
               ),
-              GoRoute(
-                path: AppRoute.profile.path,
-                name: AppRoute.profile.name,
-                builder: (context, state) {
+              ShellRoute(
+                builder: (context, state, child) {
                   BlocProvider
                     .of<MainCubit>(context)
                     .selectTab(MainTabs.profile);
 
-                  return Text('TODO: ProfileScreen');
+                  return ProfileScreen(
+                    blocFactory: di<ProfileBlocFactory>(),
+                    child: child,
+                  );
                 },
+                routes: [
+                  GoRoute(
+                    path: AppRoute.profile.path,
+                    name: AppRoute.profile.name,
+                    builder: (context, state) => SizedBox(),
+                  )
+                ],
               ),
             ],
           ),

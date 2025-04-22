@@ -479,6 +479,24 @@ abstract class AppLocalizations {
   /// **'End of the tour'**
   String get excursion_end_of_tour;
 
+  /// No description provided for @profile_failed_to_load_profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load profile'**
+  String get profile_failed_to_load_profile;
+
+  /// No description provided for @profile_favourites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favourites'**
+  String get profile_favourites;
+
+  /// No description provided for @profile_archive.
+  ///
+  /// In en, this message translates to:
+  /// **'Archive'**
+  String get profile_archive;
+
   /// Number of hours
   ///
   /// In en, this message translates to:
