@@ -30,7 +30,7 @@ extension Mapper on PlaceResponse {
     category: category.toPlaceCategory(),
     address: address,
     visitTimeHours: visitTimeHours,
-    images: images.toIList(),
+    images: images.map((it) => 'https://pole.smashup.ru/uploads/$it').toIList(),
     city: city.toCity(),
   );
 }

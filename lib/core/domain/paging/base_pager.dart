@@ -4,6 +4,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pole/core/domain/paging/paging_requests.dart';
 import 'package:pole/core/domain/paging/has_next_page.dart';
+import 'package:pole/core/utils/ext/general.dart';
 import 'package:rxdart/rxdart.dart';
 
 abstract class BasePager<T> {
@@ -24,7 +25,9 @@ abstract class BasePager<T> {
     _stateController.add(initialState.copyWith(isLoading: true));
 
     try {
-      final nextKey = (initialState.keys?.last ?? PagingRequests.paramDefaultPageIndex) + 1;
+      final nextKey = initialState.keys?.last.let((it) => it + 1)
+          ?? PagingRequests.paramDefaultPageIndex;
+
       final result = await requestPage(pageIndex: nextKey);
 
       _stateController.add(result.fold(

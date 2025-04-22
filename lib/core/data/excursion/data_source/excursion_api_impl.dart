@@ -5,6 +5,7 @@ import 'package:pole/core/data/excursion/entity/excursion_request.dart';
 import 'package:pole/core/data/excursion/entity/schedule_request.dart';
 import 'package:pole/core/domain/excursion/data_source/excursion_api.dart';
 import 'package:pole/core/domain/excursion/entity/excursion.dart';
+import 'package:pole/core/utils/ext/date_time.dart';
 import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
 
 final class ExcursionApiImpl with ExcursionApi {
@@ -22,15 +23,15 @@ final class ExcursionApiImpl with ExcursionApi {
         data: ExcursionRequest(
           name: excursion.name.value,
           description: '', // TODO
-          date: excursion.visitations.first.startTime.toIso8601String(),
+          date: excursion.visitations.first.startTime.toUtc().toIso8601String(),
           images: [],
           schedule: excursion.visitations.map((v) => ScheduleRequest(
             placeId: v.place.id,
-            dateFrom: v.startTime.toIso8601String(),
-            dateTo: v.endTime.toIso8601String(),
+            dateFrom: v.startTime.toUtc().toIso8601TimeFormat(),
+            dateTo: v.endTime.toUtc().toIso8601TimeFormat(),
           )).toList(),
           categoryIds: [],
-          cityIds: [],
+          cityIds: excursion.city.id.value,
         )
       );
 

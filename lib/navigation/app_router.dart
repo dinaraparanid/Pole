@@ -210,8 +210,8 @@ final class AppRouter {
                   GoRoute(
                     path: AppRoute.creationFinish.path,
                     name: AppRoute.creationFinish.name,
-                    onExit: (_, _) {
-                      _excursionsObserver.onExitCreationFinish();
+                    onExit: (_, _) async {
+                      await _excursionsObserver.onExitCreationFinish();
                       return true;
                     },
                     builder: (context, state) {

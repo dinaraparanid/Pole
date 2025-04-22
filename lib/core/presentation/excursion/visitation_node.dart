@@ -10,6 +10,7 @@ import 'package:pole/l10n/app_localizations.dart';
 
 const _maxLinesTitle = 2;
 const _maxLinesCategory = 1;
+const _maxLinesInfo = 2;
 
 final class VisitationNode extends StatefulWidget {
   final Visitation visitation;
@@ -138,10 +139,14 @@ final class _VisitationNodeState extends State<VisitationNode> {
 
           SizedBox(width: theme.dimensions.padding.small),
 
-          Text(
-            widget.visitation.place.address,
-            style: theme.typography.caption.copyWith(
-              color: theme.colors.text.secondary,
+          Expanded(
+            child: Text(
+              widget.visitation.place.address,
+              maxLines: _maxLinesInfo,
+              overflow: TextOverflow.ellipsis,
+              style: theme.typography.caption.copyWith(
+                color: theme.colors.text.secondary,
+              ),
             ),
           ),
         ],
@@ -157,10 +162,14 @@ final class _VisitationNodeState extends State<VisitationNode> {
 
           SizedBox(width: theme.dimensions.padding.small),
 
-          Text(
-            widget.visitation.duration.toAppHoursFormat(strings: strings),
-            style: theme.typography.caption.copyWith(
-              color: theme.colors.text.secondary,
+          Expanded(
+            child: Text(
+              widget.visitation.duration.toAppHoursFormat(strings: strings),
+              maxLines: _maxLinesInfo,
+              overflow: TextOverflow.ellipsis,
+              style: theme.typography.caption.copyWith(
+                color: theme.colors.text.secondary,
+              ),
             ),
           ),
         ],

@@ -5,39 +5,24 @@ import 'package:pole/feature/excursions/data/data_source/excursion_name_store.da
 import 'package:pole/feature/excursions/data/data_source/selected_city_store.dart';
 import 'package:pole/feature/excursions/data/data_source/selected_date_store.dart';
 import 'package:pole/feature/excursions/data/data_source/selected_places_store.dart';
+import 'package:pole/feature/excursions/data/excursion_store_cleaner.dart';
 
 final class StoreCleaner {
   final AccountStore _accountStore;
   final AuthStore _authStore;
-  final SelectedCityStore _selectedCityStore;
-  final SelectedDateStore _selectedDateStore;
-  final ExcursionNameStore _excursionNameStore;
-  final SelectedPlacesStore _selectedPlacesStore;
-  final CurrentExcursionStepStore _excursionStepStore;
+  final ExcursionStoreCleaner _excursionStoreCleaner;
 
   StoreCleaner({
     required AccountStore accountStore,
     required AuthStore authStore,
-    required SelectedCityStore selectedCityStore,
-    required SelectedDateStore selectedDateStore,
-    required ExcursionNameStore excursionNameStore,
-    required SelectedPlacesStore selectedPlacesStore,
-    required CurrentExcursionStepStore excursionStepStore,
+    required ExcursionStoreCleaner excursionStoreCleaner,
   }) : _accountStore = accountStore,
     _authStore = authStore,
-    _selectedCityStore = selectedCityStore,
-    _selectedDateStore = selectedDateStore,
-    _excursionNameStore = excursionNameStore,
-    _selectedPlacesStore = selectedPlacesStore,
-    _excursionStepStore = excursionStepStore;
+    _excursionStoreCleaner = excursionStoreCleaner;
 
   Future<void> call() async {
     await _accountStore.clear();
     await _authStore.clear();
-    await _selectedCityStore.clear();
-    await _selectedDateStore.clear();
-    await _excursionNameStore.clear();
-    await _selectedPlacesStore.clear();
-    await _excursionStepStore.clear();
+    await _excursionStoreCleaner();
   }
 }

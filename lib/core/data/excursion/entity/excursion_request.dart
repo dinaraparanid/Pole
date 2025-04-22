@@ -13,7 +13,7 @@ abstract class ExcursionRequest with _$ExcursionRequest {
     @JsonKey(name: 'images') required List<String> images,
     @JsonKey(name: 'schedule') required List<ScheduleRequest> schedule,
     @JsonKey(name: 'categoryIds') required List<int> categoryIds,
-    @JsonKey(name: 'cityId') required List<int> cityIds,
+    @JsonKey(name: 'cityId') required int cityIds,
   }) = _ExcursionRequest;
 
   factory ExcursionRequest.fromJson(Map<String, dynamic> json) =>

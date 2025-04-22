@@ -18,11 +18,7 @@ extension DataModule on GetIt {
     provideSingleton(() => StoreCleaner(
       accountStore: this(),
       authStore: this(),
-      selectedCityStore: this(),
-      selectedDateStore: this(),
-      excursionNameStore: this(),
-      selectedPlacesStore: this(),
-      excursionStepStore: this(),
+      excursionStoreCleaner: this(),
     )),
   ];
 }

@@ -10,8 +10,9 @@ extension NavigationModule on GetIt {
     provideSingleton(() => AuthNavigatorObserver()),
 
     provideSingleton(() => ExcursionsNavigatorObserver(
-      excursionStepStore: this()),
-    ),
+      excursionStepStore: this(),
+      excursionStoreCleaner: this(),
+    )),
 
     provideSingleton(() => MainNavigatorObserver()),
 

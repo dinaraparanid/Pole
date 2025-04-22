@@ -34,10 +34,10 @@ final class PlaceApiImpl with PlaceApi {
           PagingRequests.queryPageIndex: pageIndex ?? PagingRequests.paramDefaultPageIndex,
           PagingRequests.queryPageSize: pageSize ?? PagingRequests.paramDefaultPageSize,
           _querySortingAsc: isAscending ?? false,
-          if (categoryIdsFilter != null) _queryCategoryIdsFilters:
-            categoryIdsFilter.map((it) => it.value).toList(),
-          if (cityIdsFilter != null) _queryCityIdsFilters:
-            cityIdsFilter.map((it) => it.value).toList(),
+          if (categoryIdsFilter != null && categoryIdsFilter.isNotEmpty)
+            _queryCategoryIdsFilters: categoryIdsFilter.map((it) => it.value).join(','),
+          if (cityIdsFilter != null && cityIdsFilter.isNotEmpty)
+            _queryCityIdsFilters: cityIdsFilter.map((it) => it.value).join(','),
         }
       );
 

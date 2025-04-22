@@ -78,8 +78,10 @@ final class PlaceSelectorBloc extends Bloc<PlaceSelectorEvent, PlaceSelectorStat
       selectCategoryUseCase(
         categoryId: event.id,
         currentSelected: state.selectedCategories,
-        updateSelection: (newSelected) =>
-          emit(state.copyWith(selectedCategories: newSelected)),
+        updateSelection: (newSelected) async {
+          emit(state.copyWith(selectedCategories: newSelected));
+          await _pager.refresh();
+        }
       ),
     );
 

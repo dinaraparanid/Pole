@@ -37,7 +37,7 @@ final class DateSelectionBloc extends Bloc<DateSelectionEvent, DateSelectionStat
 
     // TODO: remove stub, use loadCitiesUseCase
     excursionConfigRepository.selectCity(
-      City(id: CityId(value: 1), name: 'г. Иннополис'),
+      City(id: CityId(value: 52), name: 'г. Иннополис'),
     );
   }
 

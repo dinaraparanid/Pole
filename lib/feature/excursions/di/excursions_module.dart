@@ -9,6 +9,7 @@ import 'package:pole/feature/excursions/data/data_source/excursion_name_store.da
 import 'package:pole/feature/excursions/data/data_source/selected_city_store.dart';
 import 'package:pole/feature/excursions/data/data_source/selected_date_store.dart';
 import 'package:pole/feature/excursions/data/data_source/selected_places_store.dart';
+import 'package:pole/feature/excursions/data/excursion_store_cleaner.dart';
 import 'package:pole/feature/excursions/data/repository/excursion_config_repository.dart';
 import 'package:pole/feature/excursions/domain/use_case/listen_excursion_config_changes_use_case.dart';
 import 'package:pole/feature/excursions/presentation/bloc/excursions_cubit_factory.dart';
@@ -25,6 +26,14 @@ extension ExcursionsModule on GetIt {
     provideSingleton(() => ExcursionNameStore()),
     provideSingleton(() => SelectedPlacesStore()),
     provideSingleton(() => CurrentExcursionStepStore()),
+
+    provideSingleton(() => ExcursionStoreCleaner(
+      currentExcursionStepStore: this(),
+      excursionNameStore: this(),
+      selectedCityStore: this(),
+      selectedDateStore: this(),
+      selectedPlacesStore: this()
+    )),
 
     provideSingleton(() => ExcursionConfigRepository(
       cityStore: this(),
