@@ -36,4 +36,16 @@ final class AuthInterceptor extends InterceptorsWrapper {
 
     return super.onResponse(response, handler);
   }
+
+  @override
+  Future<void> onError(
+    DioException err,
+    ErrorInterceptorHandler handler,
+  ) async {
+    if (err.response?.statusCode == 401) {
+      await _logOutUseCase();
+    }
+
+    super.onError(err, handler);
+  }
 }

@@ -22,26 +22,27 @@ final class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) => BlocProvider(
     create: (_) => blocFactory(),
     child: BlocBuilder<ProfileBloc, ProfileState>(
-      builder: (context, state) => switch (state.profileState) {
-        Refreshing<Profile>(value: Data(value: final Profile profile)) ||
-        Data<Profile>(value: final Profile profile) => Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: context.appTheme.dimensions.padding.large,
+      builder: (context, state) => Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: context.appTheme.dimensions.padding.large,
+        ),
+        child: switch (state.profileState) {
+          Refreshing<Profile>(value: Data(value: final Profile profile)) ||
+          Data<Profile>(value: final Profile profile) =>
+              ProfileContent(profile: profile, child: child),
+
+          Initial<Profile>() || Loading<Profile>() || Refreshing<Profile>() =>
+              AppProgressIndicatorStub(),
+
+          Error<Profile>() => AppErrorStub(
+            retry: () => BlocProvider
+                .of<ProfileBloc>(context)
+                .add(Refresh()),
           ),
-          child: ProfileContent(profile: profile, child: child),
-        ),
 
-        Initial<Profile>() || Loading<Profile>() || Refreshing<Profile>() =>
-          AppProgressIndicatorStub(),
-
-        Error<Profile>() => AppErrorStub(
-          retry: () => BlocProvider
-            .of<ProfileBloc>(context)
-            .add(Refresh()),
-        ),
-
-        Success<Profile>() => throw StateError('Invalid state: Success'),
-      },
+          Success<Profile>() => throw StateError('Invalid state: Success'),
+        },
+      ),
     ),
   );
 }
