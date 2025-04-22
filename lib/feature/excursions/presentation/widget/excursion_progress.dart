@@ -59,8 +59,6 @@ final class _ExcursionProgressState extends State<ExcursionProgress>
 
   @override
   Widget build(BuildContext context) {
-    final theme = context.appTheme;
-    final strings = context.strings;
     final size = MediaQuery.of(context).size;
 
     return BlocConsumer<ExcursionsCubit, ExcursionsState>(
@@ -69,19 +67,20 @@ final class _ExcursionProgressState extends State<ExcursionProgress>
         state.progress,
         duration: _animationDuration,
       ),
-      builder: (context, state) => AnimatedBuilder(
-        animation: _progressAnimation,
-        builder: (context, _) => FutureBuilder(
-          future: vg.loadPicture(
-            SvgAssetLoader(AppImages.loadSvg('ic_check').value), null
-          ),
-          builder: (context, icCheck) => CustomPaint(
+      builder: (context, state) => FutureBuilder(
+        future: vg.loadPicture(
+          SvgAssetLoader(AppImages.loadSvg('ic_check').value),
+          context,
+        ),
+        builder: (context, icCheck) => AnimatedBuilder(
+          animation: _progressAnimation,
+          builder: (context, _) => CustomPaint(
             size: Size(size.width, _progressMinHeight),
             painter: ExcursionProgressPainter(
               progress: _progressAnimation.value / ExcursionsState.creationFinishProgress,
               icCheck: icCheck.data,
-              theme: theme,
-              strings: strings,
+              theme: context.appTheme,
+              strings: context.strings,
             ),
           ),
         ),

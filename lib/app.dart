@@ -42,6 +42,7 @@ final class App extends StatelessWidget {
             splashFactory: InkRipple.splashFactory,
             highlightColor: Colors.transparent,
             splashColor: theme.colors.primary.withRatioOpacity(0.25),
+            brightness: Brightness.dark,
             textSelectionTheme: TextSelectionThemeData(
               cursorColor: theme.colors.text.focused,
               selectionColor: theme.colors.text.focused,

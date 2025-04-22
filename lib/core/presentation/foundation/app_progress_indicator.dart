@@ -16,7 +16,7 @@ final class AppProgressIndicator extends StatelessWidget {
         height: appliedSize,
         child: FittedBox(
           child: CircularProgressIndicator.adaptive(
-            backgroundColor: theme.colors.primary,
+            backgroundColor: Colors.transparent,
             valueColor: AlwaysStoppedAnimation(theme.colors.primary),
           ),
         ),

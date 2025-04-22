@@ -4,7 +4,6 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
 import 'package:pole/core/presentation/foundation/stub/app_progress_indicator_stub.dart';
 import 'package:pole/core/presentation/foundation/stub/mod.dart';
-import 'package:pole/core/presentation/foundation/app_progress_indicator.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/paging_state.dart';
 import 'package:pole/feature/excursions/child/planning/child/place_selector/presentation/bloc/mod.dart';

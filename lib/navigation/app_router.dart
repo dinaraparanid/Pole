@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pole/core/domain/excursion/entity/excursion.dart';
 import 'package:pole/di/app_module.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/bloc/mod.dart';
 import 'package:pole/feature/auth/child/sign_in/presentation/sign_in_screen.dart';

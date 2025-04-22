@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/domain/city/entity/city.dart';
 import 'package:pole/core/domain/city/entity/city_id.dart';
+import 'package:pole/feature/excursions/child/date_selection/domain/load_cities_use_case.dart';
 import 'package:pole/feature/excursions/data/repository/excursion_config_repository.dart';
 import 'package:pole/feature/excursions/domain/use_case/listen_excursion_config_changes_use_case.dart';
 import 'package:pole/feature/excursions/child/date_selection/presentation/bloc/date_selection_event.dart';
@@ -14,6 +15,7 @@ final class DateSelectionBloc extends Bloc<DateSelectionEvent, DateSelectionStat
   DateSelectionBloc({
     required AppRouter router,
     required ListenExcursionConfigChangesUseCase excursionConfigChangesUseCase,
+    required LoadCitiesUseCase loadCitiesUseCase,
     required ExcursionConfigRepository excursionConfigRepository,
   }) : super(DateSelectionState()) {
     on<UpdateState>((event, emit) => emit(state.copyWith(
@@ -33,9 +35,9 @@ final class DateSelectionBloc extends Bloc<DateSelectionEvent, DateSelectionStat
       update: (city, date, _, _) => add(UpdateState(city: city, date: date)),
     );
 
-    // TODO: remove stub
+    // TODO: remove stub, use loadCitiesUseCase
     excursionConfigRepository.selectCity(
-      City(id: CityId(value: 0), name: 'г. Иннополис'),
+      City(id: CityId(value: 1), name: 'г. Иннополис'),
     );
   }
 
