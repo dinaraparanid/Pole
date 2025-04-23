@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/general.dart';
 import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
@@ -35,6 +36,7 @@ final class TimetableItemBackground extends StatelessWidget {
             image: NetworkImage(img),
             opacity: _imageOpacity,
             fit: BoxFit.cover,
+            onError: (_, _) => SizedBox(),
           ),
         ),
       ),

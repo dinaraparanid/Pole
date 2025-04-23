@@ -5,6 +5,7 @@ import 'package:pole/core/domain/account/entity/profile.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/feature/profile/presentation/bloc/mod.dart';
 import 'package:pole/feature/profile/presentation/widget/profile_data.dart';
+import 'package:pole/feature/profile/presentation/widget/tour_filter_line.dart';
 
 final class ProfileContent extends StatelessWidget {
   final Profile profile;
@@ -30,6 +31,10 @@ final class ProfileContent extends StatelessWidget {
         SizedBox(height: context.appTheme.dimensions.padding.large),
 
         ProfileData(profile: profile),
+
+        SizedBox(height: context.appTheme.dimensions.padding.extraBig),
+
+        TourFilterLine(),
 
         SizedBox(height: context.appTheme.dimensions.padding.extraBig),
 

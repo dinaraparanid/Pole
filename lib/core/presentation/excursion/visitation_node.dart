@@ -2,6 +2,7 @@ import 'package:dartx/dartx.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pole/core/presentation/excursion/excursion_place_controller.dart';
+import 'package:pole/core/presentation/foundation/app_network_image.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/date_time.dart';
 import 'package:pole/core/utils/ext/duration.dart';
@@ -116,8 +117,8 @@ final class _VisitationNodeState extends State<VisitationNode> {
 
   Widget PlaceCover({required AppTheme theme}) => ClipRRect(
     borderRadius: BorderRadius.circular(theme.dimensions.radius.extraSmall),
-    child: Image.network(
-      widget.visitation.place.images.firstOrNull.orEmpty(),
+    child: AppNetworkImage(
+      url: widget.visitation.place.images.firstOrNull.orEmpty(),
       width: theme.dimensions.size.big,
       height: theme.dimensions.size.extraMedium,
       fit: BoxFit.cover,

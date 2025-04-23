@@ -79,7 +79,7 @@ final class TimetableItem extends StatelessWidget {
 
     return AppClickable(
       border: CircleBorder(),
-      rippleColor: theme.colors.text.disabled,
+      rippleColor: theme.colors.text.unfocused,
       onClick: switch (visitation) {
         null => () => BlocProvider
           .of<PlanningBloc>(context)

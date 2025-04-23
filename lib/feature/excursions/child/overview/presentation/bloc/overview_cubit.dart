@@ -1,4 +1,5 @@
 import 'package:bloc_presentation/bloc_presentation.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/domain/excursion/entity/excursion.dart';
 import 'package:pole/core/presentation/foundation/ui_state.dart';
@@ -25,7 +26,12 @@ final class OverviewCubit extends Cubit<OverviewState>
     excursionConfigChangesUseCase(update: (city, _, name, selectedPlaces) {
       if (city != null) {
         emit(state.copyWith(excursionState: UiState.data(
-          value: Excursion(city: city, name: name, visitations: selectedPlaces),
+          value: Excursion(
+            city: city,
+            name: name,
+            visitations: selectedPlaces,
+            images: const IList.empty(), // TODO
+          ),
         )));
       }
     });

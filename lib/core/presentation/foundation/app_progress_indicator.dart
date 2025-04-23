@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pole/core/presentation/foundation/platform_call.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 
 final class AppProgressIndicator extends StatelessWidget {
@@ -15,12 +17,22 @@ final class AppProgressIndicator extends StatelessWidget {
         width: appliedSize,
         height: appliedSize,
         child: FittedBox(
-          child: CircularProgressIndicator.adaptive(
-            backgroundColor: Colors.transparent,
-            valueColor: AlwaysStoppedAnimation(theme.colors.primary),
-          ),
+          child: platformCall(
+            android: MaterialIndicator,
+            iOS: CupertinoIndicator,
+            macOS: CupertinoIndicator,
+          )(context: context),
         ),
       )
     ]);
   }
+
+  Widget CupertinoIndicator({required BuildContext context}) =>
+    CupertinoActivityIndicator(color: context.appTheme.colors.primary);
+
+  Widget MaterialIndicator({required BuildContext context}) =>
+    CircularProgressIndicator(
+      backgroundColor: Colors.transparent,
+      valueColor: AlwaysStoppedAnimation(context.appTheme.colors.primary),
+    );
 }

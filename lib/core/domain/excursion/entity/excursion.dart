@@ -11,6 +11,7 @@ abstract class Excursion with _$Excursion {
   const factory Excursion({
     required City city,
     required ExcursionName name,
+    required IList<String> images,
     required IList<Visitation> visitations,
   }) = _Excursion;
 }

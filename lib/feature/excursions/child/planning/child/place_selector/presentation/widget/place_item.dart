@@ -2,6 +2,7 @@ import 'package:dartx/dartx.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
+import 'package:pole/core/presentation/foundation/app_network_image.dart';
 import 'package:pole/core/presentation/foundation/app_clickable.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 
@@ -41,8 +42,8 @@ final class PlaceItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(
                   theme.dimensions.radius.extraSmall,
                 ),
-                child: Image.network(
-                  place.images.firstOrNull.orEmpty(),
+                child: AppNetworkImage(
+                  url: place.images.firstOrNull.orEmpty(),
                   width: theme.dimensions.size.big,
                   height: theme.dimensions.size.extraMedium,
                   fit: BoxFit.cover,

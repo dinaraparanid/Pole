@@ -78,7 +78,7 @@ final class ProfileData extends StatelessWidget {
 
     return AppClickable(
       border: CircleBorder(),
-      rippleColor: theme.colors.text.disabled,
+      rippleColor: theme.colors.text.unfocused,
       onClick: () => BlocProvider.of<ProfileBloc>(context).add(LogOut()),
       child: Padding(
         padding: EdgeInsets.all(theme.dimensions.padding.small),
