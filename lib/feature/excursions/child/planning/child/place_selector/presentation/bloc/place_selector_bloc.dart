@@ -14,7 +14,7 @@ import 'package:pole/feature/excursions/child/planning/child/place_selector/pres
 import 'package:pole/feature/excursions/child/planning/child/visit_duration/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/child/planning/domain/change_place_category_selection_use_case.dart';
 import 'package:pole/feature/excursions/child/planning/domain/load_categories_use_case.dart';
-import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
+import 'package:pole/core/domain/excursion/entity/visitation.dart';
 import 'package:pole/feature/excursions/domain/use_case/listen_excursion_config_changes_use_case.dart';
 
 final class PlaceSelectorBloc extends Bloc<PlaceSelectorEvent, PlaceSelectorState>

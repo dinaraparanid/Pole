@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:pole/core/domain/city/entity/city.dart';
 import 'package:pole/core/domain/excursion/entity/excursion_name.dart';
-import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
+import 'package:pole/core/domain/excursion/entity/visitation.dart';
 import 'package:pole/feature/excursions/data/repository/excursion_config_repository.dart';
 
 final class ListenExcursionConfigChangesUseCase {

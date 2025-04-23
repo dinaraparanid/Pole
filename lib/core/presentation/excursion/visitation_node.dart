@@ -6,7 +6,7 @@ import 'package:pole/core/presentation/foundation/app_network_image.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/date_time.dart';
 import 'package:pole/core/utils/ext/duration.dart';
-import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
+import 'package:pole/core/domain/excursion/entity/visitation.dart';
 import 'package:pole/l10n/app_localizations.dart';
 
 const _maxLinesTitle = 2;

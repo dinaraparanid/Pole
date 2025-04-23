@@ -5,7 +5,7 @@ import 'package:pole/core/presentation/foundation/app_clickable.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/date_time.dart';
 import 'package:pole/core/utils/ext/general.dart';
-import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
+import 'package:pole/core/domain/excursion/entity/visitation.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/bloc/mod.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/widget/timetable/timetable_config.dart';
 

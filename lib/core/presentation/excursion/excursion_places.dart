@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:pole/core/domain/excursion/entity/excursion.dart';
 import 'package:pole/core/domain/excursion/entity/excursion_info.dart';
 import 'package:pole/core/presentation/excursion/excursion_end_text.dart';
 import 'package:pole/core/presentation/excursion/excursion_places_controller.dart';

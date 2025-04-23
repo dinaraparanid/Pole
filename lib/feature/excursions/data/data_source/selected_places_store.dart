@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:pole/core/domain/base_store.dart';
-import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
+import 'package:pole/core/domain/excursion/entity/visitation.dart';
 import 'package:rx_shared_preferences/rx_shared_preferences.dart';
 
 final class SelectedPlacesStore with BaseStore {

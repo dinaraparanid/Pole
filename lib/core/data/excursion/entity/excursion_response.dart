@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pole/core/data/city/entity/city_response.dart';
 import 'package:pole/core/data/visit_place/entity/place_response.dart';
 import 'package:pole/core/domain/excursion/entity/mod.dart';
-import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
 
 part 'excursion_response.freezed.dart';
 part 'excursion_response.g.dart';

@@ -12,7 +12,7 @@ final class ExcursionRepositoryImpl extends ExcursionRepository {
   ExcursionRepositoryImpl({required ExcursionApi api}) : _api = api;
 
   @override
-  Future<Either<Exception, void>> createExcursion(ExcursionInfo excursion) =>
+  Future<Either<Exception, Excursion>> createExcursion(ExcursionInfo excursion) =>
     _api.createExcursion(excursion);
 
   @override

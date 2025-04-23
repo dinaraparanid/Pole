@@ -269,16 +269,4 @@ final class AppRouter {
       )
     ],
   );
-
-  CustomTransitionPage _fadeTransitionBuilder({
-    required GoRouterState state,
-    required Widget child,
-  }) => CustomTransitionPage(
-    key: state.pageKey,
-    child: child,
-    transitionsBuilder: (context, animation, _, child) => FadeTransition(
-      opacity: CurveTween(curve: Curves.elasticInOut).animate(animation),
-      child: child,
-    ),
-  );
 }

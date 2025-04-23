@@ -10,6 +10,7 @@ bool canRetrieve(Type type) {
     di.get(type: type);
     return true;
   } catch (e) {
+    // ignore: avoid_print
     print('Failed to get type $type: $e');
     return false;
   }

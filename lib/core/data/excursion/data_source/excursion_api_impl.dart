@@ -8,7 +8,6 @@ import 'package:pole/core/data/excursion/entity/schedule_request.dart';
 import 'package:pole/core/domain/excursion/data_source/excursion_api.dart';
 import 'package:pole/core/domain/excursion/entity/mod.dart';
 import 'package:pole/core/utils/ext/date_time.dart';
-import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
 
 final class ExcursionApiImpl with ExcursionApi {
   static const _routeTours = '/tours';
@@ -19,7 +18,9 @@ final class ExcursionApiImpl with ExcursionApi {
   ExcursionApiImpl({required Dio dio}) : _dio = dio;
 
   @override
-  Future<Either<Exception, void>> createExcursion(ExcursionInfo excursion) async {
+  Future<Either<Exception, Excursion>> createExcursion(
+    ExcursionInfo excursion,
+  ) async {
     try {
       final response = await _dio.put(
         _routeTours,
@@ -38,13 +39,16 @@ final class ExcursionApiImpl with ExcursionApi {
         )
       );
 
-      final data = BaseResponseBody.fromJson(response.data, (json) => null);
+      final data = BaseResponseBody<ExcursionResponse>.fromJson(
+        response.data,
+        (json) => ExcursionResponse.fromJson(json as Map<String, dynamic>),
+      );
 
       if (response.statusCode != 200) {
         return Either.left(Exception(data.message));
       }
 
-      return Either.right(null);
+      return Either.right(data.response!.toExcursion());
     } on Exception catch (_) {
       return Either.left(Exception());
     }

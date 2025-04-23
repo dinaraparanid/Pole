@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:pole/core/domain/text/text_container.dart';
 import 'package:pole/core/domain/visit_place/entity/mod.dart';
 import 'package:pole/core/presentation/foundation/ui_state.dart';
-import 'package:pole/feature/excursions/child/planning/domain/visitation.dart';
+import 'package:pole/core/domain/excursion/entity/visitation.dart';
 import 'package:pole/feature/excursions/child/planning/presentation/widget/timetable/timetable_config.dart';
 
 part 'planning_state.freezed.dart';
