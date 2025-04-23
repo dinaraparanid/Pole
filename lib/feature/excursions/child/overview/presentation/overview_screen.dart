@@ -1,7 +1,6 @@
 import 'package:bloc_presentation/bloc_presentation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:pole/core/domain/excursion/entity/excursion.dart';
 import 'package:pole/core/presentation/excursion/excursion_places.dart';
 import 'package:pole/core/presentation/foundation/app_button.dart';
 import 'package:pole/core/presentation/foundation/error_dialog.dart';
@@ -33,16 +32,16 @@ final class OverviewScreen extends StatelessWidget {
       },
       child: BlocBuilder<OverviewCubit, OverviewState>(
         builder: (context, state) => switch (state.excursionState) {
-          Initial<Excursion>() ||
-          Loading<Excursion>() ||
-          Refreshing<Excursion>() => AppProgressIndicatorStub(),
+          Initial<ExcursionInfo>() ||
+          Loading<ExcursionInfo>() ||
+          Refreshing<ExcursionInfo>() => AppProgressIndicatorStub(),
 
-          Data<Excursion>() => Content(context: context, state: state),
+          Data<ExcursionInfo>() => Content(context: context, state: state),
 
           // Probably must never happen
-          Error<Excursion>() => AppErrorStub(retry: doNothing),
+          Error<ExcursionInfo>() => AppErrorStub(retry: doNothing),
 
-          Success<Excursion>() => throw StateError('Invalid state: Success'),
+          Success<ExcursionInfo>() => throw StateError('Invalid state: Success'),
         },
       ),
     ),

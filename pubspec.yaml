@@ -29,6 +29,7 @@ dependencies:
   fast_immutable_collections: ^11.0.4
   fpdart: ^1.1.1
   rxdart: ^0.28.0
+  go_transitions: ^0.8.0
 
 dev_dependencies:
   flutter_test:

@@ -21,6 +21,8 @@ final class ProfileContent extends StatelessWidget {
   Widget build(BuildContext context) => BlocBuilder<ProfileBloc, ProfileState>(
     builder: (context, state) => Column(
       children: [
+        SizedBox(height: context.appTheme.dimensions.padding.large),
+
         Align(
           alignment: Alignment.topLeft,
           child: SvgPicture.asset(

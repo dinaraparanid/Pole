@@ -17,6 +17,8 @@ abstract class PlaceResponse with _$PlaceResponse {
     @JsonKey(name: 'images') required List<String> images,
     @JsonKey(name: 'category') required CategoryResponse category,
     @JsonKey(name: 'city') required CityResponse city,
+    @JsonKey(name: 'dateFrom', required: false) String? dateFrom,
+    @JsonKey(name: 'dateTo', required: false) String? dateTo,
   }) = _PlaceResponse;
 
   factory PlaceResponse.fromJson(Map<String, dynamic> json) =>

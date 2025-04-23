@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:pole/core/domain/excursion/entity/excursion.dart';
+import 'package:pole/core/domain/excursion/entity/excursion_info.dart';
 import 'package:pole/core/presentation/excursion/excursion_end_text.dart';
 import 'package:pole/core/presentation/excursion/excursion_places_controller.dart';
 import 'package:pole/core/presentation/excursion/excursion_steps.dart';
@@ -7,7 +8,7 @@ import 'package:pole/core/presentation/excursion/visitation_node.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 
 final class ExcursionPlaces extends StatefulWidget {
-  final Excursion excursion;
+  final ExcursionInfo excursion;
   final ExcursionPlacesController? controller;
 
   const ExcursionPlaces({

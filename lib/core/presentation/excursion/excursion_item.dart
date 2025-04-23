@@ -1,9 +1,11 @@
 import 'package:dartx/dartx.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pole/core/domain/excursion/entity/excursion.dart';
 import 'package:pole/core/presentation/foundation/app_network_image.dart';
 import 'package:pole/core/presentation/foundation/app_clickable.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
+import 'package:pole/core/utils/ext/date_time.dart';
 
 final class ExcursionItem extends StatelessWidget {
   final Excursion excursion;
@@ -40,15 +42,71 @@ final class ExcursionItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               AppNetworkImage(
-                url: excursion.images.firstOrNull.orEmpty(),
+                url: excursion.info.images.firstOrNull.orEmpty(),
                 width: theme.dimensions.size.large,
                 height: theme.dimensions.size.extraBig,
                 fit: BoxFit.cover,
               ),
+
+              SizedBox(height: theme.dimensions.padding.small),
+
+              Text(
+                excursion.info.name.value,
+                style: theme.typography.caption.copyWith(
+                  color: theme.colors.text.primary,
+                ),
+              ),
+
+              SizedBox(height: theme.dimensions.padding.small),
+
+              DateWithTime(context: context),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget DateWithTime({required BuildContext context}) {
+    final theme = context.appTheme;
+    final color = theme.colors.text.secondary;
+    final colorFilter = ColorFilter.mode(color, BlendMode.color);
+    final firstPlace = excursion.info.visitations.first;
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        SvgPicture.asset(
+          AppImages.loadSvg('ic_calendar').value,
+          width: theme.dimensions.size.extraSmall,
+          height: theme.dimensions.size.extraSmall,
+          colorFilter: colorFilter,
+        ),
+
+        SizedBox(width: theme.dimensions.padding.extraSmall),
+
+        Text(
+          firstPlace.startTime.toAppDateFormat(),
+          style: theme.typography.captionSm.copyWith(color: color),
+        ),
+
+        SizedBox(width: theme.dimensions.padding.extraSmall),
+
+        SvgPicture.asset(
+          AppImages.loadSvg('ic_clock').value,
+          width: theme.dimensions.size.extraSmall,
+          height: theme.dimensions.size.extraSmall,
+          colorFilter: colorFilter,
+        ),
+
+        SizedBox(width: theme.dimensions.padding.extraSmall),
+
+        Text(
+          firstPlace.startTime.toAppTimeFormat(),
+          style: theme.typography.captionSm.copyWith(color: color),
+        ),
+      ],
     );
   }
 }

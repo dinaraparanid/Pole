@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_transitions/go_transitions.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 import 'package:pole/core/utils/ext/color.dart';
 import 'package:pole/di/app_module.dart';
@@ -47,6 +48,13 @@ final class App extends StatelessWidget {
               cursorColor: theme.colors.text.focused,
               selectionColor: theme.colors.text.focused,
               selectionHandleColor: theme.colors.text.focused,
+            ),
+            pageTransitionsTheme: const PageTransitionsTheme(
+              builders: {
+                TargetPlatform.android: GoTransitions.fadeUpwards,
+                TargetPlatform.iOS: GoTransitions.cupertino,
+                TargetPlatform.macOS: GoTransitions.cupertino,
+              },
             ),
           ),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
