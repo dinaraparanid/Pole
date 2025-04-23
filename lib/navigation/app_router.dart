@@ -25,6 +25,8 @@ import 'package:pole/feature/main/presentation/bloc/main_cubit.dart';
 import 'package:pole/feature/main/presentation/bloc/main_cubit_factory.dart';
 import 'package:pole/feature/main/presentation/bloc/main_state.dart';
 import 'package:pole/feature/main/presentation/main_screen.dart';
+import 'package:pole/feature/profile/child/favourites/presentation/bloc/favourites_bloc_factory.dart';
+import 'package:pole/feature/profile/child/favourites/presentation/favourites_screen.dart';
 import 'package:pole/feature/profile/presentation/bloc/mod.dart';
 import 'package:pole/feature/profile/presentation/profile_screen.dart';
 import 'package:pole/feature/root/presentation/bloc/root_bloc_factory.dart';
@@ -35,6 +37,7 @@ import 'package:pole/navigation/observer/auth_navigator_observer.dart';
 import 'package:pole/navigation/app_route.dart';
 import 'package:pole/navigation/observer/excursions_navigator_observer.dart';
 import 'package:pole/navigation/observer/main_navigator_observer.dart';
+import 'package:pole/navigation/observer/profile_navigator_observer.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -42,19 +45,23 @@ final class AppRouter {
   final AuthNavigatorObserver _authObserver;
   final MainNavigatorObserver _mainObserver;
   final ExcursionsNavigatorObserver _excursionsObserver;
+  final ProfileNavigatorObserver _profileObserver;
 
   AppRouter({
     required AuthNavigatorObserver authObserver,
     required ExcursionsNavigatorObserver excursionsObserver,
     required MainNavigatorObserver mainObserver,
+    required ProfileNavigatorObserver profileObserver,
   }) : _authObserver = authObserver,
     _excursionsObserver = excursionsObserver,
-    _mainObserver = mainObserver;
+    _mainObserver = mainObserver,
+    _profileObserver = profileObserver;
 
   void clearBackStackHistory() {
     _authObserver.clear();
     _mainObserver.clear();
     _excursionsObserver.clear();
+    _profileObserver.clear();
 
     while (value.canPop()) {
       value.pop();
@@ -227,6 +234,7 @@ final class AppRouter {
                 ],
               ),
               ShellRoute(
+                observers: [_profileObserver],
                 builder: (context, state, child) {
                   BlocProvider
                     .of<MainCubit>(context)
@@ -241,8 +249,18 @@ final class AppRouter {
                   GoRoute(
                     path: AppRoute.profile.path,
                     name: AppRoute.profile.name,
-                    builder: (context, state) => SizedBox(),
-                  )
+                    redirect: (context, state) async {
+                      final route = await _profileObserver.redirectPath;
+                      return route.path;
+                    },
+                  ),
+                  GoRoute(
+                    path: AppRoute.favourites.path,
+                    name: AppRoute.favourites.name,
+                    builder: (context, state) => FavouritesScreen(
+                      blocFactory: di<FavouritesBlocFactory>(),
+                    ),
+                  ),
                 ],
               ),
             ],

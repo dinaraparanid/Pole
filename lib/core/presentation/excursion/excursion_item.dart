@@ -21,15 +21,19 @@ final class ExcursionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = context.appTheme;
 
+    final borderRadius = BorderRadius.circular(
+      theme.dimensions.radius.small,
+    );
+
     return Container(
       decoration: BoxDecoration(
         color: theme.colors.background.secondary,
-        borderRadius: BorderRadius.circular(
-          theme.dimensions.radius.small,
-        ),
+        borderRadius: borderRadius,
       ),
       child: AppClickable(
         onClick: onClick,
+        rippleColor: theme.colors.text.disabled,
+        border: RoundedRectangleBorder(borderRadius: borderRadius),
         child: Padding(
           padding: EdgeInsets.only(
             top: theme.dimensions.padding.medium,
@@ -70,7 +74,6 @@ final class ExcursionItem extends StatelessWidget {
   Widget DateWithTime({required BuildContext context}) {
     final theme = context.appTheme;
     final color = theme.colors.text.secondary;
-    final colorFilter = ColorFilter.mode(color, BlendMode.color);
     final firstPlace = excursion.info.visitations.first;
 
     return Row(
@@ -81,7 +84,6 @@ final class ExcursionItem extends StatelessWidget {
           AppImages.loadSvg('ic_calendar').value,
           width: theme.dimensions.size.extraSmall,
           height: theme.dimensions.size.extraSmall,
-          colorFilter: colorFilter,
         ),
 
         SizedBox(width: theme.dimensions.padding.extraSmall),
@@ -97,7 +99,6 @@ final class ExcursionItem extends StatelessWidget {
           AppImages.loadSvg('ic_clock').value,
           width: theme.dimensions.size.extraSmall,
           height: theme.dimensions.size.extraSmall,
-          colorFilter: colorFilter,
         ),
 
         SizedBox(width: theme.dimensions.padding.extraSmall),

@@ -40,7 +40,9 @@ final class ProfileContent extends StatelessWidget {
 
         SizedBox(height: context.appTheme.dimensions.padding.extraBig),
 
-        child
+        Expanded(child: child),
+
+        SizedBox(height: context.appTheme.dimensions.padding.large),
       ],
     ),
   );

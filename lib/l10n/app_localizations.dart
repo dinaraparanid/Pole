@@ -497,6 +497,12 @@ abstract class AppLocalizations {
   /// **'Archive'**
   String get profile_archive;
 
+  /// No description provided for @profile_search_placeholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Search...'**
+  String get profile_search_placeholder;
+
   /// Number of hours
   ///
   /// In en, this message translates to:

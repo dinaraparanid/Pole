@@ -210,6 +210,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get profile_archive => 'Архив';
 
   @override
+  String get profile_search_placeholder => 'Поиск...';
+
+  @override
   String hours(num count) {
     final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
       locale: localeName,

@@ -79,6 +79,7 @@
   "profile_failed_to_load_profile": "Не получилось загрузить профиль",
   "profile_favourites": "Фавориты",
   "profile_archive": "Архив",
+  "profile_search_placeholder": "Поиск...",
 
   "hours": "{count, plural, =0{меньше часа} =1{1 час} =2{2 часа} few{3 часа} other{{count} часов}}",
   "@hours": {

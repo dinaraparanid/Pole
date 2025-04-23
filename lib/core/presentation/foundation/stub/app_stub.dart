@@ -6,13 +6,13 @@ import 'package:pole/core/presentation/theme/mod.dart';
 final class AppStub extends StatelessWidget {
   final String description;
   final String applyButtonText;
-  final void Function() apply;
+  final void Function()? apply;
 
   const AppStub({
     super.key,
     required this.description,
     required this.applyButtonText,
-    required this.apply,
+    this.apply,
   });
 
   @override
@@ -41,9 +41,9 @@ final class AppStub extends StatelessWidget {
 
         SizedBox(height: theme.dimensions.padding.extraMedium),
 
-        AppButton(
+        if (apply != null) AppButton(
           text: applyButtonText,
-          onClick: apply,
+          onClick: apply!,
           enabledColor: theme.colors.button.secondary,
         ),
       ],

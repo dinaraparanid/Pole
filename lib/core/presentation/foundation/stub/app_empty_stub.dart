@@ -3,8 +3,8 @@ import 'package:pole/core/presentation/foundation/stub/app_stub.dart';
 import 'package:pole/core/presentation/theme/mod.dart';
 
 final class AppEmptyStub extends StatelessWidget {
-  final void Function() retry;
-  const AppEmptyStub({super.key, required this.retry});
+  final void Function()? retry;
+  const AppEmptyStub({super.key, this.retry});
 
   @override
   Widget build(BuildContext context) {

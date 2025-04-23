@@ -210,6 +210,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profile_archive => 'Archive';
 
   @override
+  String get profile_search_placeholder => 'Search...';
+
+  @override
   String hours(num count) {
     final intl.NumberFormat countNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
