@@ -29,15 +29,15 @@ final class ProfileScreen extends StatelessWidget {
         child: switch (state.profileState) {
           Refreshing<Profile>(value: Data(value: final Profile profile)) ||
           Data<Profile>(value: final Profile profile) =>
-              ProfileContent(profile: profile, child: child),
+            ProfileContent(profile: profile, child: child),
 
           Initial<Profile>() || Loading<Profile>() || Refreshing<Profile>() =>
-              AppProgressIndicatorStub(),
+            AppProgressIndicatorStub(),
 
           Error<Profile>() => AppErrorStub(
             retry: () => BlocProvider
-                .of<ProfileBloc>(context)
-                .add(Refresh()),
+              .of<ProfileBloc>(context)
+              .add(Refresh()),
           ),
 
           Success<Profile>() => throw StateError('Invalid state: Success'),

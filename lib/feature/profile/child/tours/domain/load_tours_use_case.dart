@@ -4,10 +4,10 @@ import 'package:pole/core/domain/excursion/entity/excursion.dart';
 import 'package:pole/core/domain/excursion/repository/excursion_repository.dart';
 import 'package:pole/core/presentation/foundation/ui_state.dart';
 
-final class LoadFavouriteExcursionsUseCase {
+final class LoadToursUseCase {
   final ExcursionRepository _repository;
 
-  LoadFavouriteExcursionsUseCase({required ExcursionRepository repository}) :
+  LoadToursUseCase({required ExcursionRepository repository}) :
     _repository = repository;
 
   Future<void> call({

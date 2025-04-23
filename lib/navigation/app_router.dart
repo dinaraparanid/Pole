@@ -25,8 +25,8 @@ import 'package:pole/feature/main/presentation/bloc/main_cubit.dart';
 import 'package:pole/feature/main/presentation/bloc/main_cubit_factory.dart';
 import 'package:pole/feature/main/presentation/bloc/main_state.dart';
 import 'package:pole/feature/main/presentation/main_screen.dart';
-import 'package:pole/feature/profile/child/favourites/presentation/bloc/favourites_bloc_factory.dart';
-import 'package:pole/feature/profile/child/favourites/presentation/favourites_screen.dart';
+import 'package:pole/feature/profile/child/tours/presentation/bloc/mod.dart';
+import 'package:pole/feature/profile/child/tours/presentation/tours_screen.dart';
 import 'package:pole/feature/profile/presentation/bloc/mod.dart';
 import 'package:pole/feature/profile/presentation/profile_screen.dart';
 import 'package:pole/feature/root/presentation/bloc/root_bloc_factory.dart';
@@ -258,7 +258,7 @@ final class AppRouter {
                     path: AppRoute.favourites.path,
                     name: AppRoute.favourites.name,
                     builder: (context, state) => FavouritesScreen(
-                      blocFactory: di<FavouritesBlocFactory>(),
+                      blocFactory: di<ToursBlocFactory>(),
                     ),
                   ),
                 ],

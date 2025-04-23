@@ -1,15 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pole/core/domain/text/text_change_use_case.dart';
 import 'package:pole/core/presentation/foundation/ui_state.dart';
-import 'package:pole/feature/profile/child/favourites/domain/load_favourite_excursions_use_case.dart';
-import 'package:pole/feature/profile/child/favourites/presentation/bloc/favourites_event.dart';
-import 'package:pole/feature/profile/child/favourites/presentation/bloc/favourites_state.dart';
+import 'package:pole/feature/profile/child/tours/domain/load_tours_use_case.dart';
+import 'package:pole/feature/profile/child/tours/presentation/bloc/tours_event.dart';
+import 'package:pole/feature/profile/child/tours/presentation/bloc/tours_state.dart';
 
-final class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
-  FavouritesBloc({
+final class ToursBloc extends Bloc<ToursEvent, ToursState> {
+  ToursBloc({
     required TextChangeUseCase textChangeUseCase,
-    required LoadFavouriteExcursionsUseCase loadFavouriteExcursionsUseCase,
-  }) : super(FavouritesState()) {
+    required LoadToursUseCase loadFavouriteExcursionsUseCase,
+  }) : super(ToursState()) {
     on<UpdateExcursionListState>((event, emit) =>
       emit(state.copyWith(excursionListState: event.excursionListState)),
     );

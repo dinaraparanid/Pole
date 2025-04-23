@@ -4,15 +4,15 @@ import 'package:pole/core/domain/excursion/entity/excursion.dart';
 import 'package:pole/core/domain/text/text_container.dart';
 import 'package:pole/core/presentation/foundation/ui_state.dart';
 
-part 'favourites_state.freezed.dart';
+part 'tours_state.freezed.dart';
 
 @freezed
-abstract class FavouritesState with _$FavouritesState {
-  const factory FavouritesState({
+abstract class ToursState with _$ToursState {
+  const factory ToursState({
     @Default(TextContainer(value: '', error: null))
     TextContainer<void> searchQuery,
 
     @Default(UiState.initial())
     UiState<IList<Excursion>> excursionListState,
-  }) = _FavouritesState;
+  }) = _ToursState;
 }
