@@ -9,6 +9,7 @@ final class ToursBloc extends Bloc<ToursEvent, ToursState> {
   ToursBloc({
     required TextChangeUseCase textChangeUseCase,
     required LoadToursUseCase loadFavouriteExcursionsUseCase,
+    required TourProducer tourProducer,
   }) : super(ToursState()) {
     on<UpdateExcursionListState>((event, emit) =>
       emit(state.copyWith(excursionListState: event.excursionListState)),
@@ -33,6 +34,7 @@ final class ToursBloc extends Bloc<ToursEvent, ToursState> {
       ));
 
       loadFavouriteExcursionsUseCase(
+        tourProducer: tourProducer,
         searchQuery: state.searchQuery.value,
         update: (excursionListState) =>
           emit(state.copyWith(excursionListState: excursionListState)),
@@ -40,6 +42,7 @@ final class ToursBloc extends Bloc<ToursEvent, ToursState> {
     });
 
     loadFavouriteExcursionsUseCase(
+      tourProducer: tourProducer,
       searchQuery: state.searchQuery.value,
       update: (excursionListState) =>
         add(UpdateExcursionListState(excursionListState: excursionListState)),

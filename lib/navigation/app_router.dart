@@ -255,9 +255,9 @@ final class AppRouter {
                     },
                   ),
                   GoRoute(
-                    path: AppRoute.favourites.path,
-                    name: AppRoute.favourites.name,
-                    builder: (context, state) => FavouritesScreen(
+                    path: AppRoute.tours.path,
+                    name: AppRoute.tours.name,
+                    builder: (context, state) => ToursScreen(
                       blocFactory: di<ToursBlocFactory>(),
                     ),
                   ),

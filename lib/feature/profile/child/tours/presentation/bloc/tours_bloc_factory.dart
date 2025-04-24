@@ -12,8 +12,11 @@ final class ToursBlocFactory {
   }) : _textChangeUseCase = textChangeUseCase,
     _loadFavouriteExcursionsUseCase = loadFavouriteExcursionsUseCase;
 
-  ToursBloc call() => ToursBloc(
+  ToursBloc call({
+    required TourProducer tourProducer,
+  }) => ToursBloc(
     textChangeUseCase: _textChangeUseCase,
     loadFavouriteExcursionsUseCase: _loadFavouriteExcursionsUseCase,
+    tourProducer: tourProducer,
   );
 }

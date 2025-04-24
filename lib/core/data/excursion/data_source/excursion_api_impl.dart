@@ -49,8 +49,8 @@ final class ExcursionApiImpl with ExcursionApi {
       }
 
       return Either.right(data.response!.toExcursion());
-    } on Exception catch (_) {
-      return Either.left(Exception());
+    } on Exception catch (e) {
+      return Either.left(e);
     }
   }
 

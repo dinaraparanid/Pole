@@ -10,6 +10,6 @@ extension ToursModule on GetIt {
       loadFavouriteExcursionsUseCase: this(),
     )),
 
-    provideSingleton(() => LoadToursUseCase(repository: this())),
+    provideSingleton(() => LoadToursUseCase()),
   ];
 }

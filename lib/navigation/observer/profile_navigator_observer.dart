@@ -5,6 +5,6 @@ import 'package:pole/navigation/observer/app_navigator_observer.dart';
 final class ProfileNavigatorObserver extends AppNavigatorObserver {
   @override
   AppRouteData get redirectRoute => findPreviousRoute((data) =>
-    data.name == AppRoute.favourites.name
-  ) ?? AppRouteData(name: AppRoute.favourites.name);
+    data.name == AppRoute.tours.name
+  ) ?? AppRouteData(name: AppRoute.tours.name);
 }

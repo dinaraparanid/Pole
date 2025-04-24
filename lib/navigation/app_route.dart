@@ -12,7 +12,7 @@ enum AppRoute {
   overview(path: '/main/excursions/overview'),
   creationFinish(path: '/main/excursions/creation_finish'),
   profile(path: '/main/profile'),
-  favourites(path: '/main/profile/tours');
+  tours(path: '/main/profile/tours');
 
   final String path;
   const AppRoute({required this.path});

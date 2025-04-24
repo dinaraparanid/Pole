@@ -8,6 +8,10 @@ import 'package:pole/core/domain/excursion/repository/excursion_repository.dart'
 extension ExcursionModule on GetIt {
   List<Type> registerExcursionModule() => [
     provideSingleton<ExcursionApi>(() => ExcursionApiImpl(dio: this())),
-    provideSingleton<ExcursionRepository>(() => ExcursionRepositoryImpl(api: this())),
+
+    provideSingleton<ExcursionRepository>(() => ExcursionRepositoryImpl(
+      api: this(),
+      dao: this(),
+    )),
   ];
 }
